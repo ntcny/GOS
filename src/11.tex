@@ -7,16 +7,16 @@
 Теорема о ранге матрицы.
 Нахождение ранга и олратной матрицы с помощью элементарных преобразований.}
 
-\begin{DEF}[Матрица над полем]
+\begin{defs}[Матрица над полем]
   Матрицей размеров $mxn$ над полем $P$ называют прямоугольную таблицу
   элементов поля $P$, состоящую из $m$ строк и $n$ столбцов.
-\end{DEF}
+\end{defs}
 
-\begin{DEF}[Ранг матрицы]
+\begin{defs}[Ранг матрицы]
   Рангом ненулевой матрицы  $A$ называют
   наибольший из порядков отличных от нуля миноров матрицы A.
   Ранг нулевой матрицы равен 0.
-\end{DEF}
+\end{defs}
 
 \begin{proofs}[О рангах эквивалентных матриц]
 	Если матрицы $A$ и $B$ эквивалентны, то их ранги равны.
@@ -29,14 +29,14 @@
 	\end{dokvo}
 \end{proofs}
 
-\begin{DEF}[Ступенчатая матрица]
+\begin{defs}[Ступенчатая матрица]
   Ненулевая матрица $S=(s_{i,j})$ называется ступенчатой матрицей типа $S(i_1, \ldots, i_r)$,
   где $r \in \overline{1,m}, 1 \leqslant i_1 < \ldots < i_r \leqslant n$, если:
   \begin{enumerate}
   	\item $s_{1i_1}, s_{2i_2}, \ldots, s_{ri_r} \neq 0$
   	\item $s_{l_t} = 0$ при $l > r, t \in \overline{1,n}$ и при $l \in \overline{1,r}, t < i_l$
   \end{enumerate}
-\end{DEF}
+\end{defs}
 
 Подробно:\\
 $$\begin{pmatrix}
@@ -61,19 +61,19 @@ $$\begin{pmatrix}
 	\end{dokvo}
 \end{proofs}
 
-\begin{DEF}[Предел по коши]
+\begin{defs}[Предел по коши]
 	Пусть $E \subset \Real$ и $f: E \to \Real$. Значение $A$ функции $f(x)$ в точке $x_0$ называется \underline{пределом}, если:
 	$$\lim_{x\to x_0} f(x) = A \ \tittg \ \forall \varepsilon > 0 \ \exists \delta > 0: \forall x \ 0 < \Modul{x - x_0} < \delta \ \sledue \ \Modul{f(x) - a} < \delta$$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}[Непрерывность в точке]
+\begin{defs}[Непрерывность в точке]
 	Функция $f(x)$ называется непрерывной в точке $x_0$, если $\predel{x \to x_0}f(x) = f(x_0)$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}[Определение непрерывности по Гейне]
+\begin{defs}[Определение непрерывности по Гейне]
 	Говорят, что функция действительного переменного $f(x)$ является непрерывной в точке $a \in \Real$ если для любой последовательности $\{x_n\}$, такой что
 	$$\lim_{n \to \infty}x_n = a, \text{выполняется соотношение} \lim_{n \to \infty}f(x_n) = f(a)$$
-\end{DEF}
+\end{defs}
 
 \textbf{На практике удобно использовать следующие 3 условия} непрерывности функции $f(x)$ в точке $x = a$ (которые должны выполняться одновременно):
 \begin{enumerate}
@@ -82,38 +82,38 @@ $$\begin{pmatrix}
 	\item Выполняется равенство $\predel{x \to a}f(x)= f(a)$
 \end{enumerate}
 
-\begin{DEF}
+\begin{defs}
 	Элементами пространства $\Rmern{n}$ являются упорядоченные наборы $\myvect{1}{n}$, где $x_i \in \Real$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	$\Rmern{n}$ векторное пространство над $\Real$ $\sledue$ $x + y = (x_1+y_1, \ldots, x_{n}+y_{n})$, $\lambda \cdot x = (\lambda \cdot x_1, \ldots, \lambda \cdot x_n)$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	$e_i = (\underbrace{0, \ldots, 1,\ldots,0}_n^i)$, где $i = \overline{1,n}$ стандартый базис $\Rmern{n}$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	\textbf{Скалярным произведением} называется $x,y \in \Rmern{n}$, $\skobk{x,y} = \summa{i=1}{n}x_i \tochka y_i$, \textbf{Нормой вектора} $\DModul{x} = (x,x)^{\frac{1}{2}}$, \textbf{Расстояние между элементами $\Rmern{n}$} $\rho(x,y)= \DModul{x-y}$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}[Открытый шар]
+\begin{defs}[Открытый шар]
 	Пусть $x \in \Rmern{n}$, $r > 0$. Обозначим $U(x,r) = \fskobk{y \in \Rmern{n} \ : \ \DModul{x-y} < r}$ -- открытый шар радиуса $r$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	Множество $U \in \Rmern{n}$ называется открытым, если $\forall x \in U \ \exists \ r > 0 \ : \  U(x,r) \subset U$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	Окрестностью точки $x \in \Rmern{n}$ называется любое открытое подмножество, содержащее данную точку $:$ $U(x)$
-\end{DEF}
+\end{defs}
 
-\begin{DEF}
+\begin{defs}
 	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in \prokol{E}$. Говорят, что $\exists$ предел $f(x)$ при $x\to x_0$ по мн-ву $E$, равный $a \in \Rmern{m}$, если $\forall \ U(a) \ \exists \ U(x_0) \ \forall x \in \prokol{U}_{E}(x_0) \sledue f(x) \in U(a)$
 	и обозначается $\predel{x \to x_0}f(x)= a$
-\end{DEF}
+\end{defs}
 
 \begin{claim}[]
 	Если $\predel{x\to x_0}f(x)=(a_1,\ldots,a_m)=a$, то $\forall k \in \overline{1,m} $ $\exists \predel{x \to x_0}f_k(x)=a_k$
@@ -122,13 +122,13 @@ $$\begin{pmatrix}
 
 \end{claim}
 
-\begin{DEF}
+\begin{defs}
 	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in E$ Ф-я $f(x)$ называется непрерывной в точке $x_0$, если $\forall U(f(x_0)) \ \exists U(x_0): \ \forall x\in U_E(x_0) \sledue f(x) \in U(f(x_0))$
 	\begin{itemize}
 		\item $x_0$ изолированная $\sledue$ $f(x)$ всегда непрерывна в точке $x_0$
 		\item $x_0$ предельная точка $E$ $\sledue$ $\skobk{f(x) \text{ непрерывна в точке } x_0} \tittg \exists \predel{x \to x_0}f(x)=f(x_0)$
 	\end{itemize}
-\end{DEF}
+\end{defs}
 
 \begin{claim}
 	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in E$, $f(x)=(f_1(x),\ldots,f_m(x))$
@@ -149,9 +149,9 @@ $$\begin{pmatrix}
 	\end{dokvo}
 \end{claim}
 
-\begin{DEF}
+\begin{defs}
 	$f: E \to \Rmern{m}, \ E \subseteq \Rmern{n}$. Ф-я \fx \ называется непрерывной на $E$, если она непрерывна в любой точке множества $E$
-\end{DEF}
+\end{defs}
 
 \begin{claim}
 	Пусть $f(x):E \to J, E \subseteq \Rmern{n}, J \subseteq \Rmern{m}, \ g(y):J\to \Rmern{k}$
@@ -170,9 +170,9 @@ $$\begin{pmatrix}
 	\end{dokvo}
 \end{claim}
 
-\begin{DEF}
+\begin{defs}
 	Множество $M \in \Rmern{n}$ называется компактным $\naverh{опр}\tittg$ из любого покрытия $M$ открытыми подмножествами можно выделить конечное подпокрытие.
-\end{DEF}
+\end{defs}
 
 \begin{proofs}[1-я теорема Вейерштрасса про ограниченность непрерывной функции]
 	Если ф-я $f: E \to \Rmern{m}$ непрерывна на $E$, $E$ - компактное подмножество $\Rmern{n}$, то $f$ -- ограничена. $f(E)$ ограниченное подмножество $\Rmern{n}$

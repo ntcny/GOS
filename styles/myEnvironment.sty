@@ -1,0 +1,36 @@
+\makeatletter
+\newcommand{\mybox}{%
+    \collectbox{%
+        \setlength{\fboxsep}{1pt}%
+        \fbox{\BOXCONTENT}%
+    }%
+}
+\makeatother
+
+\newcounter{theclaim} \setcounter{theclaim}{1}
+\newenvironment{claim}[1][\unskip]{%
+\textbf{Утверждение$\star$ \arabic{theclaim} (#1):\stepcounter{theclaim}}
+\noindent }
+{}
+\counterwithin*{theclaim}{section}
+
+\newcounter{theproofs} \setcounter{theproofs}{1}
+\newenvironment{proofs}[1][\unskip]{%
+\textbf{Теорема$\bigstar$ \arabic{theproofs} (#1):\stepcounter{theproofs}}
+\noindent }
+{}
+\counterwithin*{theproofs}{section}
+
+\newcounter{thedefs} \setcounter{thedefs}{1}
+\newenvironment{defs}[1][\unskip]{%
+\textbf{Определение$\clubsuit$ \arabic{thedefs} (#1):\stepcounter{thedefs}}
+\noindent }
+{}
+\counterwithin*{thedefs}{section}
+
+
+\newenvironment{dokvo}[1][\unskip]{%
+\par
+\textbf{Доказательство$\Box$}
+\noindent }
+{$\blacksquare$}

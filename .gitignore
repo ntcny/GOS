@@ -2,3 +2,4 @@
 *.aux
 *.synctex.gz
 *.toc
+*.DS_Store
