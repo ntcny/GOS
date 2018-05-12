@@ -34,3 +34,10 @@
 \textbf{Доказательство$\Box$}
 \noindent }
 {$\blacksquare$}
+
+\newcounter{theexamples} \setcounter{theexamples}{1}
+\newenvironment{example}[1][\unskip]{%
+\textbf{Пример$\heartsuit$ \arabic{theexamples} (#1):\stepcounter{theexamples}}
+\noindent }
+{}
+\counterwithin{theexamples}{section}

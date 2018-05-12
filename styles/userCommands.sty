@@ -1,41 +1,18 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%
-%%% настройка колонтитулов
-%%%
-	\renewcommand{\sectionmark}[1]{\markboth{%
-		{\thesection\hspace{1em}#1}}% левая пометка
-		{}% правая пометка (она пуста)
-	}
-	\newcounter{lections} 		% создадим новый счетчик, например для лекций
-	\setcounter{lections}{0}	% пока лекций не было
-	\newcommand{ \lection}[1]{	% опишем команду --- начало <<лекции>>
-		\addtocounter{lections}{1}
-		\textbf{
-			\textcolor{red}{Лекция \arabic{lections}} :
-		} \textcolor{blue} {#1}
-	}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%
-%%% создание новых комад форматирования (by US Marine)
-%%%
-	\newcommand{\WorkHeader}[2]{\setcounter{section}{#1}\addtocounter{section}{-1}\section{#2}}
+\newcommand{\WorkHeader}[2]{\setcounter{section}{#1}\addtocounter{section}{-1}\section{#2}}
 \newcommand{\TPHeader}[1]{\section*{#1}}
 \newcommand{\WorkProblem}[1]{\par\textbf{Задача: }#1}
 \newcommand{\kav}[1]{\textquotedblleft #1\textquotedblright}
 \newcommand{\zagolovok}[1]{\par{\textit{\textbf{#1}}}}
-
-
-
 \newcommand{\vivod}[1]{\begin{center} \textbf{\textit{Вывод}}: #1 }
 \newcommand{\skobk}[1]{\left( #1\right)}
+\newcommand{\kskobk}[1]{\left[ #1\right]}
 \newcommand{\fskobk}[1]{\left\{ #1\right\}}
 \newcommand{\DModul}[1]{\left|\left| #1\right|\right|}
 \newcommand{\Modul}[1]{\left| #1\right|}
 \newcommand{\predel}[1]{\lim\limits_{#1}}
 \newcommand{\summa}[2]{\sum\limits_{#1}^{#2}}
 \newcommand{\Real}{\mathbb{R}}
+\newcommand{\Natural}{\mathbb{R}}
 \newcommand{\Rmern}[1]{\mathbb{R}^#1}
 \newcommand{\tittg}{\Leftrightarrow}
 \newcommand{\sledue}{\Rightarrow}
@@ -47,3 +24,6 @@
 \newcommand{\obed}{\cup}
 \newcommand{\peres}{\cap}
 \newcommand{\rang}[1]{\mathit{rang} \ #1}
+\newcommand{\shtrih}{\prime}
+\newcommand{\I}{\wedge}
+\newcommand{\ILI}{\vee}

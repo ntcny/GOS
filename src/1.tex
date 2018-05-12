@@ -149,7 +149,74 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 	Пусть $f:E\to \Rmern{m}$, $f$ - непрерывна на $E$, $E$-компактое подмножество в $\Rmern{n}$. Тогда $f$ - равномерно непрерывна на $E$
 	\begin{dokvo}
 		$x \in E, \ \forall \epsilon > 0, \exists \delta_x > 0: \forall \ z\in U(x, \delta_x)\peres E: \DModul{f(x)-f(z)}< \frac{\epsilon}{2}$
-		$E \subset \bigcup\limits_{x\in E}U()$
+		$E \subset \bigcup\limits_{x\in E}U\skobk{x_i,\frac{\delta_x}{2}}$ -- покрытие открытыми подмножествами $\sledue$ можно выбрать конечное подпокрытие $E \subset \bigcup\limits_{i=1}^{k}U\skobk{x_i,\frac{\delta_{x_{i}}}{2}}$
+
+		Пусть $\delta = \min\limits_{1 \leq i \leq k}\frac{\delta_{x_{i}}}{2}$ и рассмотрим произвольные $x^{\shtrih},x^{\shtrih\shtrih} \in E: \DModul{x^{\shtrih} - x^{\shtrih\shtrih}} < \delta$ $\exists i_0: 1 \leq i_0 \leq k \ : x^{\shtrih} \in U\skobk{x_{i_0},\frac{\delta_{x_{i_0}}}{2}} \sledue$ $\DModul{x^{\shtrih} - x_{i_0}} < \delta_{x_{i_0}}$ $\sledue$ $\DModul{f(x^{\shtrih}) - f(x_{i_0})} < \frac{\epsilon}{2}$
+
+		C другой стороны рассмотрим $x^{\shtrih\shtrih}:\DModul{x^{\shtrih\shtrih} - x_{i_0} }$
+		$\leq$ $\DModul{x^{\shtrih\shtrih} - x^{\shtrih}} + \DModul{x^{\shtrih} - x^{i_0}} < \skobk{\delta + \frac{\delta_{x_{i_0}}}{2}} \leq \delta_{x_{i_0}}$ $\sledue$ $\DModul{f(x_{i_0}) - f(x^{\shtrih\shtrih})} < \frac{\epsilon}{2}$
 	\end{dokvo}
 
 \end{proofs}
+
+\begin{defs}[равномерно непрерывная]
+	Пусть $f: E \to \Rmern{m}, \ E \subset \Rmern{n}$, тогда $f$ называется равномерно непрерывной на $E \ \tittg \ \forall \epsilon > 0 \exists \ \delta > 0 : \forall x_1,x_2 \in E \ \DModul{f(x_1)-f(x_2)} < \frac{\epsilon}{2}$
+\end{defs}
+
+\begin{defs}[связное подмножество]
+	Подмножество $E \in \Rmern{n}$ называется связным, если $\forall x_1, x_2 \in E \ \exists$ непрерывное отображение $\phi: \kskobk{0,1}\to E:$ $\phi(0)=x_1,\phi(1)=x_2$
+\end{defs}
+
+\begin{proofs}[Теорема Больцано-Коши]
+	Пусть $f: E \to \Real$, $f$ непрерывна на $E$, $E$ -- связное подмножество в $\Rmern{n}$, $x,y \in E : f(x) < 0 < f(y)$. Тогда $\exists c \in E : f(c) = 0$
+	\begin{dokvo}
+		без доказательства
+	\end{dokvo}
+\end{proofs}
+
+\begin{defs}[точки разрыва]
+	$f: E \to \Real, E \subseteq \Real$, точка $x_0 \in \Real$ является точкой разрыва \fx, если
+	\begin{enumerate}
+		\item либо $\skobk{x_0 \in E} \I $ $\skobk{f - \text{не является непрерывной в точке} \ x_0}$
+		\item либо $\skobk{x \notin E} \I \skobk{x \in \prokol{E}}$
+
+	\end{enumerate}
+\end{defs}
+
+\begin{defs}[устранимая]
+	$x_0 \in E$ называется устранимой точкой разрыва если:
+	$$\skobk{x_0 \ \text{точка разрыва}} \I \skobk{\exists \predel{x\to x_0 \in E}f(x) = A \in \prokol{R}}$$
+\end{defs}
+
+\begin{defs}[I рода]
+	Точка разрыва $x_0$ называется точкой разрыва \textbf{I рода} если:
+	\begin{enumerate}
+		\item $x_0 \in \prokol{E}^{+} \sledue \exists f(x_0 + 0) \naverh{обозн}\tittg \predel{x\to x_0 + 0 \ \in E}f(x) \ \in \Real$
+		 \item $x_0 \in \prokol{E}^{-} \sledue \exists f(x_0 - 0) \naverh{обозн}\tittg \predel{x\to x_0 - 0 \ \in E}f(x) \ \in \Real$
+	\end{enumerate}
+\end{defs}
+
+\begin{claim}
+	Всякая устранимая точка разрыва является точкой разрыва \textbf{I рода}
+\end{claim}
+
+\begin{defs}
+	Точка $x_0$ разрыва \fx называется точкой разрыва \textbf{II рода} если она не является точкой разрыва \textbf{I рода}\footnote{джиниусы блин}
+\end{defs}
+
+\begin{claim}[Свойства точки разрыва]
+	$f(x): E \to \Real, E \subseteq \Real$
+
+	$\left.\begin{array}{l}
+		1) f(x) \text{ монотонна на E } x_0 \in E \\
+		2) \skobk{a \in E} \I \skobk{\text{а точка разрыва}}
+	\end{array}\right\} \sledue$ $а$ является точкой разрыва \textbf{I рода}
+\end{claim}
+
+\begin{defs}[Еще раз по Гейне, но только в терминах]
+	$x_0 \in \prokol{E}$, говорят что $\predel{k\to\infty}f(x) = A$, если для $\forall \ \fskobk{x_k}: \predel{k\to \infty}x_k = x_0, \ x_k \in E, x_k \neq x_0, \forall k \in \Natural, \ \predel{k\to\infty}f(x_k) = A$
+\end{defs}
+
+\begin{example}[Пример на точку разрыва]
+
+\end{example}
