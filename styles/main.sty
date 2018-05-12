@@ -1,40 +1,38 @@
+\RequirePackage{ifpdf} 	% для раздельной компиляции pdf и dvi
 
-	\RequirePackage{ifpdf} 	% для раздельной компиляции pdf и dvi
-	\newcommand{\globalEncoding}{utf8}		% кодировка
-	\newcommand{\globalStylesDir}{styles}	% месторасположение стилей
+\newcommand{\globalEncoding}{utf8}		% кодировка
 
-	\newcommand{\STYLES}{\globalStylesDir}
-	\newcommand{\IMG}{img}
-	\newcommand{\SRC}{src}
+\newcommand{\globalStylesDir}{styles}	% месторасположение стилей
 
-	\usepackage[\globalEncoding]{inputenc}							% кодировка, тут очень аккуратно
-	\usepackage{\globalStylesDir/myFonts}		% наши шрифты и локализация
-	\usepackage{\globalStylesDir/myMath}		% модуль нашей математики
-	\usepackage{\globalStylesDir/myCode}		% модуль наших листингов
-	\usepackage{\globalStylesDir/myTables} 		% модуль наших таблиц
-	\usepackage{\globalStylesDir/myColRows}		% модуль нашей многополосности
-	\usepackage{\globalStylesDir/myQuotes}		% модуль наших цитат
-	\usepackage{\globalStylesDir/myGraphics}		% модуль нашей графики
-	\usepackage{\globalStylesDir/myAlgorithms}	% модуль наших алгоритмов
-	\usepackage{\globalStylesDir/myLscape}		% модуль нашией ориентации (книжная, албомная)
-	\usepackage{\globalStylesDir/myHyperref}		% модуль нашиих гиперссылок
-	\usepackage{\globalStylesDir/myAcrobat}
-	\usepackage{\globalStylesDir/myLists} 		% модуль наших списков % переопределение буллетов
-	\usepackage{\globalStylesDir/mySymbols}		% Для символов
-	\usepackage{\globalStylesDir/userCommands}	% всевозможные переопределения
-	\usepackage{\globalStylesDir/myEnvironment}	% настройка стилей теорем
+\newcommand{\STYLES}{\globalStylesDir}
+\newcommand{\IMG}{img}
+\newcommand{\SRC}{src}
+\usepackage[\globalEncoding]{inputenc}							% кодировка, тут очень аккуратно
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%
-%%% настройка параметров документа
-%%%
+\usepackage{\globalStylesDir/myFonts}		% наши шрифты и локализация
+\usepackage{\globalStylesDir/myMath}		% модуль нашей математики
+\usepackage{\globalStylesDir/myCode}		% модуль наших листингов
+\usepackage{\globalStylesDir/myTables} 		% модуль наших таблиц
+\usepackage{\globalStylesDir/myColRows}		% модуль нашей многополосности
+\usepackage{\globalStylesDir/myQuotes}		% модуль наших цитат
+\usepackage{\globalStylesDir/myGraphics}		% модуль нашей графики
+\usepackage{\globalStylesDir/myAlgorithms}	% модуль наших алгоритмов
+\usepackage{\globalStylesDir/myLscape}		% модуль нашией ориентации (книжная, албомная)
+\usepackage{\globalStylesDir/myHyperref}		% модуль нашиих гиперссылок
+\usepackage{\globalStylesDir/kbordermatrix} % матрицы с легендой строк и столбцов
+\usepackage{\globalStylesDir/myLists} 		% модуль наших списков
+\usepackage{\globalStylesDir/myEnvironment}
+\usepackage{\globalStylesDir/myAcrobat}
+\usepackage{\globalStylesDir/mySymbols}
+\usepackage{\globalStylesDir/userCommands}
+
 \usepackage{filecontents}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 
 \oddsidemargin=-0.4mm
 \textwidth=165mm
-\textheight=210mm
 \topmargin=1mm
+\textheight=210mm
 \parindent=0pt
 \parskip=1pt
