@@ -15,3 +15,4 @@
   - Добавлена команда {\ILI} или
   - Чтобы сделать прокол (кружок сверху) \prokol{E}
   - Добавлен \begin{example}\end{example}
+  - Добавлен \begin{sledsv}\end{sledsv}

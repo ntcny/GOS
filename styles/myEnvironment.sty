@@ -41,3 +41,10 @@
 \noindent }
 {}
 \counterwithin{theexamples}{section}
+
+\newcounter{thesledsv} \setcounter{thesledsv}{1}
+\newenvironment{sledsv}[1][\unskip]{%
+\textbf{Следствие$\circ$ \arabic{thesledsv} (#1):\stepcounter{thesledsv}}
+\noindent }
+{}
+\counterwithin{thesledsv}{section}
