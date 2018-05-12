@@ -39,7 +39,8 @@
 \end{DEF}
 
 Подробно:\\
-$\begin{pmatrix}
+$S =
+\begin{pmatrix}
   0\ldots0 & s_{1i_1}\ldots* & *\ldots* & * & *\ldots* \\
   0\ldots0 & 0\ldots0 & s_{2i_2}\ldots* & * & *\ldots* \\
   \ldots & \ldots & \ldots & \ldots & \ldots \\
@@ -50,157 +51,91 @@ $\begin{pmatrix}
 \end{pmatrix}$
 
 \begin{proofs}[Об ступенчатой матрице]
-	Любую матрицу $A$ над полем $P$ можео элементарными преобразованиями строк привести к ступенчатой матрице.
+	Любую матрицу $A$ над полем $P$ можно элементарными преобразованиями строк привести к ступенчатой матрице.
 	\begin{dokvo}
     Индукция по числу $m$ строк матрицы.
-    1. База индукции. $m = 1$. Матрица $A$ и есть ступенчатая, утверждение верно.
-    2. Предположим, что утверждение верно для $m$.
-    3. Докажем для $m + 1$.
-    Если $A$ - нулевая матрица, то она ступенчатая и утверждение верно.
-    Пусть $A \neq 0$ и $A_{i_1}\downarrow$
+    \begin{enumerate}
+    \item База индукции. $m = 1$. Матрица $A$ и есть ступенчатая, утверждение верно.
+    \item Предположим, что утверждение верно для $m$.
+    \item Докажем для $m + 1$.
+      Если $A$ - нулевая матрица, то она ступенчатая и утверждение верно.
+      Пусть $A \neq 0$ и $A^\downarrow_{i_1}$ - самый левый ненулевой столбец матрицы $A$.
+      Переставляя, если нужно, строки матрицы $A$ мы получим строчно-эквивалентную матрицу $B$: \\
+      $B =
+      \begin{pmatrix}
+        0\ldots0 & b_{1i_1} & *\ldots* \\
+        0\ldots0 & b_{2i_2} & *\ldots* \\
+        \ldots & \ldots & \ldots \\
+        0\ldots0 & b_{m+1i_{m+1}} & *\ldots* \\
+      \end{pmatrix}$\\
+      в которой $b_{1i_1} \neq 0$. Прибавляя к $l$-ой строке матрицы $B$ для каждого
+      $l \in \overline{2, m + 1}$ ее $l$-ую строку, умноженную на $-b_{li_1}b_{1i_1}$ получим матрицу $B'$: \\
+      $B' =
+      \begin{pmatrix}
+        \begin{matrix}
+          0\ldots0 & b_{1i_1} & *\ldots*
+        \end{matrix}\\
+
+        \begin{matrix}
+          0\ldots0 & 0 \\
+          \ldots & \ldots \\
+          0\ldots0 & 0 \\
+        \end{matrix}
+        \begin{bmatrix}
+          *\ldots* \\
+          A_1 \\
+          *\ldots* \\
+        \end{bmatrix}
+      \end{pmatrix}$\\
+
+      Так как чсло строк матрицы $A_1$ равно $m$, то по предположению индукции она строчно
+      эквивалентна ступенчатой матрице, то есть $B'$ можно преобразовать в искомую ступенчатую матрицу.
+    \end{enumerate}
 	\end{dokvo}
 \end{proofs}
 
-\begin{DEF}[Предел по коши]
-	Пусть $E \subset \Real$ и $f: E \to \Real$. Значение $A$ функции $f(x)$ в точке $x_0$ называется \underline{пределом}, если:
-	$$\lim_{x\to x_0} f(x) = A \ \tittg \ \forall \varepsilon > 0 \ \exists \delta > 0: \forall x \ 0 < \Modul{x - x_0} < \delta \ \sledue \ \Modul{f(x) - a} < \delta$$
+\begin{DEF}[Каноническая матрица]
+	Каноническими матрицами над полем $P$ называются нулевая матрица и все матрицы видам
+  $diag(e,\ldots,e,0,\ldots,0)_{mxn}$
 \end{DEF}
 
-\begin{DEF}[Непрерывность в точке]
-	Функция $f(x)$ называется непрерывной в точке $x_0$, если $\predel{x \to x_0}f(x) = f(x_0)$
-\end{DEF}
-
-\begin{DEF}[Определение непрерывности по Гейне]
-	Говорят, что функция действительного переменного $f(x)$ является непрерывной в точке $a \in \Real$ если для любой последовательности $\{x_n\}$, такой что
-	$$\lim_{n \to \infty}x_n = a, \text{выполняется соотношение} \lim_{n \to \infty}f(x_n) = f(a)$$
-\end{DEF}
-
-\textbf{На практике удобно использовать следующие 3 условия} непрерывности функции $f(x)$ в точке $x = a$ (которые должны выполняться одновременно):
-\begin{enumerate}
-	\item Функция $f(x)$ определена в точке $a$
-	\item Предел $\predel{x \to a}f(x)$ существует
-	\item Выполняется равенство $\predel{x \to a}f(x)= f(a)$
-\end{enumerate}
-
-\begin{DEF}
-	Элементами пространства $\Rmern{n}$ являются упорядоченные наборы $\myvect{1}{n}$, где $x_i \in \Real$
-\end{DEF}
-
-\begin{DEF}
-	$\Rmern{n}$ векторное пространство над $\Real$ $\sledue$ $x + y = (x_1+y_1, \ldots, x_{n}+y_{n})$, $\lambda \cdot x = (\lambda \cdot x_1, \ldots, \lambda \cdot x_n)$
-\end{DEF}
-
-\begin{DEF}
-	$e_i = (\underbrace{0, \ldots, 1,\ldots,0}_n^i)$, где $i = \overline{1,n}$ стандартый базис $\Rmern{n}$
-\end{DEF}
-
-\begin{DEF}
-	\textbf{Скалярным произведением} называется $x,y \in \Rmern{n}$, $\skobk{x,y} = \summa{i=1}{n}x_i \tochka y_i$, \textbf{Нормой вектора} $\DModul{x} = (x,x)^{\frac{1}{2}}$, \textbf{Расстояние между элементами $\Rmern{n}$} $\rho(x,y)= \DModul{x-y}$
-\end{DEF}
-
-\begin{DEF}[Открытый шар]
-	Пусть $x \in \Rmern{n}$, $r > 0$. Обозначим $U(x,r) = \fskobk{y \in \Rmern{n} \ : \ \DModul{x-y} < r}$ -- открытый шар радиуса $r$
-\end{DEF}
-
-\begin{DEF}
-	Множество $U \in \Rmern{n}$ называется открытым, если $\forall x \in U \ \exists \ r > 0 \ : \  U(x,r) \subset U$
-\end{DEF}
-
-\begin{DEF}
-	Окрестностью точки $x \in \Rmern{n}$ называется любое открытое подмножество, содержащее данную точку $:$ $U(x)$
-\end{DEF}
-
-\begin{DEF}
-	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in \prokol{E}$. Говорят, что $\exists$ предел $f(x)$ при $x\to x_0$ по мн-ву $E$, равный $a \in \Rmern{m}$, если $\forall \ U(a) \ \exists \ U(x_0) \ \forall x \in \prokol{U}_{E}(x_0) \sledue f(x) \in U(a)$
-	и обозначается $\predel{x \to x_0}f(x)= a$
-\end{DEF}
-
-\begin{claim}[]
-	Если $\predel{x\to x_0}f(x)=(a_1,\ldots,a_m)=a$, то $\forall k \in \overline{1,m} $ $\exists \predel{x \to x_0}f_k(x)=a_k$
-
-	Верно и обратное, Где $f(x)=(f_1(x),\ldots,f_m(x))$ -- координатное представление функции $f(x)$
-
-\end{claim}
-
-\begin{DEF}
-	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in E$ Ф-я $f(x)$ называется непрерывной в точке $x_0$, если $\forall U(f(x_0)) \ \exists U(x_0): \ \forall x\in U_E(x_0) \sledue f(x) \in U(f(x_0))$
-	\begin{itemize}
-		\item $x_0$ изолированная $\sledue$ $f(x)$ всегда непрерывна в точке $x_0$
-		\item $x_0$ предельная точка $E$ $\sledue$ $\skobk{f(x) \text{ непрерывна в точке } x_0} \tittg \exists \predel{x \to x_0}f(x)=f(x_0)$
-	\end{itemize}
-\end{DEF}
-
-\begin{claim}
-	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in E$, $f(x)=(f_1(x),\ldots,f_m(x))$
-	Тогда \fx непрерывна в точке $x_0$ $\tittg$ $\forall \ i = \overline{1,m}$ $f_i(x) \text{ непрерывна } в x_0$
+\begin{proofs}[О каноничской форме матрицы]
+	Для любой матрицы $A$ над полем $P$ существует единственная эквивалентная ей каноничская матрица.
+  Она называется каноничской формой матрицы $A$ и обозначается $K(A)$.
 	\begin{dokvo}
-	Если $x_0$ - изолированная, то все доказано. Пусть $x_0 \in E$, тогда \fx непрерывна в точке $x_0 \ \tittg \ \exists \predel{x \to x_0}f(x)=f(x_0) \ \naverh{по утв}\tittg \ \exists \predel{x \to x_0}f_i(x) = f_i(x_0) \forall i = \overline{1,m}$
-	\end{dokvo}
-\end{claim}
+    Если $A$ - нулевая матрица, то она уже каноничская.\\
+    Пусть теперь $A \neq 0$. Приведем сначала матрицу $A$ элементарными преобразованиями строк к ступенчатой матрице.
+    Умножив её $l$-ую строку на $s^{-1}_{li_1} \forall l \in \overline{1, r}$, получим матрицу
+    с единицами на местах $(1, i_1), (2, i_2), ldots, (r, i_r)$. Вычитая последовательноеё строки с номерами $2, \ldots, r$, умноженными
+    на подходящие элементы, получим матрицу $C$:\\
+    $C =
+    \begin{pmatrix}
+      & i_1 & & i_2 & & i_r & \\
+      0\ldots0 & e & *\ldots* & 0 & *\ldots* & 0 & *\ldots* \\
+      0\ldots0 & 0 & 0\ldots0 & e & *\ldots* & 0 & *\ldots* \\
+      \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+      0\ldots0 & 0 & 0\ldots0 & 0 & 0\ldots0 & e & *\ldots* \\
+      0\ldots0 & 0 & 0\ldots0 & 0 & 0\ldots0 & 0 & 0\ldots0 \\
+    \end{pmatrix}$\\
 
-\begin{claim}
-	\begin{enumerate}
-		\item $f_1,f_2: E \to \Rmern{m}$, $E \in \Rmern{n}$, $f_i$ непрерывна в точке $x_0 \in E$ $\sledue$ $f_1 + f_2, \lambda\cdot f_1$ непрерывны в точке $x_0$
-		\item $f_1,f_2: E \to \Rmern{m}$, $E \in \Rmern{n}$, $f_i$ непрерывна в точке $x_0 \in E$ $\sledue$ $f_1 \cdot f_2, \frac{f_1}{f_2}$, если $f_2 \neq 0$
-	\end{enumerate}
-
-	\begin{dokvo}
-		Следует из свойств предела функции
-	\end{dokvo}
-\end{claim}
-
-\begin{DEF}
-	$f: E \to \Rmern{m}, \ E \subseteq \Rmern{n}$. Ф-я \fx \ называется непрерывной на $E$, если она непрерывна в любой точке множества $E$
-\end{DEF}
-
-\begin{claim}
-	Пусть $f(x):E \to J, E \subseteq \Rmern{n}, J \subseteq \Rmern{m}, \ g(y):J\to \Rmern{k}$
-
-	$\left.\begin{array}{l}
-		f(x) \text{ непрерывна в точке } x_0 \in E \\
-		g(y) \text{ непрерывна в точке } y_0 \in f(x_0)
-	\end{array}\right\} \sledue$ $g \circ f$ непрерывна в т. $x_0$
-
-	\begin{dokvo}
-		Зафиксируем любую $U(g(y_0))$ т.к $g(y)$ непрерывна в т. $y_0$, то $\exists U(y_0)=U(f(x_0)):\forall y \in U_y(y_0) \sledue g(y) \in U(g(y_0))$
-
-		С другой стороны \fx непрерывна в точке $x_0\in E \sledue \exists U(x_0): \forall x\in U_E(x_0) \sledue g(x)\in U(f(x_0)) \sledue g(f(x))\in U(g(y_0))$
-
-		То есть имеем: $\forall \ U(g(f(x_0))) \ \exists  \ U(x_0):\forall x\in U_E(x_0)\sledue g(f(x))\in U(g(f(x_0)))$
-	\end{dokvo}
-\end{claim}
-
-\begin{DEF}
-	Множество $M \in \Rmern{n}$ называется компактным $\naverh{опр}\tittg$ из любого покрытия $M$ открытыми подмножествами можно выделить конечное подпокрытие.
-\end{DEF}
-
-\begin{proofs}[1-я теорема Вейерштрасса про ограниченность непрерывной функции]
-	Если ф-я $f: E \to \Rmern{m}$ непрерывна на $E$, $E$ - компактное подмножество $\Rmern{n}$, то $f$ -- ограничена. $f(E)$ ограниченное подмножество $\Rmern{n}$
-	\begin{dokvo}
-		$\forall x \in E$ $f$-непрерывна в точке $x$ $\sledue$ $\exists \ U(x,r_x) \ r_x > 0:\forall z \in E \peres U(x,r_k)$
-
-		$\DModul{f(z)} \subseteq M_x$, $E \subset \bigcup\limits_{x \in E}U(x,r_x)$ $E$-компактно $\sledue$ можно выбрать конечное подпокрытие, т.е разбить $E \subset \bigcup\limits_{i = 1}^{k} U(x_i,r_{x_i})$, $M = \max\limits_{1 \leq i \leq k} M_{x_i}$ $\sledue \ \forall x \in E$ $\exists \ U(x_j, r_{x_j}): x \in U(x_j,r_{x_j}) \sledue \DModul{f(x)} \subseteq M_{x_{j}} \subseteq M$
+    Теперь, вычитая столбцы с номерами $i_1, ldots, i_r$, умноженные на подходящие элементы,
+    все $*$ можно обнулить. После перестановки столбцов получается матрица вида $diag(e, \ldots, e, 0, \ldots, e)$.
 	\end{dokvo}
 \end{proofs}
 
-\begin{proofs}[2-я теорема Вейерштрасса о достижении верхней и нижней границ]
-	Пусть $f:E \to \Real$, $f$-непрерывна на $E$, $E$-компактное подмножество $\Rmern{n}$ Тогда $\exists \ x_1,x_2 : f(x_1)=\max\limits_{x \in E}f(x), \ f(x_2)=\min\limits_{x \in E}f(x)$
+\begin{DEF}[Специальная ступенчатая матрица]
+	Матрица вида $C$из теоремы называется специальной ступенчатой матрицей.
+\end{DEF}
+
+\begin{proofs}[О эквивалентных матрицах (без доказательства)]
+	$\forall A,B \in P_{m,n}$ равносильны утверждения:
+  \begin{enumerate}
+  	\item $A~B$;
+  	\item $\exists U \in P_{m,n}, V \in P_{n,n}$ такие, что $B = UAV$;
+    \item $rang A = rang B$;
+    \item $K(A) = K(B)$.
+  \end{enumerate}
 	\begin{dokvo}
-		$f$-непрерывна на $E$ $\sledue$ по 1 теореме Вейерштрасса $f$ ограничена на $E$ $\sledue$ $\exists \sup\limits_{x\in E}f(x)=M\in \Real$
-
-		Покажем, что $\exists x_1 \in E : f(x_1)=M$ Предположим противное и рассмотрим ф-ю $g(x) = \frac{1}{M-f(x)}$, $M-f(x)$ непрерывна и не $\neq 0 \ \sledue$ $g(x)$ непрерывна на $E$ и по 1-й теореме Вейерштрасса ограничена на $E$
-
-		С другой стороны т.к. $M=\sup\limits_{x\in E}f(x)$, то $\exists \ \fskobk{x_k}: \predel{k\to \infty}f(x_k)=M \ \sledue \predel{k\to \infty}(M-f(x))=0 \ \sledue \predel{k\to \infty}\frac{1}{M-f(x)}=\infty$, \underline{противоречие} с тем что $g(x)$ ограничена
-
-		\textbf{Для минимума также}
+    Достаточно легко доказывается цепочка $1 \sledue 2 \sledue 3 \sledue 4 \sledue 1$
 	\end{dokvo}
-\end{proofs}
-
-\begin{proofs}[Кантора о равномерной непрерывности]
-	Пусть $f:E\to \Rmern{m}$, $f$ - непрерывна на $E$, $E$-компактое подмножество в $\Rmern{n}$. Тогда $f$ - равномерно непрерывна на $E$
-	\begin{dokvo}
-		$x \in E, \ \forall \epsilon > 0, \exists \delta_x > 0: \forall \ z\in U(x, \delta_x)\peres E: \DModul{f(x)-f(z)}< \frac{\epsilon}{2}$
-		$E \subset \bigcup\limits_{x\in E}U()$
-	\end{dokvo}
-
 \end{proofs}
