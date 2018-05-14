@@ -1,10 +1,37 @@
 %!TEX root = ../report.tex"
-\section{Вопрос 2}
-
-\subsection{Дифференцируемость функций одного и многих действительных переменных
+\section{Вопрос 2: Дифференцируемость функций одного и многих действительных переменных
 в точке и на множестве. Достаточное условие дифференцируемости.
 Производные и дифференциалы высших порядков.}
 
-\begin{sledsv}
 
-\end{sledsv}
+
+\begin{defs}
+	Отображение $L: \Rmern{n}\to\Rmern{m}$ называется линейным если:
+	\begin{enumerate}
+		\item $L(x+y)= L(x) + L(y), \ \forall x,y \in \Rmern{n}$
+		\item $L(\lambda \cdot x) = \lambda \cdot L(x), \forall
+		\lambda \in \Real,  x\in \Rmern{n}$
+	\end{enumerate}
+
+	\zagolovok{Свойства}
+	\begin{enumerate}
+		\item $x = (x_1, \ldots, x_n) \in \Rmern{n}$, $\overline{l} = (l_1,\ldots,l_n)$ -- стандартный базис $\Rmern{n}$ $x = \summa{i=1}{n}x_i \cdot l_i$ $\sledue$ $L(x) = \summa{i=1}{n}L(l_i)\cdot x_i$
+
+		\item $\overline{f}= (f_1,\ldots,f_m)$ -- стандартный базис $\Rmern{m}$ $A_l = \skobk{L(l_1)^{\downarrow}_{\overline{f}},\ldots,L(l_m)^{\downarrow}_{\overline{f}}} \in \Real_{m \times n}$ -- матрица линейного отображения $\sledue$ $L(x) = \overline{f} \cdot A_l \cdot x_{\overline{l}}^{\downarrow}$
+	\end{enumerate}
+\end{defs}
+
+\begin{defs}
+	$f: U \to \Rmern{m}$, $U$ -- открытое подмножество в $\Rmern{n}, x_0 \in U$
+
+	Будем говорить, что $f$ - дифференцируема в точке $x_0$, если $\exists$ линейное отображение $A: \Rmern{n} \to \Rmern{m}: \ f(x_o + h) - f(x_0)= A(h) + o(\DModul{h}), \ h \to 0$ тоесть обозначается $f(x_0 + h)-f(x_0)=Ah+o(h), h\to 0$ при этом $A$ называется производной отображения $f$ в точке $x_0$ и обозначается $f^{\shtrih}(x)$
+\end{defs}
+
+\begin{claim}[Свойства диференцируемых отображений и производной]
+	\begin{enumerate}
+		\item Если $f: U \to \Rmern{m}, U \subset \Rmern{n}$ -- открытое, дифференцируема в точке $x_0 \in U$, то $f$ - непрерывна в точке $x_0$
+		\begin{dokvo}
+			$\dprirash f = f(x_0 + h) - f(x_0)$, $\predel{h \to 0} \dprirash f = \predel{h \to 0}\skobk{f^{\shtrih}(x_0)h + o(h)}$ $\sledue$ $f$ непрерывна в точке $x_0$ 
+		\end{dokvo}
+	\end{enumerate}
+\end{claim}
