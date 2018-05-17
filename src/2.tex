@@ -22,7 +22,7 @@
 \end{defs}
 
 \begin{defs}
-	$f: U \to \Rmern{m}$, $U$ -- открытое подмножество в $\Rmern{n}, x_0 \in U$
+	$f: U \to \Rmern{m}$, $U$ -- открытое подмножество в $\Rmern{n}, x_0 \in U$\footnote{Лучше про многомерные случаи не говорить, сложно не успеем}
 
 	Будем говорить, что $f$ - дифференцируема в точке $x_0$, если $\exists$ линейное отображение $A: \Rmern{n} \to \Rmern{m}: \ f(x_o + h) - f(x_0)= A(h) + o(\DModul{h}), \ h \to 0$ тоесть обозначается $f(x_0 + h)-f(x_0)=Ah+o(h), h\to 0$ при этом $A$ называется производной отображения $f$ в точке $x_0$ и обозначается $f^{\shtrih}(x)$
 \end{defs}
@@ -31,7 +31,109 @@
 	\begin{enumerate}
 		\item Если $f: U \to \Rmern{m}, U \subset \Rmern{n}$ -- открытое, дифференцируема в точке $x_0 \in U$, то $f$ - непрерывна в точке $x_0$
 		\begin{dokvo}
-			$\dprirash f = f(x_0 + h) - f(x_0)$, $\predel{h \to 0} \dprirash f = \predel{h \to 0}\skobk{f^{\shtrih}(x_0)h + o(h)}$ $\sledue$ $f$ непрерывна в точке $x_0$ 
+			$\dprirash f = f(x_0 + h) - f(x_0)$, $\predel{h \to 0} \dprirash f = \predel{h \to 0}\skobk{f^{\shtrih}(x_0)h + o(h)}$ $\sledue$ $f$ непрерывна в точке $x_0$
 		\end{dokvo}
 	\end{enumerate}
 \end{claim}
+
+\begin{defs}
+	$\pust f:E\to \Real, x \ $ - предельная точка множества $E$, тогда функция $f$ называется дифференцируемой в точке $x$, если $\exists \predel{\dprirash x \to 0}\frac{f(x+\Delta x)-f(x)}{\dprirash x}$, сам предел называется производной функции $f$ в точке $x$ и обозначается $f\shtrih(x)$
+
+	Если $M \subset E$ и $f$ диф-ма в $\forall$ точке $x \in M$, то $f$ - дифференцируема на $M$
+
+	Если $x$ предельная точка множества $E_{x-0} \ILI E_{x+0}$ и $\exists \predel{\Delta x \to -0 \ (+0)}frac{f(x+\Delta x)-f(x)}{\dprirash x}$, то этот предел - левая $\ILI$ правая производная $f^{\shtrih}_{\text{Л}} \ILI f^{\shtrih}_{\text{ПР}}$ в точке x
+\end{defs}
+
+\begin{proofs}[Переформулировка определения критерия дифференцируемости]
+	$\pust f: E \to \Real$, т.$x$ предельная точка множества $E$, тогда $f$ - дифференцируема в \vtochke{x} $\tittg \ \exists A \in \Real$ и $f(x + \Delta x) - f(x)$ представимо в виде $A \tochka \Delta x + \overline{o}(\Delta x), \Delta x \to 0$, и в этом случае $A = f^{\shtrih}(x)$
+
+	\begin{dokvo}
+		Будем говорить, что ф-я \fx является $\overline{o}$ - функции $g(x)$, если $\exists$ такая бесконечно малая величина $\alpha(x): \ f(x) = \alpha(x) \cdot g(x)$, при $x \to x_0$ - предельная точка множества $E$
+		\begin{itemize}
+			\item[$\Rightarrow$] $\pust \ f$ -дифференцируема, тогда верно: $f^{\shtrih}(x) = \predel{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x} \ \sledue$ на языке $\mathsf{o}$--символики $= f^{\shtrih}(x) + \frac{f(x + \Delta x) - f(x)}{\Delta x} =\omaloe{1}$, $\dprirash x \to 0 | \cdot \Delta x \ \sledue$ $f(x + \dprirash x) - f(x) = \underbrace{f^{\shtrih}(x)}_{A} \cdot \Delta x + \underbrace{\omaloe{1} \cdot \Delta x}_{\omaloe{\Delta x}}$ $\sledue$ в одну сторону доказано.
+
+			\item[$\Leftarrow$] $f(x + \Delta x) - f(x) = A \cdot \Delta x + \omaloe{\Delta x}$ делим на $\Delta x$ $\frac{f(x + \Delta x) - f(x)}{\Delta x} = A + \frac{\omaloe{\Delta x}}{\Delta x}$, $\omaloe{\Delta x} = 0$ по определению, $\Delta x \to 0 \ \sledue \predel{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x} = A + 0 \sledue \ A = f^{\shtrih}(x)$
+		\end{itemize}
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+	$\pust f \I g $ - дифференцируемы в \vtochke{x} $\sledue$
+	\begin{itemize}
+		\item $\skobk{f+g}$ - диф-ма в \vtochke{x} и $\skobk{f+g}^{\shtrih}(x) = f^{\shtrih}(x) + g^{\shtrih}(x)$
+		\item $\skobk{f \cdot g}$ - диф-ма в \vtochke{x} и $\skobk{f \cdot g}^{\shtrih}(x) = f^{\shtrih}(x) \cdot g(x) + f(x) \cdot g^{\shtrih}(x)$
+		\item Если $g(x) \neq 0$, то $\skobk{\frac{f}{g}}$ диф-ма \vtochke{x} и $\skobk{\frac{f}{g}}^{\shtrih}(x) = \skobk{\frac{f^{\shtrih}(x) \cdot g(x) - f(x) \cdot g^{\shtrih}(x)}{g^{2}(x)}}$
+		\end{itemize}
+	\begin{dokvo}
+		Все три случая доказывать не нужно, лучше сразу доказать самый третий!\footnote{$\Delta f = f(x+\Delta x) - f(x)$}
+
+		\begin{gather*}
+			\skobk{\frac{f(x)}{g(x)}}^{\shtrih} \naverh{опр}= \predel{\Delta x \to 0}\frac{\Delta \skobk{\frac{f(x)}{g(x)}}}{\Delta x} = \predel{\Delta x \to 0}\frac{\frac{f(x + \Delta x)}{g(x+ \Delta x)} - \frac{f(x)}{g(x)}}{\Delta x} \ \naverh{предел суммы равен}\sledue \\
+			\predel{\Delta x \to 0}\frac{f(x + \Delta x) \cdot g(x) - f(x) \cdot g(x + \Delta x)}{\Delta x \cdot g(x + \Delta x) \cdot g(x)} = \\ \frac{1}{g^{2}(x)} \cdot \predel{\Delta x \to 0} \frac{(f(x) + \Delta f(x)) \cdot g(x) - f(x) \cdot (g(x) + \Delta g(x))}{\Delta x} =\\
+			\frac{1}{g^{2}(x)} \cdot \predel{\Delta x \to 0}\frac{f(x)\cdot g(x) + \Delta f(x)\cdot g(x) - f(x)\cdot g(x) - f(x)\cdot \Delta g(x)}{\Delta x} = \\
+  	\end{gather*}
+
+		\begin{gather*}
+			\frac{1}{g^{2}(x)} \cdot \frac{g(x)\cdot \Delta f(x) - f(x) \cdot \Delta g(x)}{\Delta x} = \frac{1}{g^{2}(x)} \cdot \skobk{g(x) \cdot \predel{\Delta x \to 0}\frac{\Delta f(x)}{\Delta x} - f(x) \cdot \predel{\Delta x \to 0}\frac{\Delta g(x)}{\Delta x}} =\\
+		= \skobk{\frac{f^{\shtrih}(x) \cdot g(x) - f(x) \cdot g^{\shtrih}(x)}{g^{2}(x)}}
+		\end{gather*}
+	\end{dokvo}
+\end{proofs}
+
+\begin{defs}
+	Если $f$ - дифференцируема в \vtochke{x} $\sledue$ дифференциалом функции $f$ в \vtochke{x} с соответствующим приращением $\delt x$ называется линейная ф-я от приращения
+	$$\delt f = f^{\shtrih}(x) \cdot \delt x = f^{\shtrih}(x)\pode{x}$$
+\end{defs}
+
+\begin{proofs}[Производная сложной функции]
+	$f: E \to \Real, \ g:f(E) \to \Real$, $f$-дифференцируема в \vtochke{x} и $g$ - дифференцируема в \vtochke{y} $=$ \fx $\sledue$ композиция функций $(g \circ f)(x)$ дифференцируема в \vtochke{x} и $(g \circ f)(x) = g^{\shtrih}(y) \cdot f^{\shtrih}(x)$
+	\begin{dokvo}
+		Рассмотрим $(g \circ f)(x + \delt x)- (g \circ f)(x) = g(f(x + \delt x)) - g(f(x)) \oeq$
+
+		$\pust \ \delt y=f(x + \delt x) - \underbrace{f(x)}_{=y}$, $\delt y \to 0$ при $\delt x \to$, т.к. $f$ -непрерывна в \vtochke{x}
+
+		Так как если $f$ - дифференцируема в \vtochke{x} и $f(x+ \delt x)-f(x) = f^{\shtrih}(x)\delt x + \omaloe{\delt x}$
+
+		$\oeq$ $g(y+ \delt y) - g(y) \naverh{из диф-ти g}= g^{\shtrih}(y)\cdot \delt y + \omaloe{\delt y} = g^{\shtrih}(f^{\shtrih}(x)\cdot \delt x + \omaloe{\delt x}) + \omaloe{\delt y}$ $= g^{\shtrih}(y)\cdot f^{\shtrih}(x)\delt x + \omaloe{\delt x} + \omaloe{\delt y}$
+
+		Покажем что $\omaloe{\delt x} = \omaloe{\delt y}:$ по определению, $\omaloe{\delt y} = \alpha(\delt y) \cdot \delt y, \ \alpha(\delta y) \to 0$ при $\delt y \to 0$, можно считать, что $\alpha(\delt y) = 0$ при $\delt y = 0 \ \sledue$ при $\delt x \to 0 \ \alpha(\delt y) \to 0 \sledue \ \alpha(\delt y) = \omaloe{1}$ при $\delt x \to 0$ $\sledue$ $\omaloe{\delt y} = \omaloe{1}\cdot \delt y = \underbrace{\omaloe{1} \cdot (f^{\shtrih}(x)\delt x + \omaloe{\delt x})}_{\omaloe{\delt x}}$, $\delt x \to 0$
+		$\sledue \ (g \circ f)^{\shtrih}(x)=g^{\shtrih}(y)\cdot f^{\shtrih}(x)\cdot \delt x + \omaloe{\delt x} \sledue$ $g \circ f$ - диффернцируема в \vtochke{x} и $(g \circ f)^{\shtrih}(x) = g^{\shtrih}(x) \cdot f^{\shtrih}(x)$
+	\end{dokvo}
+\end{proofs}
+
+\begin{defs}[Высшие и производные и дифференциалы]
+	Если функция \fx \ дифференцируема на $E$, а $f^{\shtrih}(x)$ имеет производную в \vtochke{x_0} $\in E$, то функция $f^{\shtrih}(x_0)$ называется второй производной функции $f$ в \vtochke{x_0} и обозначается $f^{\dshtrih}$
+
+	Если $\exists$ $n$-я производная $f^{(n)}$ - функции $f$ на $E$ и $\exists$ $(f^{(n)})^{\shtrih}(x)$ \vtochke{x_0}, то она называется $(n+1)$ производной в \vtochke{x_0} и обозначается $f^{(n+1)}(x_0)$\footnote{Полагаем что -- $f^{(0)}=f(x)$}
+
+	\zagolovok{Функция $n$-раз дифференцируема} означает, что $\exists \ n$ производных на множестве $E$ у этой функции и все они являются непрерывными.
+
+	\zagolovok{Функция $\infty$-раз дифференцируема}  означает, что $\exists$ производная $\forall$ порядка для \vtochke{x_0} или $\forall$ точки из $E$
+\end{defs}
+
+\begin{proofs}[Теорема формула Ньютона-Лейбница]
+	$\pust$ функции $u$ и $v$ - $n$-раз диффер-мы в \vtochke{x} $\sledue$\footnote{С помощью формулы Лейбница можно вычислить производную $n$-го порядка от произведения двух функций.}
+	$$(u \cdot v)^{(n)}(x) = \summa{m=0}{n}\comb{n}{m} u^{m}(x) \cdot v^{(n-m)}(x), \text{ напомним } \comb{n}{m} = \frac{n!}{m!(n-m)!}=\binom{n}{m}$$
+
+	\begin{dokvo}
+		Методом мат. индукции по параметру $n$
+		\begin{enumerate}
+			\item $n = 1 \ \sledue (u\cdot v)^{\shtrih}(x) = u^{\shtrih}(x) \cdot v(x) + u(x) \cdot v^{\shtrih}(x)$ Очевидно, что $\comb{1}{0} = \frac{1!}{0! \cdot 1!} = 1 \ \I \ \comb{1}{1} = \frac{1!}{0! \cdot 1!}$
+			\item $\pust \ n = k$ -- утверждение верно
+
+			\item Докажем для $n = k+1$
+			\begin{gather*}
+				(u \cdot v)^{k+1}(x) \naverh{по предпол}= \skobk{\summa{m=0}{k}\comb{k}{m} u^{(m)}(x) \cdot v^{(k-m)}(x)}^{\shtrih} = \summa{m=0}{k}\comb{k}{m}\skobk{u^{(m)}(x) \cdot v^{(k-m)}(x)}^{\shtrih} = \\
+				= \skobk{\summa{m=0}{k}\comb{k}{m}u^{(m+1)}(x) \cdot v^{(k-m)}(x)} + \skobk{\summa{m=0}{k}\comb{k}{m} u^{(m)}(x)\cdot v^{(k-m+1)}(x)} \naverh{объед суммы}\oeq \\
+				\text{т.к при } 1 \leq p < k \text{ второе слагаемое имеет вид: } \comb{k}{p}u^{(p)}(x)\cdot v^{(k-p+1)}, \text{а при } p - 1 \\  \text{ первое имеет вид: } \comb{k}{p-1}u^{(p)}(x)\cdot v^{(k-p+1)}(x) \text{ при этом бин-й коэф дает: } \\
+				\comb{k}{p} + \comb{k}{p-1} = \frac{k!}{p!(k-p)!} + \frac{k}{(p-1)!(k-p+1)!} = \frac{k!}{(p-1)! (k-p)!} \cdot \skobk{\frac{1}{p} + \frac{1}{k-p+1}} = \\
+				\frac{k!}{(p-1)! (k-p)!} \cdot \skobk{\frac{k-p+1+p}{(k-p+1)\cdot p}} = \frac{k!(k+1)}{(p-1)!(k-p)!\cdot(k-p+1)\cdot p} = \frac{(k+1)!}{p!(k-p+1)!} =
+				\\ = \comb{k+1}{p}
+			\end{gather*}
+			При $p = 0$ в 2-ой сумме: $u^{(0)} \cdot v^{k+1}(x)$
+
+			При $p = k$ в 1-ой сумме: $u^{(k+1)} \cdot v^{0}(x)$
+			$$\oeq u^{(0)}(x) \cdot v^{k+1}(x) + \summa{m=1}{n}\comb{k+1}{p}u^{(m)}(x) \cdot v^{k-m+1}(x) + u^{(k+1)}(x) \cdot v^{(0)}(x) = \summa{k=0}{n}\comb{k+1}{p}u^{(m)}(x)\cdot v^{(k-m+1)}(x)$$
+		\end{enumerate}
+	\end{dokvo}
+\end{proofs}

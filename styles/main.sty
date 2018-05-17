@@ -29,10 +29,12 @@
 \usepackage{filecontents}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
-
-\oddsidemargin=-0.4mm
-\textwidth=165mm
-\topmargin=1mm
-\textheight=210mm
-\parindent=0pt
+\usepackage{layout}
 \parskip=1pt
+\topsep=-10pt
+\hoffset=0pt
+\textheight=240mm
+\marginparwidth 0pt
+\marginparsep 0pt
+\oddsidemargin \dimexpr .5in -1in
+\textwidth \dimexpr \pdfpagewidth -2\oddsidemargin -2in
