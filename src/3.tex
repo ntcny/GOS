@@ -18,7 +18,18 @@
 
 			$F(a) = f(b)\cdot g(a) - \cancel{f(a)\cdot g(a)} - g(b)f(a) + \cancel{g(a)\cdot f(a)} = f(b)\cdot g(a)-g(b)\cdot f(a)$
 
-			$F(b) = \cancel{f(b)\cdot g(b)} - f(a)\cdot g(b) - \cancel{g(b)\cdot f(b)} + g(a)\cdot f(b) = -f(a)\cdot g(b)+f(b)\cdot g(a)$ $\sledue \ F(a) = F(b)$, $F(x)$ - дифференцируема на $\skobk{a,b}$ - как сумма дифференцируемых функции, $F(x)$ - дифференцируема на $\kskobk{a,b}$ - как сумма непрерывных функции $\sledue$ по теореме Ролля $\exists \ \xi \in \skobk{a,b}: F^{\shtrih}(\xi) = 0$
+			$F(b) = \cancel{f(b)\cdot g(b)} - f(a)\cdot g(b) - \cancel{g(b)\cdot f(b)} + g(a)\cdot f(b) = -f(a)\cdot g(b)+f(b)\cdot g(a)$ $\sledue \ F(a) = F(b)$, $F(x)$ - дифференцируема на $\skobk{a,b}$ - как сумма дифференцируемых функции, $F(x)$ - дифференцируема на $\kskobk{a,b}$ - как сумма непрерывных функции $\sledue$ по теореме Ролля $\exists \ \xi \in \skobk{a,b}: F^{\shtrih}(\xi) = 0 \sledue g^{\shtrih}(\xi)(f(b)-f(a))- f^{\shtrih}(\xi)(g(b)-g(a)) = 0 \sledue$
+
+			$$\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f^{\shtrih}(\xi)}{g^{\shtrih}(\xi)}$$
 		\end{enumerate}
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Теорема Лагранжа]
+	Если $f$ - определена и непрерывна на $\kskobk{a,b}$ и диф-ма на $\skobk{a,b}$, то $\exists \xi \in \skobk{a,b}: f(b) - f(a) = f^{\shtrih}(\xi)(b-a)$
+
+	\begin{dokvo}
+		Частный случай теоремы Коши при функции $g(x) = x$
+		$$ \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f^{\shtrih}(\xi)}{g^{\shtrih}(\xi)} \tittg \frac{f(b)-f(a)}{b-a} = \frac{f^{\shtrih}(\xi)}{1} \tittg f(b) - f(a) = f^{\shtrih}(\xi)(b-a)$$
 	\end{dokvo}
 \end{proofs}
