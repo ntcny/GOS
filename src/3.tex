@@ -1,0 +1,24 @@
+\section{Вопрос 3: Теоремы о среднем для действительных функций одного действительного переменного (Ролля, Лагранжа, Коши)}
+
+\begin{proofs}[Теорема Ролля]
+	Если функция $f: \kskobk{a,b} \to \Real$ непрерывна на $\kskobk{a,b}$, диф-ма $\skobk{a,b}$ и $f(a) = f(b)$, то $\exists \ \xi \in \skobk{a,b}, f^{\shtrih}(\xi) = 0$
+
+	\begin{dokvo}
+		Если $f= const$, то утверждение очевидно, если $f \neq const$ $\sledue$ т.к $f$ является непрерывной функцией на $\kskobk{a,b}$, то по \textbf{2-й теореме Вейерштрасса} (функция непрерывная на отрезке достигает на нем своих минимального и максимального значений) т.к $f \neq const$ и $f(a) = f(b) \ \sledue$ хотя бы одно из $\max|\min$ значений достигается на $\skobk{a,b} \ \sledue$ там достигается локальный экстремум (локальный минимум или локальный максимум) - \vtochke{x} называется точкой локального $\max(\min)$ для $f$, если $\exists \ U(x): \forall z \in U(x), f(z) \leq (\geq) f(x) \ \sledue$ по теореме Ферма (т. Ферма $\pust x$ точка локального экстремума ф-и $f$ и $\exists f^{\shtrih}(x)\ \sledue \ f^{\shtrih}(x)=0$) $\sledue$ в некторой \vtochke{\xi}, $\xi \in \skobk{a,b} f^{\shtrih}(\xi) = 0$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Теорема Коши]
+	Если функции $f \I g$ определены, непрерывны на $\kskobk{a,b}$, дифференцируемы на $\skobk{a,b}$ и $g^{\shtrih}(x)$  не обращается в $0$ на $$\skobk{a,b} \ \sledue \ \exists \xi \in \skobk{a,b}: \frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f^{\shtrih}(\xi)}{g^{\shtrih}(\xi)}$$
+
+	\begin{dokvo}
+		\begin{enumerate}
+			\item $g(b) - g(a) \neq 0$ так как в противном случае $\exists \ \eta \in \skobk{a,b}: g^{\shtrih}(\eta) = 0$ по теореме Ролля
+			\item Рассмотрим функцию $F(x) = \skobk{\skobk{f(b)-f(a)}\cdot g(x)} - \skobk{\skobk{g(b)-g(a)}\cdot f(x)}$ на $\kskobk{a,b}$
+
+			$F(a) = f(b)\cdot g(a) - \cancel{f(a)\cdot g(a)} - g(b)f(a) + \cancel{g(a)\cdot f(a)} = f(b)\cdot g(a)-g(b)\cdot f(a)$
+
+			$F(b) = \cancel{f(b)\cdot g(b)} - f(a)\cdot g(b) - \cancel{g(b)\cdot f(b)} + g(a)\cdot f(b) = -f(a)\cdot g(b)+f(b)\cdot g(a)$ $\sledue \ F(a) = F(b)$, $F(x)$ - дифференцируема на $\skobk{a,b}$ - как сумма дифференцируемых функции, $F(x)$ - дифференцируема на $\kskobk{a,b}$ - как сумма непрерывных функции $\sledue$ по теореме Ролля $\exists \ \xi \in \skobk{a,b}: F^{\shtrih}(\xi) = 0$
+		\end{enumerate}
+	\end{dokvo}
+\end{proofs}
