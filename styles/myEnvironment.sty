@@ -48,3 +48,10 @@
 \noindent }
 {}
 \counterwithin{thesledsv}{section}
+
+\newcounter{thezad} 
+\newenvironment{zad}[1][\unskip]{%
+\textbf{Задача$\dagger$ \arabic{thezad}:}
+\noindent }
+{}
+\counterwithin{thezad}{section}
