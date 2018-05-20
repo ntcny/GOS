@@ -15,14 +15,14 @@
 \textbf{Цель модели} -- определение и обоснование условий проверки возможности утечки права доступа по исходному графу.
 
 \begin{defs}[Предикат $can-share$]
-	$ \sqsupset x,y \in O_0, G_0 = (S_0, O_0, E_0), \alpha   \subseteq R$. Определим предикат 
-	$can-share(\alpha, x, y, G_0)$, который истинен ТИТТК $ \exists G_1 = (S_1, O_1, E_1), \ldots, 
-	G_N = (S_N, O_N, E_N)$ и правила $op_1, \ldots, op_N, N \geqslant 0$, т.что 
+	$ \sqsupset x,y \in O_0, G_0 = (S_0, O_0, E_0), \alpha   \subseteq R$. Определим предикат
+	$can-share(\alpha, x, y, G_0)$, который истинен ТИТТК $ \exists G_1 = (S_1, O_1, E_1), \ldots,
+	G_N = (S_N, O_N, E_N)$ и правила $op_1, \ldots, op_N, N \geqslant 0$, т.что
 	$G_0 \vdash_{op_1} \ldots \vdash_{op_N} G_N $ и $(x, y, \alpha) \subset E_N$.
 \end{defs}
 
 \begin{defs}[$tg$-связность]
-	Пусть $G = (S, S, E)$ -- граф доступов, вершины которого являются субъектами. Вершины являются $tg$-связными, или 
+	Пусть $G = (S, S, E)$ -- граф доступов, вершины которого являются субъектами. Вершины являются $tg$-связными, или
 	соединены $tg$-путем, если между ними существует путь, каждое ребро которого помечено t или g.
 \end{defs}
 
@@ -30,9 +30,9 @@
 	$\sqsupset  G_0 = (S_0, S_0, E_0), x,y \in S_0, x \neq y$. Тогда предикат $can-share(\alpha, x, y, G_0)$
 	истинен ТИТТК выполняются условия:
 	\begin{enumerate}
-		\item $ \sqsupset s_1, \ldots, s_m \in S_0 : (s_i, y, \gamma_i) \subset E_0 $, где 
+		\item $ \sqsupset s_1, \ldots, s_m \in S_0 : (s_i, y, \gamma_i) \subset E_0 $, где
 		$ i = 1, \ldots, m $ и $ \alpha = \gamma_1 \cup \ldots \cup \gamma_m $.
-		\item Субъекты $ x $ и $ s_i $ являются $tg$-связными в графе $G_0, i = 1, \ldots, m $.	
+		\item Субъекты $ x $ и $ s_i $ являются $tg$-связными в графе $G_0, i = 1, \ldots, m $.
 	\end{enumerate}
 \end{proofs}
 
@@ -45,7 +45,7 @@
 \end{defs}
 
 \begin{defs}[Начальный пролет]
-	Начальным пролетом моста в графе доступов называется tg-путь, началом которого является вершина субъект, концом -- объект, проходящий через ввершины объекты, словарная запись которого имеет вид 
+	Начальным пролетом моста в графе доступов называется tg-путь, началом которого является вершина субъект, концом -- объект, проходящий через ввершины объекты, словарная запись которого имеет вид
 	 $ \overrightarrow{t}^* \overrightarrow{g} $.
 \end{defs}
 
@@ -58,19 +58,19 @@
 	$\sqsupset  G_0 = (S_0, O_0, E_0), x,y \in O_0, x \neq y$. Тогда предикат $can-share(\alpha, x, y, G_0)$
 	истинен ТИТТК или $(x, y, \alpha ) \subset E_0$, или выполняются условия:
 	\begin{enumerate}
-		\item $ \sqsupset s_1, \ldots, s_m \in O_0 : (s_i, y, \gamma_i) \subset E_0 $, где 
+		\item $ \sqsupset s_1, \ldots, s_m \in O_0 : (s_i, y, \gamma_i) \subset E_0 $, где
 		$ i = 1, \ldots, m $ и $ \alpha = \gamma_1 \cup \ldots \cup \gamma_m $.
-		\item $ \exists x_1^{\shtrih}, \ldots, x_m^{\shtrih}, s_1^{\shtrih}, \ldots, s_m^{\shtrih} \in S_0$ :		
+		\item $ \exists x_1^{\shtrih}, \ldots, x_m^{\shtrih}, s_1^{\shtrih}, \ldots, s_m^{\shtrih} \in S_0$ :
 			\begin{itemize}
 				\item $x = x_i^{\shtrih}$ или $x_i^{\shtrih}$ соединен с $x$ наальным пролетом моста в графе $G_0$
 				\item $s_i = s_i^{\shtrih}$ или $s_i^{\shtrih}$ соединен с $s_i$ конечным пролетом моста в графе $G_0$
 			\end{itemize}
-		\item В графе $G_0$ для каждой пары $(x_i^{\shtrih}, s_i^{\shtrih}) \exists $ острова $I_{i,1}, \ldots, I_{i, u_{i}}$, где $u_i \geqslant 1$, т.что 
-		$x_i^{\shtrih} \in I_{i,1}, s_i^{\shtrih} \in I_{i, u_{i}}$, и существуют мосты между островами $I_{i,j}$ и $I_{i, j+1}, j = 1, \ldots, u_i - 1$.	
+		\item В графе $G_0$ для каждой пары $(x_i^{\shtrih}, s_i^{\shtrih}) \exists $ острова $I_{i,1}, \ldots, I_{i, u_{i}}$, где $u_i \geqslant 1$, т.что
+		$x_i^{\shtrih} \in I_{i,1}, s_i^{\shtrih} \in I_{i, u_{i}}$, и существуют мосты между островами $I_{i,j}$ и $I_{i, j+1}, j = 1, \ldots, u_i - 1$.
 	\end{enumerate}
 \end{proofs}
 
-\textbf{Take-Grant в ХРУ} 
+\textbf{Take-Grant в ХРУ}
 
 Состояние системы $Take-Grant$ описыается:
 \begin{enumerate}
@@ -78,7 +78,7 @@
 	\item $R_{tg}$
 \end{enumerate}
 
-\textbf{ХРУ:} 
+\textbf{ХРУ:}
 \begin{enumerate}
 	\item $R = R_{tg} \cup \{own\}$
 	\item $S = O = O_{tg}$
@@ -90,7 +90,7 @@
 		$if (own \in M[x,x]) and (t \in M[x,y])and (r_1 \in M[y,z])and  \ldots and (r_k \in M[y,z]) then $
 
 		\kav{внести} право $r_1$ в $M[x,z]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,z]$
@@ -98,15 +98,15 @@
 		$endif$
 
 		$end$
-		
-		
-		
+
+
+
 		$command  Grant_{\alpha}(x,y,z)$
 
 		$if (own \in M[x,x]) and (g \in M[x,y])and (r_1 \in M[x,z])and  \ldots and (r_k \in M[x,z]) then $
 
 		\kav{внести} право $r_1$ в $M[y,z]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[y,z]$
@@ -114,17 +114,17 @@
 		$endif$
 
 		$end$
-		
-		
-		
+
+
+
 		$command  CreateObjectAlpha(x,y)$
 
 		$if (own \in M[x,x]) then $
-		
+
 		\kav{создать} субъект $y$
 
 		\kav{внести} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,y]$
@@ -132,19 +132,19 @@
 		$endif$
 
 		$end$
-		
-		
-			
+
+
+
 		$command  CreateSubjectAlpha(x,y)$
 
 		$if (own \in M[x,x]) then $
-		
+
 		\kav{создать} субъект $y$
-		
+
 		\kav{внести} право $own$ в $M[y,y]$
 
 		\kav{внести} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,y]$
@@ -152,15 +152,15 @@
 		$endif$
 
 		$end$
-		
-		
-		
+
+
+
 		$command  RemoveAlpha(x,y)$
 
 		$if (own \in M[x,x]) then $
 
 		\kav{удалить} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{удалить} право $r_k$ в $M[x,y]$
@@ -169,37 +169,37 @@
 
 		$end$
 
-		
-	\textbf{Take-Grant в ТМД} 
-		
-	\textbf{Take-Grant:} 
-		
+
+	\textbf{Take-Grant в ТМД}
+
+	\textbf{Take-Grant:}
+
 	\begin{enumerate}
 		\item $G=(S_{tg}, O_{tg}, E)$
 		\item $R_{tg}$
 	\end{enumerate}
-	
-	\textbf{ТМД:} 
-	
+
+	\textbf{ТМД:}
+
 	\begin{enumerate}
 		\item $R = R_{tg}$
 		\item $S = O = O_{tg}$
 		\item $M_{|S| \times |S|}$ -- матрица доступов, где для $x,y \in O_{tg}$,если $(x, y, r) \in E$ то $r \in M[x,y]$
 		\item $T = \{subject, object\}$ -- множество типов
-		\item $t: O \to T : t(s) = subject, t(o) = object, o \in O_{tg} \backslash S_{tg}$ 
+		\item $t: O \to T : t(s) = subject, t(o) = object, o \in O_{tg} \backslash S_{tg}$
 		\item $q = (S, O, t, M)$ -- состояние ТМД
 	\end{enumerate}
-	
-	
+
+
 	Построим отображение правил преобразования графов доступов в множество команд системы ТМД.
-	
-	
+
+
 		$command  Take_{r_1, \ldots, r_k}os(x: subject,y:object,z:subject)$
 
 		$if (t \in M[x,y]) and (r_1 \in M[y,z])and  \ldots and (r_k \in M[y,z]) then $
 
 		\kav{внести} право $r_1$ в $M[x,z]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,z]$
@@ -207,15 +207,15 @@
 		$endif$
 
 		$end$
-		
-	
+
+
 
 		$command  Grant_{r_1, \ldots, r_k}so(x: subject,y:subject,z:object)$
 
 		$if (g \in M[x,y]) and (r_1 \in M[x,z]) and  \ldots and (r_k \in M[x,z]) then $
 
 		\kav{внести} право $r_1$ в $M[y,z]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[y,z]$
@@ -223,15 +223,15 @@
 		$endif$
 
 		$end$
-		
-		
+
+
 		$command  CreateObjectAlpha_{r_1, \ldots, r_k}(x: subject,y:object)$
 
-		
+
 		\kav{создать} субъект $y$ с типом $object$
 
 		\kav{внести} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,y]$
@@ -239,17 +239,17 @@
 		$endif$
 
 		$end$
-		
-		
-			
+
+
+
 		$command  CreateSubjectAlpha_{r_1, \ldots, r_k}(x: subject,y:subject)$
 
 		$if (own \in M[x,x]) then $
-		
+
 		\kav{создать} субъект $y$ с типом $subject$
 
 		\kav{внести} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{внести} право $r_k$ в $M[x,y]$
@@ -257,15 +257,15 @@
 		$endif$
 
 		$end$
-		
-		
-		
+
+
+
 		$command  RemoveAlpha_{r_1, \ldots, r_k}(x: subject,y:object)$
 
 		$if (own \in M[x,x]) then $
 
 		\kav{удалить} право $r_1$ в $M[x,y]$
-		
+
 		$\ldots$
 
 		\kav{удалить} право $r_k$ в $M[x,y]$
@@ -273,4 +273,4 @@
 		$endif$
 
 		$end$
-		
+		\newpage
