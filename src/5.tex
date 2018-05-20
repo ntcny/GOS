@@ -1,0 +1,40 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 5: Числовой ряд. Сходящиеся ряды и их простейшие свойства. Признаки сходимости рядов с положительными членами (признаки сравнения, Даламбера, Коши). Абсолютно и неабсолютно сходящиеся ряды. Признаки
+Дирихле, Абеля и Лейбница. Переместительное свойство абсолютно сходящихся рядов.}
+
+\begin{defs}
+	$\fskobk{a_n}$ - последовательность чисел из $\Complex$, $S_n = \summa{i=1}{n}a_i$ - $n$-я частичная сумма ряда. Числовой ряд - пара $\fskobk{a_n, S_n}, n \in \Natural$ Будем говорить, что ряд $\fskobk{a_n, S_n}$ \textbf{сходится}, если $\exists$ предел последовательности частичных сумм:$\exists \predel{n\to \infty}S_n$ - в этом случае данный предел - сумма ряда. Если предел $\nexists \predel{n\to \infty}S_n$, то ряд \textbf{расходится}, а $a_n$ - $n$-й  чден ряда;(обозначается $\summa{n=1}{\infty}a_n$)
+\end{defs}
+
+\begin{proofs}[Простейшие свойства сходящихся и расходящихся рядов]
+\begin{enumerate*}
+	\item Пусть $z_n \in \Complex$, $z_n = x_n + \imag{y_n}$, где $x_n, y_n \in \Real$, $\summa{n=1}{\infty}z_n$ -ряд, то он сходится $\tittg$ сходится $\summa{n=1}{\infty}x_n$ и $\summa{n=1}{\infty}y_n$
+	\begin{dokvo}
+		Следствие теоремы о том, что $\exists \predel{n \to \infty}z_n \tittg \exists \predel{n \to \infty}x_n \I \exists \predel{n \to \infty}y_n$
+	\end{dokvo}
+
+	\item $\summa{n=1}{\infty}a_m$ - числовой ряд и $\rassmotr$ $\summa{n=1}{\infty}b_n: \ b_n = a_{m+n}$, тогда эти ряды сходятся и расходятся одновременно
+	\begin{dokvo}
+	Следствие теоремы о возможности удаления из последовательности сходящегося конечного числа членов
+	\end{dokvo}
+
+	\item $\summa{n=1}{\infty}a_n$,$\summa{n=1}{\infty}b_n$ - сходящиеся ряды; $c$ -константа, тогда ряды $\summa{n=1}{\infty}(a_n+b_n)$ и $\summa{n=1}{\infty}c \cdot a_n$ - сходятся и $\summa{n=1}{\infty}(a_n+b_n) = \summa{n=1}{\infty}a_n + \summa{n=1}{\infty}b_n$, а $\summa{n=1}{\infty}c\cdot a_n = c \cdot \summa{n=1}{\infty}a_n$
+
+	\item \textbf{Необходимый признак сходимости} Если ряд $\summa{n=1}{\infty}a_n$ сходится, то $\predel{n \to \infty}a_n = 0$
+	\begin{dokvo}
+		т.к $a_n = S_n - S_{n-1}$ и при этом $\predel{n\to \infty}S_n = \predel{n\to \infty}S_{n-1}$ т.к как ряд $\summa{n=1}{\infty}a_n$ сходится $\sledue \predel{n \to \infty}a_n=0$
+	\end{dokvo}
+
+	\item \textbf{Критерий сходимости Коши} Ряд $\summa{n=1}{\infty}a_n$ сходится $\tittg$ $\forall \ \epsilon > 0 \exists N \in \Natural: \forall n > N, n,p\in \Natural$ выполняется $\Modul{a_{n+1}+ \cdots + a_{n+p}} < \epsilon$
+	\begin{dokvo}
+		$\exists \ \predel{n\to \infty}S_n \tittg \ \forall \ \epsilon > 0 \exists \ N\in \Natural: \forall m,n > N \ \Modul{S_m - S_n} < \epsilon, \pust m > n \sledue m = n + p \sledue \Modul{S_m - S_n} = \Modul{a_{n+1}+ \cdots + a_{n+p}}$
+	\end{dokvo}
+\end{enumerate*}
+\end{proofs}
+
+\begin{proofs}[Ряды с неотрицательными членами]
+	\begin{enumerate*}
+		\item \textbf{Признак сравнения}:  $\summa{n=1}{\infty}a_n$, $\summa{n=1}{\infty}b_n$ ряды с неотрицательными членами. Начиная с некоторого $N$ выполняется $a_n \leq b_n \ \forall n > N \ \sledue$ из сходимости ряда $\summa{n=1}{\infty}b_n$ следует сходимость ряда $\summa{n=1}{\infty}a_n$, а из расходимости ряда $\summa{n=1}{\infty}a_n$ следует расходимость $\summa{n=1}{\infty}b_n$
+	\end{enumerate*}
+
+\end{proofs}

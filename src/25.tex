@@ -5,10 +5,10 @@
 	Пусть $(\Omega, \agot)$ -- произвольное измеримое пространство и $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ -- конкретное измер. пространство.
 	Тогда случайной величиной, определенной на изм. пр. $(\Omega, \agot)$ (или на вер. пр. $(\Omega, \agot, \mathbb{P}(\cdot))$), наз. всякое
 	$(\agot, \mathcal{B}(\mathbb{R}))$ -- измеримое отображение $\Omega \to \mathbb{R}$, т.е.
-	\begin{enumerate}
+	\begin{enumerate*}
 	\item $\xi:\Omega \to \mathbb{R}$, т.е. $\forall \omega \in \Omega \exists$! $x=\xi(\omega) \in \mathbb{R}$
 	\item $\forall B \in \mathcal{B}(\mathbb{R}): \xi^{-1}(B)\in \agot$
-	\end{enumerate}
+	\end{enumerate*}
 \end{defs}
 
 \begin{defs}[Функция распределения]
@@ -20,7 +20,7 @@
 \begin{proofs}[Основные аналитич. свойства функции распределения]
 	Функция распределения $F_{\xi}(x)$, $x \in \mathbb{R}$, всякой с.в. $\xi$, определенной на произвольном в.п.
 	$(\Omega, \agot, \mathbb{P}(\cdot))$ обладает следующими общими свойствами:
-	\begin{enumerate}
+	\begin{enumerate*}
 	\item $0 \leq F_{\xi} \leq 1$ $\forall x \in \mathbb{R}$
 	\item $F_{\xi}(x)$ мнотонна, не убывает на $\mathbb{R}$, т.е. $F_{\xi}(x_1) \leq F_{\xi}(x_2)$ $\forall x_1 \leq x_2$
 	\item
@@ -35,7 +35,7 @@
 
 	\item Функция распределения $F_{\xi}(x)$ в отдельных точках $x \in \mathbb{R}$ (для разных $\xi$) может быть как непрерывной, так и разрывной, при этом
 	множество точек разрыва всегда дискретно(не более чем счетно).
-	\end{enumerate}
+	\end{enumerate*}
 \end{proofs}
 
 \begin{zad}
@@ -67,7 +67,7 @@
 
 \begin{defs}[Основные дискретные распределения]
 	\begin{multicols}{2}
-	\begin{itemize}
+	\begin{itemize*}
 			\item \zagolovok{Вырожденное}
 			\[ \xi \sim \left( \begin{array}{c}
 				a \\ \hline
@@ -92,12 +92,12 @@
 				1 & \multicolumn{1}{|c}{2} & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{k} & \multicolumn{1}{|c}{\cdots}\\ \hline
 				p & \multicolumn{1}{|c}{pq} & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{pq^{k-1}} & \multicolumn{1}{|c}{\cdots}\\
 			\end{array} \right) \]
-	\end{itemize}
+	\end{itemize*}
 	\end{multicols}
 \end{defs}
 
 \begin{defs}[Основные абсолютно непрерывные распределения]
-	\begin{itemize}
+	\begin{itemize*}
 		\item \zagolovok{Равномерное на отрезке}
 
 		\begin{gather*}
@@ -155,6 +155,6 @@
 			      \includegraphics[width=0.8\linewidth]{img/chi.png}
 			      \caption{Плотность хи-квадрат-распределения}
 			\end{figure}
-	\end{itemize}
+	\end{itemize*}
 \end{defs}
 \newpage

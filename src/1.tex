@@ -23,11 +23,11 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 \end{defs}
 
 \textbf{На практике удобно использовать следующие 3 условия} непрерывности функции $f(x)$ в точке $x = a$ (которые должны выполняться одновременно):
-\begin{enumerate}
+\begin{enumerate*}
 	\item Функция $f(x)$ определена в точке $a$
 	\item Предел $\predel{x \to a}f(x)$ существует
 	\item Выполняется равенство $\predel{x \to a}f(x)= f(a)$
-\end{enumerate}
+\end{enumerate*}
 
 \begin{defs}
 	Элементами пространства $\Rmern{n}$ являются упорядоченные наборы $\myvect{1}{n}$, где $x_i \in \Real$
@@ -73,10 +73,10 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 
 \begin{defs}
 	Пусть $f: E \to \Rmern{m}$, $E \in \Rmern{n}$, $x_0 \in E$ Ф-я $f(x)$ называется непрерывной в точке $x_0$, если $\forall U(f(x_0)) \ \exists U(x_0): \ \forall x\in U_E(x_0) \sledue f(x) \in U(f(x_0))$
-	\begin{itemize}
+	\begin{itemize*}
 		\item $x_0$ изолированная $\sledue$ $f(x)$ всегда непрерывна в точке $x_0$
 		\item $x_0$ предельная точка $E$ $\sledue$ $\skobk{f(x) \text{ непрерывна в точке } x_0} \tittg \exists \predel{x \to x_0}f(x)=f(x_0)$
-	\end{itemize}
+	\end{itemize*}
 \end{defs}
 
 \begin{claim}
@@ -88,10 +88,10 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 \end{claim}
 
 \begin{claim}
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item $f_1,f_2: E \to \Rmern{m}$, $E \in \Rmern{n}$, $f_i$ непрерывна в точке $x_0 \in E$ $\sledue$ $f_1 + f_2, \lambda\cdot f_1$ непрерывны в точке $x_0$
 		\item $f_1,f_2: E \to \Rmern{m}$, $E \in \Rmern{n}$, $f_i$ непрерывна в точке $x_0 \in E$ $\sledue$ $f_1 \cdot f_2, \frac{f_1}{f_2}$, если $f_2 \neq 0$
-	\end{enumerate}
+	\end{enumerate*}
 
 	\begin{dokvo}
 		Следует из свойств предела функции
@@ -176,11 +176,11 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 
 \begin{defs}[точки разрыва]
 	$f: E \to \Real, E \subseteq \Real$, точка $x_0 \in \Real$ является точкой разрыва \fx, если
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item либо $\skobk{x_0 \in E} \I $ $\skobk{f - \text{не является непрерывной в точке} \ x_0}$
 		\item либо $\skobk{x \notin E} \I \skobk{x \in \prokol{E}}$
 
-	\end{enumerate}
+	\end{enumerate*}
 \end{defs}
 
 \begin{defs}[устранимая]
@@ -190,10 +190,10 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 
 \begin{defs}[I рода]
 	Точка разрыва $x_0$ называется точкой разрыва \textbf{I рода} если:
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item $x_0 \in \prokol{E}^{+} \sledue \exists f(x_0 + 0) \naverh{обозн}\tittg \predel{x\to x_0 + 0 \ \in E}f(x) \ \in \Real$
 		 \item $x_0 \in \prokol{E}^{-} \sledue \exists f(x_0 - 0) \naverh{обозн}\tittg \predel{x\to x_0 - 0 \ \in E}f(x) \ \in \Real$
-	\end{enumerate}
+	\end{enumerate*}
 \end{defs}
 
 \begin{claim}

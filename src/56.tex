@@ -2,19 +2,19 @@
 \section{Вопрос 56: Модель матрицы доступов Харрисона-Руззо-Ульмана (ХРУ). Теорема об алгоритмической неразрешимости задачи проверки безопасности произвольной системы ХРУ.}
 
 \textbf{Модель ХРУ} реализует дискреционную политику управления доступом:
-\begin{enumerate}
+\begin{enumerate*}
 	\item Все сущности должны быть идентифициорованны
 	\item Задана матрица доступов
 	\item Субъект обладает правом доступа к сущности ТИТТК в заданной ячейке есть право доступа
-\end{enumerate}
+\end{enumerate*}
 
 \begin{defs}[Модель ХРУ]
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item О -- множество объектов
 		\item S -- множество субъектов
 		\item R -- множество видов прав доступа субъектов к объектам (например read, write, own - владеть)
 		\item M -- матрица доступов (строки представляют собой субъекты, столбцы - объекты)
-	\end{enumerate}
+	\end{enumerate*}
 \end{defs}
 
 \begin{figure}[H]
@@ -100,7 +100,7 @@
 
 		Если $d = r$, то 2 случая (для крайней правой позиции и для другой произвольной)
 		\begin{multicols}{2}
-			\begin{itemize}
+			\begin{itemize*}
 				\item 	$\mathbf{command} \  R1_{q_{i_{j}}a_{i_{t}}q_{i_{j^{\shtrih}}}a_{i_{t^{\shtrih}}}}(s, s^{\shtrih})$
 
 					$if (q_{i_{j}} \in M[s,s]) and (a_{i_{t}} \in M[s,s]) and (own \in M[s,s^{\shtrih}]) then $
@@ -142,7 +142,7 @@
 					$endif$
 
 					$end$
-			\end{itemize}
+			\end{itemize*}
 		\end{multicols}
 
 

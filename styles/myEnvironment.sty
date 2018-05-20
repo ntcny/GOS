@@ -7,6 +7,17 @@
 }
 \makeatother
 
+\newenvironment{itemize*}%
+  {\begin{itemize}%
+    \setlength{\itemsep}{1pt}%
+    \setlength{\parskip}{0pt}}%
+  {\end{itemize}}
+
+  \newenvironment{enumerate*}%
+    {\begin{enumerate}%
+      \setlength{\itemsep}{1pt}%
+      \setlength{\parskip}{0pt}}%
+    {\end{enumerate}}
 
 \newcounter{thedefs} \setcounter{thedefs}{1}
 \newenvironment{defs}[1][\unskip]{%
@@ -56,7 +67,7 @@
 {}
 \counterwithin{thesledsv}{section}
 
-\newcounter{thezad} 
+\newcounter{thezad}
 \newenvironment{zad}[1][\unskip]{%
 \textbf{Задача$\dagger$ \arabic{thezad}:}
 \noindent }

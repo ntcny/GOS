@@ -33,15 +33,15 @@
 \end{proofs}
 
 \begin{sledsv}[Для условии теоремы выше справедливо]
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1}$, $\xi \in \skobk{x_0,x}$ -- \textbf{Остаточный член в форме Лагранжа}
 		\item $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)}{n!}\cdot (x-\xi)^{n}\cdot (x-x_0)$, $\xi in \skobk{x_0, x}$ -- \textbf{Остаточный член в форме Коши}
 		\item Если функция $f$ дополнение к условию теоремы дифф-ма $n+1$ раз на $\kskobk{x_0,x}$ и $n+1$ - непрерывна в \vtochke{x_0}, то $r_{n+1}(x,x_0) = \omaloe{(x-x_0)^{n+1}}$, при $x \to x_0$  -- \textbf{Остаточный член в форме Пеано}
-	\end{enumerate}
+	\end{enumerate*}
 
 	\begin{dokvo}
 		остаточный член в форме Шлемильха-Роша $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)  \cdot (\phi(x)-\phi(x_0))}{\phi^{\shtrih}(\xi) \cdot n!}\cdot (x-\xi)^{n}$
-		\begin{enumerate}
+		\begin{enumerate*}
 			\item при $\phi(t) = (x-t)^{n+1}$
 			$$\frac{f^{(n+1)}(\xi) \cdot (-(x-x_0)^{n+1})}{n! \cdot (-(n+1)\cdot \cancel{(x - \xi)^{n}})}\cdot \cancel{(x-\xi)^{n}}$$
 			\item при $\phi(t) = x - t:$
@@ -49,7 +49,7 @@
 			\item $f(t) = T_n\skobk{x,x_0} + \frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1} =$
 			$$T_n\skobk{x,x_0} + \frac{f^{(n+1)}(x_0)}{(n+1)!}\cdot (x-x_0)^{n+1} + \underbrace{\frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1} - \frac{f^{(n+1)}(x_0)}{(n+1)!}\cdot (x-x_0)^{n+1}}_{\omaloe{(x-x_0)^{n+1}}} \oeq$$
 			$\oeq T_{n+1}(x,x_0) + \omaloe{ (x-x_0)^{n+1}} f^{(n+1)}(\xi)-f^{(n+1)}(x_0)=\omaloe{1}$ при $x\to x_0$ так как $\xi \to x$ и $f^{(n+1)}$ непрерывная в точке $x_0$
-		\end{enumerate}
+		\end{enumerate*}
 	\end{dokvo}
 \end{sledsv}
 
@@ -74,14 +74,14 @@ $f^{\shtrih}(x) < 0$, то \vtochke{x_0} точка локального мак�
 	\end{gather*}
 	$\exists \delta > 0: \forall x: \Modul{x- x_0} < \delta, \Modul{\omaloe{1}} < \Modul{\frac{f^{(n)}(x_0)}{n!}}\cdot \frac{1}{2} \sledue$ знак выражения в скобках совпадает со знаком $\frac{f^{n}(x_0)}{n!}$
 
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item \zagolovok{$n$ - нечетное} $\sledue \ f(x) - f(x_0)$ меняет зна при прохождении $x$ через $x_0$ $\sledue x_0$ не точка экстремума
 		\item \zagolovok{$n$ - четное} $\sledue$ не меняет, при этом имеет знак, совпадающий с $\frac{f^{n}(x_0)}{n!}$
-		\begin{itemize}
+		\begin{itemize*}
 			\item $f(x) - f(x_0)>0$,если $x \neq x_0, \Modul{x- x_0} < \delta$ и $f^{(n)}(x_0)>0 \sledue$ $x_0$ точка строгого локального минимума
-			\item $f(x) - f(x_0)<0$,если $x \neq x_0, \Modul{x- x_0} < \delta$ и $f^{(n)}(x_0)<0 \sledue$ $x_0$ точка строгого локального максимума 
-		\end{itemize}
-	\end{enumerate}
+			\item $f(x) - f(x_0)<0$,если $x \neq x_0, \Modul{x- x_0} < \delta$ и $f^{(n)}(x_0)<0 \sledue$ $x_0$ точка строгого локального максимума
+		\end{itemize*}
+	\end{enumerate*}
 \end{dokvo}
 \end{proofs}
 \newpage

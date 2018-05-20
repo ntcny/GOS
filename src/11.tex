@@ -31,10 +31,10 @@
 \begin{defs}[Ступенчатая матрица]
   Ненулевая матрица $S=(s_{i,j})$ называется ступенчатой матрицей типа $S(i_1, \ldots, i_r)$,
   где $r \in \overline{1,m}, 1 \leqslant i_1 < \ldots < i_r \leqslant n$, если:
-  \begin{enumerate}
+  \begin{enumerate*}
   	\item $s_{1i_1}, s_{2i_2}, \ldots, s_{ri_r} \neq 0$
   	\item $s_{l_t} = 0$ при $l > r, t \in \overline{1,n}$ и при $l \in \overline{1,r}, t < i_l$
-  \end{enumerate}
+  \end{enumerate*}
 \end{defs}
 
 Подробно:\\
@@ -53,7 +53,7 @@ $$S =
 	Любую матрицу $A$ над полем $P$ можно элементарными преобразованиями строк привести к ступенчатой матрице.
 	\begin{dokvo}
     Индукция по числу $m$ строк матрицы.
-    \begin{enumerate}
+    \begin{enumerate*}
     \item База индукции. $m = 1$. Матрица $A$ и есть ступенчатая, утверждение верно.
     \item Предположим, что утверждение верно для $m$.
     \item Докажем для $m + 1$.
@@ -89,7 +89,7 @@ $$S =
 
       Так как чсло строк матрицы $A_1$ равно $m$, то по предположению индукции она строчно
       эквивалентна ступенчатой матрице, то есть $B'$ можно преобразовать в искомую ступенчатую матрицу.
-    \end{enumerate}
+    \end{enumerate*}
 	\end{dokvo}
 \end{proofs}
 
@@ -130,12 +130,12 @@ $$S =
 
 \begin{proofs}[О эквивалентных матрицах (без доказательства)]
 	$\forall A,B \in P_{m,n}$ равносильны утверждения:
-  \begin{enumerate}
+  \begin{enumerate*}
   	\item $A~B$;
   	\item $\exists U \in P_{m,n}, V \in P_{n,n}$ такие, что $B = UAV$;
     \item $\rang{A} = \rang{B}$;
     \item $K(A) = K(B)$.
-  \end{enumerate}
+  \end{enumerate*}
 	\begin{dokvo}
     Достаточно легко доказывается цепочка $1 \sledue 2 \sledue 3 \sledue 4 \sledue 1$
 	\end{dokvo}

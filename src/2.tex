@@ -7,18 +7,18 @@
 
 \begin{defs}
 	Отображение $L: \Rmern{n}\to\Rmern{m}$ называется линейным если:
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item $L(x+y)= L(x) + L(y), \ \forall x,y \in \Rmern{n}$
 		\item $L(\lambda \cdot x) = \lambda \cdot L(x), \forall
 		\lambda \in \Real,  x\in \Rmern{n}$
-	\end{enumerate}
+	\end{enumerate*}
 
 	\zagolovok{Свойства}
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item $x = (x_1, \ldots, x_n) \in \Rmern{n}$, $\overline{l} = (l_1,\ldots,l_n)$ -- стандартный базис $\Rmern{n}$ $x = \summa{i=1}{n}x_i \cdot l_i$ $\sledue$ $L(x) = \summa{i=1}{n}L(l_i)\cdot x_i$
 
 		\item $\overline{f}= (f_1,\ldots,f_m)$ -- стандартный базис $\Rmern{m}$ $A_l = \skobk{L(l_1)^{\downarrow}_{\overline{f}},\ldots,L(l_m)^{\downarrow}_{\overline{f}}} \in \Real_{m \times n}$ -- матрица линейного отображения $\sledue$ $L(x) = \overline{f} \cdot A_l \cdot x_{\overline{l}}^{\downarrow}$
-	\end{enumerate}
+	\end{enumerate*}
 \end{defs}
 
 \begin{defs}
@@ -28,12 +28,12 @@
 \end{defs}
 
 \begin{claim}[Свойства диференцируемых отображений и производной]
-	\begin{enumerate}
+	\begin{enumerate*}
 		\item Если $f: U \to \Rmern{m}, U \subset \Rmern{n}$ -- открытое, дифференцируема в точке $x_0 \in U$, то $f$ - непрерывна в точке $x_0$
 		\begin{dokvo}
 			$\dprirash f = f(x_0 + h) - f(x_0)$, $\predel{h \to 0} \dprirash f = \predel{h \to 0}\skobk{f^{\shtrih}(x_0)h + o(h)}$ $\sledue$ $f$ непрерывна в точке $x_0$
 		\end{dokvo}
-	\end{enumerate}
+	\end{enumerate*}
 \end{claim}
 
 \begin{defs}
@@ -49,21 +49,21 @@
 
 	\begin{dokvo}
 		Будем говорить, что ф-я \fx является $\overline{o}$ - функции $g(x)$, если $\exists$ такая бесконечно малая величина $\alpha(x): \ f(x) = \alpha(x) \cdot g(x)$, при $x \to x_0$ - предельная точка множества $E$
-		\begin{itemize}
+		\begin{itemize*}
 			\item[$\Rightarrow$] $\pust \ f$ -дифференцируема, тогда верно: $f^{\shtrih}(x) = \predel{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x} \ \sledue$ на языке $\mathsf{o}$--символики $= f^{\shtrih}(x) + \frac{f(x + \Delta x) - f(x)}{\Delta x} =\omaloe{1}$, $\dprirash x \to 0 | \cdot \Delta x \ \sledue$ $f(x + \dprirash x) - f(x) = \underbrace{f^{\shtrih}(x)}_{A} \cdot \Delta x + \underbrace{\omaloe{1} \cdot \Delta x}_{\omaloe{\Delta x}}$ $\sledue$ в одну сторону доказано.
 
 			\item[$\Leftarrow$] $f(x + \Delta x) - f(x) = A \cdot \Delta x + \omaloe{\Delta x}$ делим на $\Delta x$ $\frac{f(x + \Delta x) - f(x)}{\Delta x} = A + \frac{\omaloe{\Delta x}}{\Delta x}$, $\omaloe{\Delta x} = 0$ по определению, $\Delta x \to 0 \ \sledue \predel{\Delta x \to 0}\frac{f(x + \Delta x) - f(x)}{\Delta x} = A + 0 \sledue \ A = f^{\shtrih}(x)$
-		\end{itemize}
+		\end{itemize*}
 	\end{dokvo}
 \end{proofs}
 
 \begin{proofs}
 	$\pust f \I g $ - дифференцируемы в \vtochke{x} $\sledue$
-	\begin{itemize}
+	\begin{itemize*}
 		\item $\skobk{f+g}$ - диф-ма в \vtochke{x} и $\skobk{f+g}^{\shtrih}(x) = f^{\shtrih}(x) + g^{\shtrih}(x)$
 		\item $\skobk{f \cdot g}$ - диф-ма в \vtochke{x} и $\skobk{f \cdot g}^{\shtrih}(x) = f^{\shtrih}(x) \cdot g(x) + f(x) \cdot g^{\shtrih}(x)$
 		\item Если $g(x) \neq 0$, то $\skobk{\frac{f}{g}}$ диф-ма \vtochke{x} и $\skobk{\frac{f}{g}}^{\shtrih}(x) = \skobk{\frac{f^{\shtrih}(x) \cdot g(x) - f(x) \cdot g^{\shtrih}(x)}{g^{2}(x)}}$
-		\end{itemize}
+		\end{itemize*}
 	\begin{dokvo}
 		Все три случая доказывать не нужно, лучше сразу доказать самый третий!\footnote{$\Delta f = f(x+\Delta x) - f(x)$}
 
@@ -117,7 +117,7 @@
 
 	\begin{dokvo}
 		Методом мат. индукции по параметру $n$
-		\begin{enumerate}
+		\begin{enumerate*}
 			\item $n = 1 \ \sledue (u\cdot v)^{\shtrih}(x) = u^{\shtrih}(x) \cdot v(x) + u(x) \cdot v^{\shtrih}(x)$ Очевидно, что $\comb{1}{0} = \frac{1!}{0! \cdot 1!} = 1 \ \I \ \comb{1}{1} = \frac{1!}{0! \cdot 1!}$
 			\item $\pust \ n = k$ -- утверждение верно
 
@@ -134,7 +134,7 @@
 
 			При $p = k$ в 1-ой сумме: $u^{(k+1)} \cdot v^{0}(x)$
 			$$\oeq u^{(0)}(x) \cdot v^{k+1}(x) + \summa{m=1}{n}\comb{k+1}{p}u^{(m)}(x) \cdot v^{k-m+1}(x) + u^{(k+1)}(x) \cdot v^{(0)}(x) = \summa{k=0}{n}\comb{k+1}{p}u^{(m)}(x)\cdot v^{(k-m+1)}(x)$$
-		\end{enumerate}
+		\end{enumerate*}
 	\end{dokvo}
 \end{proofs}
 \newpage
