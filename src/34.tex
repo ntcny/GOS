@@ -1,0 +1,92 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 34:
+Доверительные интервалы для неизвестных значений параметров распределений.
+Построение доверительных интервалов с помощью центральных статистик.
+Доверительные интервалы для неизвестного среднего нормального распределения с известной и неизвестной дисперсией.
+Пример: по выборке $x_1=0$ найти явные 95\%-е доверительные интервалы для неизвестного значения параметра
+$\theta=\bf{M}\xi$ нормально распределенной СВ с неизвестной дисперсией $\sigma^2=\bf{D}\xi > 0$ и с известной дисперсией $\sigma^2=1$
+}
+
+\begin{defs}[Доверительный интервал]
+  Рассмотрим стат.структуру $\langle\overrightarrow{x},\xi\sim F_{\xi}(x,\overrightarrow{\theta}), \ \overrightarrow{\theta} \in \encircle{H}\rangle$\\
+  Пусть $\gamma = 1 - \alpha \ \in \ (0,1), \ \gamma \approx 1, \alpha \approx 0$\\
+  Соответствующим случайной выборке $\overrightarrow{x}$ \textit{доверительным интервалом} для параметра $\theta$ с доверительной
+  вероятностью $\gamma$ (\textit{$\gamma$-доверительным интервалом}) называется всякий числовой промежуток
+  $[(\widehat{\theta_1}(\overrightarrow{x}),\widehat{\theta_2}(\overrightarrow{x}))] \in \mathbb{R}$ такой, что
+  \begin{enumerate}
+    \item $\widehat{\theta_1}(\overrightarrow{x}), \ \widehat{\theta_2}(\overrightarrow{x})$ - статистики;
+    \item $\widehat{\theta_1}(\overrightarrow{x}) \leqslant \widehat{\theta_2}(\overrightarrow{x}) \ \forall \overrightarrow{x} \in \mathbb{R}^n$;
+    \item $P_{\theta}\{\theta \in [(\widehat{\theta_1}(\overrightarrow{x}),\widehat{\theta_2}(\overrightarrow{x}))]\} \geqslant \gamma \
+    \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k$;
+    \item необязательные свойства:\\
+      - минимальная длина доверительного интервала;
+      - симметричность доверительного интервала.
+  \end{enumerate}
+\end{defs}
+
+Построение $\gamma$-доверительных интервалов с помощью центральных статистик.\\
+
+\begin{defs}[Центральная статистика]
+  Пусть задана некоторая стат.структура
+  $\langle\overrightarrow{x}=(x_1,\ldots,x_n),\xi\sim F_{\xi}(x,\overrightarrow{\theta}, \ \overrightarrow{\theta} \in encircle{H}) \subset \mathbb{R}^k \rangle$.
+  Тогда функция $T(\overrightarrow{x}, \theta), \ overrightarrow{x} \in \mathbb{R}^n, \ \theta=\theta_i$ - интересующий параметр, называется
+  \textit{центральной статистикой} для $\theta$, если выполняется
+  \begin{enumerate}
+    \item она нетривиально зависит от выборки $\overrightarrow{x}$ и от интересующего параметра $\theta$ (то есть не является константой)
+    и не зависит от любых других параметров с неизвестными значениями;
+    \item $\forall$ фиксированного параметра $\theta = \theta_i \in \encircle{H}_i$ функция $g(\overline{x})=T(\overrightarrow{x}, \theta)$
+    является борелевской функцией (статистикой) и, следовательно, величина $\eta=T(\overrightarrow{\xi}, \theta)$ является случайной величиной.
+    \item Хотя СВ $\eta=T(\overrightarrow{\xi}, \theta)$ и зависит от параметра $\theta \in \encircle{H}_i$, но ее распределение
+    не зависит ни от параметра $\theta$, ни от любых других параметров с неизвестными значениями, то есть СВ $\eta=T(\overrightarrow{\xi}, \theta), \
+    \overrightarrow{\xi}=(\xi_1,\ldots,\xi_n), \ \xi_1,\ldots,\xi_n \ - \ \text{независимые}, \ \xi_i \sim \xi \ \forall i = 1,\ldots,n$ имеет
+    конкретное, полностью известное распределение.
+    \item (необязательное, но желательное свойство)\\
+    При любом фиксированном значении выборки $\overrightarrow{x} \in \mathbb{R}^n$ функция $g(\theta)=T(\overrightarrow{x},\theta)$ является
+    непрерывной и монотонной при всех $\theta \in \encircle{H}_i \subset \mathbb{R}$
+  \end{enumerate}
+\end{defs}
+
+Замечания:\\
+1) Центральная статистика не является статистикой (становится статистикой при фиксации $\theta$);\\
+2) 4 свойство желательно потому, что оно обеспечивает компактный непрерывный доверительный интервал;\\
+3) Центральная статистика для параметра $\theta$ может не существовать. В частности, для параметров почти всеъ дискретных распределений
+(кроме некоторых специально устроенных) центральная статистика не существует;\\
+4) Центральная статистика может быть не единственной; при этом разные центральные статистики для одного и того же параметра,
+понимаемого как СВ, могут иметь разные распределения.\\
+
+\begin{lemma}[О построении $\gamma$-доверительного интервала с помощью центральной статистики]
+  Пусть для параметра $\theta$ в рамках некоторой стат.структуры существует некоторая центральная статистика
+  $T(\overrightarrow{x}, \theta)$ с непрерывным распределением и конкретной, полностью известной плотностью
+  $f_{\mu}(x)=T(\overrightarrow{\xi}, \theta)$ Тогда $\forall \gamma = 1 - \alpha \ \in (0,1)$ по окончании следующей процедуры
+  получается искомый $\gamma$-доверительный интервал для $\theta$:
+  \begin{enumerate}
+      \item задаемся произвольным уровнем доверия $\gamma = 1 - \alpha$;
+      \item рассмотрим известную плотность $f_{\eta}(x)$ центральной статистики, понимаемой как
+      СВ $\eta=T(\overrightarrow{x}, \theta)$ и найдем такие 2 числа $t_1$ и $t_2 \ \in \mathbb{R}$, что
+      $P\{\eta \in [(t_1,t_2)]\} = \gamma = 1 - \alpha$.\\
+      При этом числа $t_1$ и $t_2$ находятся, как правильно, неоднозначно. С целью исключения этой неоднозначности числа $t_1$ и $t_2$
+      выбирают так, чтобы $\levfigurn{\intergral{-\infty}{t1}f_{\eta}(x)dx=\frac{\alpha}{2} \\ \intergral{t_2}{\infty}f_{\eta}(x)dx=\frac{\alpha}{2}}
+      \Leftrightarrow \levfigurn{F_{\mu}(t1)=\frac{\alpha}{2} \\ F_{\mu}(t2) = 1 - \frac{\alpha}{2}}
+      \Leftrightarrow \levfigurn{t_1 = F_{\mu, \frac{\alpha}{2}} \ - \ \frac{\alpha}{2}\text{-квантиль ФР $F_{\mu}(x)$} \\
+      t_2 = F_{\mu, 1-\frac{\alpha}{2}} \ - \ 1-\frac{\alpha}{2}\text{-квантиль ФР $F_{\mu}(x)$}}$
+      Такой однозначный выбор чисел $t_1$ и $t_2$ и называется принципом симметрии;
+      \item Составляем двойное неравенство: $t_1 \leqslant T(\overrightarrow{x}, \theta)\leqslant t_2$ и решаем его относительно
+      переменной $\theta$  для всякой фиксированной выборки $\overrightarrow{x} \in \mathbb{R}^n$:
+      $$\widehat{\theta_1}(\overrightarrow{x},t_1,t_2) \leqslant \theta \leqslant \widehat{\theta_2}(\overrightarrow{x},t_1,t_2)$$
+      \item Если при этом границы $\widehat{\theta_1}(\overrightarrow{x},t_1,t_2)$ и $\widehat{\theta_2}(\overrightarrow{x},t_1,t_2)$ являются
+      статистиками, то искомым $\gamma$-доверительным интервалом для параметра $\theta$ является промежуток
+      $[(\widehat{\theta_1}(\overrightarrow{x},t_1,t_2), \widehat{\theta_2}(\overrightarrow{x},t_1,t_2))]$.
+  \end{enumerate}
+
+  \begin{dokvo}
+      Необходимо проверить все свойства $\gamma$-доверительного интервала:
+      \begin{enumerate}
+        \item $\widehat{\theta_1}(\overrightarrow{x}), \ \widehat{\theta_2}(\overrightarrow{x})$ - статистики по построению;
+        \item $\widehat{\theta_1}(\overrightarrow{x}) \leqslant \widehat{\theta_2}(\overrightarrow{x}) \ \forall \overrightarrow{x} \in \mathbb{R}^n$ по построению;
+        \item $P_{\theta}\{\theta \in [(\widehat{\theta_1}(\overrightarrow{x},t_1,t_2),\widehat{\theta_2}(\overrightarrow{x},t_1,t_2))]\} =
+        P\{\widehat{\theta_1}(\overrightarrow{x},t_1,t_2) \leqslant \theta \leqslant \widehat{\theta_2}(\overrightarrow{x},t_1,t_2)\} =
+        P\{t_1 \leqslant T(\overrightarrow{\xi}, \theta)_{\diagup = \mu} \leqslant t_2\} =
+        P\{\mu \in [(t_1,t_2)]\} = \gamma$ (по условию) $\forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k \ \sledue$ лемма доказана.
+      \end{enumerate}
+  \end{dokvo}
+\end{lemma}
