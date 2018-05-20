@@ -35,6 +35,57 @@
 \begin{proofs}[Ряды с неотрицательными членами]
 	\begin{enumerate*}
 		\item \textbf{Признак сравнения}:  $\summa{n=1}{\infty}a_n$, $\summa{n=1}{\infty}b_n$ ряды с неотрицательными членами. Начиная с некоторого $N$ выполняется $a_n \leq b_n \ \forall n > N \ \sledue$ из сходимости ряда $\summa{n=1}{\infty}b_n$ следует сходимость ряда $\summa{n=1}{\infty}a_n$, а из расходимости ряда $\summa{n=1}{\infty}a_n$ следует расходимость $\summa{n=1}{\infty}b_n$
+		\begin{dokvo}
+			$\pust$ $S_n$ -- $n$-я частичная сумма ряда $\summa{n=1}{\infty}a_n$,$S_{n}^{\shtrih}$ -- $n$-я частичная сумма ряда $\summa{n=1}{\infty}b_n$.
+
+			Также отбросим конечное число членов $\summa{n=1}{\infty}a_n$ для которых не выполняется: $a_n \leq b_n$ (это можно сделать, согласно теореме выше (теорема о сходимости)) $\sledue S_n \leq S_{n}^{\shtrih}$ $\sledue$ считаем, что $a_n \leq b_n$ - выполняется $\forall n$
+
+			Далее, т.к $\summa{n=1}{\infty}b_n$ сходится $\sledue \ \fskobk{S_{n}^{\shtrih}}$ -- ограничена $\sledue \ \fskobk{S_{n}}$ -- ограничена и следовательно $\summa{n=1}{\infty}a_n$ - сходится, а если $\summa{n=1}{\infty}a_n$ - расходится $\sledue \fskobk{S_n}$ -- неограничена $\sledue \fskobk{S_{n}^{\shtrih}}$ не ограничена $\sledue$ $\summa{n=1}{\infty}b_n$ -- расходится
+		\end{dokvo}
+
+		\item  \textbf{Признак сходимости Коши(радикальный)}: $\pust$ $\summa{n=1}{\infty}a_n$ ряд с неотрицательными членами и $\rassmotr$ $\overline{\predel{n\to \infty}}\sqrt[n]{a_n} = q \sledue$
+		\begin{itemize}
+			\item если $q < 1 \ \sledue \ \summa{n=1}{\infty}a_n$ -- сходится
+			\begin{dokvo}
+				$\rassmotr$ $\overline{\predel{n\to \infty}}\sqrt[n]{a_n} = q$ и $q < 1$ Выберем $\epsilon >0: q + \epsilon < 1 \sledue$ т.к вернхний предел - наибольший из частичных пределов $\sledue$ начиная с некоторого номера, $\sqrt[n]{a_n} < q + \epsilon \ \tittg \ a_n < \skobk{q + \epsilon}^{n}$, при этом $\summa{n=1}{\infty}\skobk{q + \epsilon}^{n}$ - сходится к бесконечно убывающей геометрической прогрессии $\sledue$ ряд $\summa{n=1}{\infty}a_n$ сходится по признаку сравнения.
+			\end{dokvo}
+
+			\item если $q > 1 \ \sledue \ \summa{n=1}{\infty}a_n$ -- расходится
+			\begin{dokvo}
+				$q > 1$, $\rassmotr \ \epsilon > 0: \ q - \epsilon > 1$, т.к $q$-верхний предел $\sledue \ \exists \fskobk{n_k}: \ \overline{\predel{k\to\infty}}\sqrt[n_k]{a_{n_k}} = q \ \sledue$ начиная с некоторого номера $a_{n_k} > q - \epsilon > 1 \ \sledue \ \predel{k \to \infty}a_{n_k} >1 \ \sledue$ не выполняется необходимый признак сходимости.
+			\end{dokvo}
+
+			\item если $q = 1 \ \sledue \ \summa{n=1}{\infty}a_n$ -- может как расходится так и сходиться
+			\begin{dokvo}
+				$q = 1: $ $\summa{n=1}{\infty}\frac{1}{n}$ --  не сходится, хотя $\predel{n \to \infty}\sqrt[n]{\frac{1}{n}} = \predel{n \to \infty}n^{- \cancelto{0}{\frac{1}{n}}} = \predel{n\to\infty}\frac{1}{n}^{\frac{1}{n}}= 1$
+
+				$\summa{n=1}{\infty}\frac{1}{n^{2}}$ -- сходится, хотя $\predel{n \to \infty}\sqrt[n]{\frac{1}{n^{2}}} = \predel{n \to \infty}\skobk{\frac{1}{n}}^{\cancelto{0}{\frac{2}{n}}} = 1$
+			\end{dokvo}
+		\end{itemize}
+
+		\item \textbf{Признак Даламбера}:
+		$\pust$ $\summa{n=1}{\infty}a_n$ - ряд с положительными($\neq 0$) членами и начиная с некоторого номера выполняется $\frac{a_{n+1}}{a_n} < q < 1$, где $q = const \ \sledue$ $\summa{n=1}{\infty}a_n$ -- сходится. Если же начиная с некоторого номера $\frac{a_{n+1}}{a_n} > 1 \sledue \summa{n=1}{\infty}a_n$ -- расходится
+		\begin{dokvo}
+			$\pust$ начиная с некоторого номера $\frac{a_{n+1}}{a_n}\leq q < 1 \ \tittg \ \frac{q^{n+1}}{q^{n}} \sledue \ \rassmotr b_n = \summa{n=1}{\infty}q^{n}$ - бесконечно убывающая геометрическая прогрессия $\skobk{q < 1} \sledue$ по признаку, так как $\summa{n=1}{\infty}b_n$ - сходится $\sledue$ $\summa{n=1}{\infty}a_n$ также сходится $\sledue$ этот случай доказан
+
+			$\frac{a_{n+1}}{a_n} > 1 \tittg \ \frac{a_{n+1}}{a_n} > \frac{1^{n+1}}{1^{n}} \ \sledue \ \rassmotr \ \summa{n=1}{\infty}b_n$, где $b_n = 1 \ \forall n \ \sledue$ т.к $\summa{n = 1}{\infty}b_n$ -- расходится, то и $\summa{n = 1}{\infty}a_n$ -- расходится.
+		\end{dokvo}
 	\end{enumerate*}
+\end{proofs}
+
+\zagolovok{Абсолютно и неабсолютно сходящиеся ряды}
+
+$a_n \in \Real \ILI \Complex$
+
+\begin{defs}
+	Числовой ряд $\summa{n=1}{\infty}a_n$ называется \textbf{АСР(абсолютно сходящимся рядом)}, если сходится ряд $\summa{n=1}{\infty}\Modul{a_n}$
+\end{defs}
+
+\begin{defs}
+	Числовой ряд $\summa{n=1}{\infty}a_n$ называется \textbf{УСР(условно сходящимся рядом)}, если сходится ряд $\summa{n=1}{\infty}a_n$, а $\summa{n=1}{\infty}\Modul{a_n}$ -- расходится
+\end{defs}
+
+\begin{proofs}[Признак Лейбница]
+	$\pust$ $\fskobk{a_n}$: %СУКА 
 
 \end{proofs}
