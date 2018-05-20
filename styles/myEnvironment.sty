@@ -22,6 +22,13 @@
 {}
 \counterwithin{theclaim}{section}
 
+\newcounter{thelemma} \setcounter{thelemma}{1}
+\newenvironment{lemma}[1][\unskip]{%
+	\textbf{Лемма$\star$ \arabic{thelemma} (#1):\stepcounter{thelemma}}
+	\noindent }
+{}
+\counterwithin{thelemma}{section}
+
 \newcounter{theproofs} \setcounter{theproofs}{1}
 \newenvironment{proofs}[1][\unskip]{%
 \textbf{Теорема$\bigstar$ \arabic{theproofs} (#1):\stepcounter{theproofs}}
@@ -48,3 +55,10 @@
 \noindent }
 {}
 \counterwithin{thesledsv}{section}
+
+\newcounter{thezad} 
+\newenvironment{zad}[1][\unskip]{%
+\textbf{Задача$\dagger$ \arabic{thezad}:}
+\noindent }
+{}
+\counterwithin{thezad}{section}

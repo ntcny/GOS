@@ -1,5 +1,57 @@
-\section{Формула Тейлора для действительных функций одного и многих действительных переменных. Экстремум действительной функции одного и многих действительных переменных, достаточные условия его существования.}
+\section{Вопрос 4: Формула Тейлора для действительных функций одного и многих действительных переменных. Экстремум действительной функции одного и многих действительных переменных, достаточные условия его существования.}
 
 \begin{defs}
-	Точка $x \in E$ называется локальный минимум или локальный максимум) - \vtochke{x} называется точкой локального 
+	Точка $x \in E$ называется локального максимума или локального минимума функции $f: E \to \Real$, если $\exists U(x): \ \forall z \in U(x), f(z) \leq (\geq) f(x)$
 \end{defs}
+
+\begin{defs}[Формула Тейлора]
+	$f$ - $n$-раз дифференцируема в \vtochke{x_0}, рассмотрим
+	$$T_n(x,x_0) = f(x_0) + \frac{f^{\shtrih}(x_0)}{1!}\cdot (x-x_0)^{1} + \frac{f^{\shtrih\shtrih}(x_0)}{2!}(x-x_0)^{2} + \cdots + \frac{f^{n}(x_0)}{n!}(x-x_0)^{n} \text{-- n-й многочлен Тейлора}$$
+	$\sledue f(x) = T_n(x,x_0) + r_n(x,x_0)$ -- \textbf{формула Тейлора}, где $r_n$ остаточный член формулы Тейлора
+\end{defs}
+
+\begin{proofs}[Формула Тейлора с остаточным членом в форме Шлемильха-Роша]
+	$\pust$ ф-я $f$ $n$ - раз дифференцируема и непрерывна на $\kskobk{x_0,x}, \exists$ $(n+1)$-я производная $f$ на $\skobk{x_0,x}$; $\phi$ - функция непрерывная на $\skobk{x_0,x}$, диф-ма на $\skobk{x_0,x}$ и $\phi^{\shtrih} \neq 0 \sledue \exists \ \xi \in \skobk{x_0,x} :$
+	$$ r_n(x,x_0)= \frac{f^{n+1}(\xi)\cdot (x-\xi)^{n}\cdot (\phi(x) - \phi(x_0)}{n!\phi^{\shtrih}(\xi)}$$
+
+\begin{dokvo}
+	$\rassmotr \ F(t) = T(x,t) \ t \in \kskobk{x_0,x}$
+
+	\begin{gather*}
+		F^{\shtrih}(t) = \skobk{f(t) + \frac{f^\shtrih(x)}{1!}\cdot (x-t) + \frac{f^{\shtrih\shtrih}(t)}{2!}\cdot (x-t)^{2} + \cdots + \frac{f^{(n)}(t)}{n!}\cdot (x-t)^{n}}^{\shtrih} = \\
+		= \skobk{\cancel{f^{\shtrih}(t)} + \cancel{f^{\shtrih\shtrih}(t)\cdot (x-t)} - \cancel{f^{\shtrih}(t)} + \frac{f^{\shtrih\shtrih\shtrih}(t)}{2!}\cdot(x-t)^{2} - \cancel{f^{\shtrih\shtrih}(t)\cdot (x-t)} + \cdots + \frac{f^{(n+1)}(t)}{n!}\cdot (x-t)^n - \cancel{\cdots}} = \\
+		= \frac{f^{(n+1)}(t)}{n!}\cdot (x-t)^{n}
+	\end{gather*}
+	То теореме Коши (т.к $F$ и $\phi$ непрерывны на $\kskobk{x_0,x}$, дифф-мы на $\skobk{x_0,x}$ и $\phi^\shtrih$ не обращается в нуль на $\skobk{x_0,x} \sledue \exists \ \xi \in \skobk{x_0,x}:$)
+	\begin{gather*}
+		\frac{\mathnaverh{=f(x)}{F(x)}-\mathnaverh{=T(x,x_0)}{F(x_0)}}{\phi(x)-\phi(x_0)} = \frac{F^{\shtrih}(\xi)}{\phi^{\shtrih}(\xi)}, \xi \in \skobk{x_0,x} \sledue f(x) - T(x,x_0) = r_n(x,x_0) \sledue \frac{r_n(x,x_0)}{\phi(x)-\phi(x_0)} = \\
+		= \frac{f^{(n+1)}(\xi)}{\phi^{\shtrih}(\xi)\cdot n!}\cdot (x-\xi)^{n} \sledue r_n(x,x_0) = \frac{f^{(n+1)}(\xi) \cdot (x-\xi)^{n} \cdot (\phi(x)-\phi(x_0))}{\phi^{\shtrih}(\xi) \cdot n!}
+	\end{gather*}
+\end{dokvo}
+
+\end{proofs}
+
+\begin{sledsv}[Для условии теоремы выше справедливо]
+	\begin{enumerate}
+		\item $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1}$, $\xi \in \skobk{x_0,x}$ -- \textbf{Остаточный член в форме Лагранжа}
+		\item $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)}{n!}\cdot (x-\xi)^{n}\cdot (x-x_0)$, $\xi in \skobk{x_0, x}$ -- \textbf{Остаточный член в форме Коши}
+		\item Если функция $f$ дополнение к условию теоремы дифф-ма $n+1$ раз на $\kskobk{x_0,x}$ и $n+1$ - непрерывна в \vtochke{x_0}, то $r_{n+1}(x,x_0) = \omaloe{(x-x_0)^{n+1}}$, при $x \to x_0$  -- \textbf{Остаточный член в форме Пеано}
+	\end{enumerate}
+
+	\begin{dokvo}
+		остаточный член в форме Шлемильха-Роша $r_n(x,x_0) = \frac{f^{(n+1)}(\xi)  \cdot (\phi(x)-\phi(x_0))}{\phi^{\shtrih}(\xi) \cdot n!}\cdot (x-\xi)^{n}$
+		\begin{enumerate}
+			\item при $\phi(t) = (x-t)^{n+1}$
+			$$\frac{f^{(n+1)}(\xi) \cdot (-(x-x_0)^{n+1})}{n! \cdot (-(n+1)\cdot \cancel{(x - \xi)^{n}})}\cdot \cancel{(x-\xi)^{n}}$$
+			\item при $\phi(t) = x - t:$
+			$$\frac{f^{(n+1)}(\xi)\cdot (-x + x_0)}{n! \cdot (-1)}\cdot (x - \xi)^n = \frac{f^{n+1}(\xi)}{n!}\cdot(x-\xi)^{n}\cdot (x - x_0)$$
+			\item $f(t) = T_n\skobk{x,x_0} + \frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1} =$
+			$$T_n\skobk{x,x_0} + \frac{f^{(n+1)}(x_0)}{(n+1)!}\cdot (x-x_0)^{n+1} + \underbrace{\frac{f^{(n+1)}(\xi)}{(n+1)!}\cdot (x-x_0)^{n+1} - \frac{f^{(n+1)}(x_0)}{(n+1)!}\cdot (x-x_0)^{n+1}}_{\omaloe{(x-x_0)^{n+1}}} \oeq$$
+			$\oeq T_{n+1}(x,x_0) + \omaloe{ (x-x_0)^{n+1}} f^{(n+1)}(\xi)-f^{(n+1)}(x_0)=\omaloe{1}$ при $x\to x_0$ так как $\xi \to x$ и $f^{(n+1)}$ непрерывная в точке $x_0$
+		\end{enumerate}
+	\end{dokvo}
+\end{sledsv}
+
+\begin{proofs}[Достаточные условия экстремума]
+
+\end{proofs}
