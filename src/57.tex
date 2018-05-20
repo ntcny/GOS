@@ -87,7 +87,7 @@
 
 \begin{multicols}{2}
 	\begin{itemize*}
-		\item $\mathbf{command} \  Take_{\alpha}(x,y,z)$
+		\item $\mathbf{command} \  take_{\alpha}(x,y,z)$
 
 		$if (own \in M[x,x]) and (t \in M[x,y])and (r_1 \in M[y,z])and  \ldots and (r_k \in M[y,z]) then $
 
@@ -101,7 +101,7 @@
 
 		$end$
 
-		\item 		$\mathbf{command} \  Grant_{\alpha}(x,y,z)$
+		\item 		$\mathbf{command} \  grant_{\alpha}(x,y,z)$
 
 				$if (own \in M[x,x]) and (g \in M[x,y])and (r_1 \in M[x,z])and  \ldots and (r_k \in M[x,z]) then $
 
@@ -116,7 +116,7 @@
 				$end$
 		\end{itemize*}
 		\begin{itemize*}
-		\item 		$\mathbf{command} \ CreateObjectAlpha(x,y)$
+		\item 		$\mathbf{command} \ create\_object\_\alpha(x,y)$
 
 				$if (own \in M[x,x]) then $
 
@@ -132,7 +132,7 @@
 
 				$end$
 
-		\item 		$\mathbf{command} \ CreateSubjectAlpha(x,y)$
+		\item 		$\mathbf{command} \ create\_subject\_\alpha(x,y)$
 
 				$if (own \in M[x,x]) then $
 
@@ -152,7 +152,7 @@
 			\end{itemize*}
 			\begin{itemize*}
 
-			\item 		$\mathbf{command} \ RemoveAlpha(x,y)$
+			\item 		$\mathbf{command} \ remove\_\alpha(x,y)$
 					$if (own \in M[x,x]) then $
 
 					\kav{удалить} право $r_1$ в $M[x,y]$
@@ -195,7 +195,7 @@
 	Построим отображение правил преобразования графов доступов в множество команд системы ТМД.
 \begin{multicols}{2}
 	\begin{itemize*}
-		\item 	$\mathbf{command} \ \mathit{Take}_{r_1, \ldots, r_k}os(x: subject,y:object,z:subject)$
+		\item 	$\mathbf{command} \ \mathit{take}_{r_1, \ldots, r_k}os(x: subject,y:object,z:subject)$
 
 			$if (t \in M[x,y]) \ and (r_1 \in M[y,z])and  \ldots \ and \ (r_k \in M[y,z]) then $
 
@@ -209,7 +209,7 @@
 
 			$end$
 
-			\item $\mathbf{command} \  \mathit{Grant}_{r_1, \ldots, r_k}so(x: subject,y:subject,z:object)$
+			\item $\mathbf{command} \  \mathit{grant}_{r_1, \ldots, r_k}so(x: subject,y:subject,z:object)$
 
 			$if (g \in M[x,y]) \ and  \ (r_1 \in M[x,z]) and  \ldots and (r_k \in M[x,z]) \ then $
 
@@ -225,7 +225,7 @@
 	\end{itemize*}
 
 	\begin{itemize*}
-		\item 		$\mathbf{command} \  \mathit{CreateObjectAlpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
+		\item 		$\mathbf{command} \  \mathit{create\_object\_\alpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
 
 
 				\kav{создать} субъект $y$ с типом $object$
@@ -239,7 +239,7 @@
 				$endif$
 
 				$end$
-				\item		$\mathbf{command} \ \mathit{CreateSubjectAlpha}_{r_1, \ldots, r_k}(x: subject,y:subject)$
+				\item		$\mathbf{command} \ \mathit{create\_subject\_\alpha}_{r_1, \ldots, r_k}(x: subject,y:subject)$
 
 						$if (own \in M[x,x]) then $
 
@@ -258,7 +258,7 @@
 \end{multicols}
 
 
-		$\mathbf{command} \ \mathit{RemoveAlpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
+		$\mathbf{command} \ \mathit{remove\_\alpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
 
 		$if (own \in M[x,x]) \ then $
 
