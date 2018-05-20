@@ -1,0 +1,286 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 33:
+Основные понятия математической статистики.
+Точечные оценки неизвестных значений параметров распределений.
+Несмещенность и асимптотически несмещенность, состоятельность оценок.
+Пример: проверить оценку $\theta^*(x_1,\ldots,x_n) = (x_1+x_n)/2$ параметра $\theta=\bf{M}\xi$ на
+несмещенность и состоятельность.
+Свойства статистик $\overline{x}$ и $S^2, \ S_0^2$ как оценок неизвестных значений, соответственно,
+математического ожидания и дисперсии СВ.
+}
+
+\begin{defs}[Статистическая ситуация (структура)]
+  Говорят, что \textit{имеет место статистическая ситуация (или задана статистическая структура)},
+  если выполняются следующие условия:
+  \begin{enumerate}
+    \item Для некоторого фиксированного $n \in N$ проводится серия из $n$ независимых экспериментов,
+    в результате которых получаются исходы $\omega_1,\ldots,\omega_n$. (они известны, доступны).
+    \item На пространстве возможных исходов (элементарных событий) $\Omega$ этих
+    экспериментов совместно с некоторой выбранной естесственной $\sigma$-алгеброй событий $\mathfrak{A}$
+    определена (и полностью нам известна как функция) некоторая СВ $\xi \ : \ \Omega \to R$ и, следовательно,
+    нам известны измереннные (наблюдённые) значения этой СВ: $x_1=\xi(\omega_1),\ldots,x_n=\xi(\omega_n) \ (x_i \in R)$
+    \item Вероятностная функция $P(.)$ на измеримом пространстве $(\Omega, \mathfrak{A})$ полностью или хотя бы частично
+    неизвестна, и, следовательно, неизвестно (полностью или частично) распределение вероятностей измеряемой СВ $\xi$.
+    \item По результатам $x_1,\ldots,x_n$ измерений СВ $\xi$ требуется оценить неизвестное распределение СВ $\xi$
+    и (или) решить иную задачу мат.статистики.
+  \end{enumerate}
+\end{defs}
+
+\begin{defs}[Независимость экспериментов]
+  Эксперименты, проводимые в рамках статистической структуры, называются независимыми,
+  если вероятностно-статистические свойства вектора $\overrightarrow{x}=(x_1,\ldots,x_n)$ результатов
+  $n$ измерений СВ $\xi$ совпадают с соответствующими вероятностно-стохастическими свойствами результата
+  $\overrightarrow{x} = \overrightarrow{\xi}(\omega)=(\xi_1(\omega, \ldots, \xi_n(\omega)))$ одного наблюдения за
+  случайным вектором $\overrightarrow{\xi}=(\xi_1,\ldots,\xi_n)$ с независимыми и одинаково распределенными
+  (одинаково между собой и с измеряемой СВ $\xi$) распределенным компонентами $\xi_1,\ldots,\xi_n$.
+\end{defs}
+
+Следовательно, вектор результатов $n$ независимых наблюдений за СВ $\xi$ можно считать (в мат.статистике так всегда и поступают)
+результатом одного наблюдения за случайным вектором с независимыми, одинаково распределенными координатами.
+
+\begin{defs}[Генеральная совокупность]
+  Множество $E=\xi(\Omega)$ возможных значений измеряемой СВ $\xi$ называется \textit{генеральной совокупностью}.
+\end{defs}
+
+\begin{defs}[Выборочное пространство]
+  Множество $E^n=\overrightarrow{\xi}(\Omega)$ возможных значений случайного вектора $\overrightarrow{\xi}$
+  независимыми, одинаково распределенными с $\xi$ координатами называется \textit{выборочным пространством}.
+  ($E^n \subseteq R$).
+\end{defs}
+
+\begin{defs}[Гипотетическое распределение]
+  Полностью (частично) неизвестное распределение измеряемой СВ $\xi$ называется \textit{теоретическим (гипотетическим) распределением} этой СВ.
+  ($E^n \subseteq R$).
+\end{defs}
+
+\begin{defs}[Случайная выборка]
+  Исходный для стат.структуры вектор $\overrightarrow{x} = (x_1,\ldots,x_n)$ результатов $n$ независимых наблюдений
+  за СВ $\xi$ или одного наблюдения за случайным вектором $\overrightarrow{\xi} = (\xi_1,\ldots,\xi_n)$ называется
+  \textit{случайной (или статистической) выборкой} объема $n$ из выборочного пространства $E^n \ (R^n)$ с гипотетическим
+  распределением $F_{\xi}(x)$ СВ $\xi$, или просто случайной выборкой из гипотетического распределения $F_{\xi}(x)$.
+  ($E^n \subseteq R$).
+\end{defs}
+
+\begin{defs}[Параметрический (непараметрический) класс]
+  Если о неизвестном распределении $F_{\xi}(x)$ измеряемой СВ $\xi$ известно, к какому параметрическому классу
+  (семейству) распределений оно принадлежит, то есть $F_{\xi}(x)=F(x,\theta_1,\theta_2,\ldots), \
+  \overrightarrow{\theta}=(\theta_1, \theta_2,\ldots,\theta_k) \subseteq R^k$, то раздел мат.статистики как науки,
+  занимающийся решением различных задач в данном случае, называется \textit{параметрическим}. В противном случае, когда про
+  распределение СВ $\xi$ вообще ничего не известно, раздел мат.статистики называется \textit{непараметрическим}.
+\end{defs}
+
+\begin{defs}[Статистика]
+  Статистикой в мат.статистике как науке называется триединое понятие:
+  \begin{enumerate}
+    \item Это действительное число (из $R$), равное результату применения к случайной выборке
+    $\overrightarrow{x}$ некоторой борелевской функции $T(.) \ (T(\overrightarrow{x}) \in R)$.
+    \item Сама эта борелевская функция $T(\overrightarrow{x}, \ \overrightarrow{x} \in R^n)$
+    \item СВ $\eta=T(\overrightarrow{\xi})$, где $\overrightarrow{\xi}=(\xi_1,\ldots,\xi_n), \ \xi_i \sim \xi_j \ \forall i,j \in \overline{1,n}$
+  \end{enumerate}
+\end{defs}
+
+\begin{example}
+  \begin{enumerate}
+    \item $\overline{x} = \frac{x_1+\ldots+x_n}{n}$ - выборочное среднее.
+    \item $S^2 = \frac{1}{n}\sum\limits_{i=1}{n}(x_i-\overline{x})^2 \
+    = \ (\frac{1}{n}\sum\limits_{i=1}{n}x_i^2) - \overline{x}^2$  - выборочная дисперсия (первая, неисправленная).
+    \item $S_0^2 = \frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\overline{x})^2$ - вторая (исправленная) выборочная дисперсия.
+    \item $\alpha_k = \frac{1}{n}\sum\limits_{i=1}^n x_i^k$ - выборочный начальный момент порядка $k, \ k \in \mathbb{N}$.
+    \item $\mu_k = \frac{1}{n}\sum\limits_{i=1}^n (x_i - \overline{x})^k$ - выборочный центральный момент порядка $k$.
+    \item $\S = \sqrt{S^2}$ - выборочное стандартное отклонение.
+  \end{enumerate}
+\end{example}
+
+\begin{defs}[Вариационный ряд]
+  Вариационным рядом случайной выборки $\overrightarrow{x}$ называется вектор $(x_{(1)},\ldots,x_{(n)})$,
+  состоящий из тех же элементов случайной выборки $\overrightarrow{x}$, но упорядоченных по неубыванию:
+  \begin{enumerate}
+    \item $\{x_1,\ldots,x_n\} = \{x_{(1)},\ldots,x_{(n)}\}$
+    \item $x_{(1)} \leqslant x_{(x)} \leqslant \ldots \leqslant x_{(n)}$
+  \end{enumerate}
+\end{defs}
+
+\begin{defs}[Размах выборки]
+  Статистика $R = x_{(n)} - x_{(1)}$ называется \textit{размахом выборки}.
+\end{defs}
+
+\begin{defs}[Параметрическая статистика]
+  \begin{enumerate}
+    \item Пусть задана непараметрическая стат.структура: имеется случайная выборка
+      $\overrightarrow{x}=(x_1,\ldots,x_n)$ - реализация случайного вектора
+      $\overrightarrow{\xi} = (\xi_1,\ldots,\xi_n)$ с независимыми
+      одинаково распределенными координатами $\xi_1,\ldots,x_n$.
+    \item Известен некоторый параметрический класс распределений, которому
+    принадлежит неизвестное гипотетическое распределение СВ $\xi$, то есть
+    $F_{\xi}(x) = F(x,\theta_1,\theta_2,\ldots)$, где $F$ - известный тип распределения,
+    а $\overrightarrow{\theta} = (\theta_1,\ldots,\theta_k) \in H$.
+  \end{enumerate}
+\end{defs}
+
+\begin{example}
+    \begin{enumerate}
+      \item Первая нормальная статистическая структура $\xi \sim N(\theta,\sigma^2),
+      \ \theta=a=\bf{M}\xi$ - параметр с неизвестным значением, $\sigma^2$ - известное значение,
+      $\theta \in \mathbb{R} \ \sledue$ - параметрическое множество.
+    \end{enumerate}
+\end{example}
+
+\begin{defs}[Точечные оценки]
+  Пусть $\theta = \theta_i \ i=1,\ldots,n$ - один из параметров с неизвестным значением
+  распределения измеряемой СВ $\xi$. \textit{Точечной (числовой) оценкой} парамтера $\theta$
+  соответствующей случайной выборки $\overrightarrow{x} \in \mathbb{R}^n$ называется произвольная
+  статистика $\widehat{\theta}(\overrightarrow{x})$. Таким образом, оценка параметра - это
+  триединый объект:
+  \begin{enumerate}
+      \item Число из $\mathbb{R}$ - значение борелевской функции $\widehat{\theta}(\overrightarrow{x})$ от
+      конкретной выборки $\overrightarrow(x)$.
+      \item Сама борелевская функция $\widehat{\theta}(\overrightarrow{x}), \ \overrightarrow{x} \in \mathbb{R}$
+      \item СВ $\eta = \widehat{\theta}(\overrightarrow{\xi})$,
+      где $\overrightarrow{\xi}=(\xi_1,\ldots,\xi_n)$.
+  \end{enumerate}
+\end{defs}
+
+Произвольная статистика может оказаться "плохой". В статистике
+нужны "хорошие" оценки параметроа, для этого нужеы критерии хороших оценок.
+В статистике для этого используются следующие основные критерии оценок:
+\begin{enumerate}
+    \item Несмещенность (асимптотически несмещенность)
+    \item Состоятельность
+    \item Оптимальность
+\end{enumerate}
+
+\begin{defs}[Несмещенность]
+  Статистика $\widehat{\theta}(\overrightarrow{x}), \ \overrightarrow{x} \in \mathbb{R}^n$
+  называется \textit{несмещенной оценкой} параметра $\theta=\theta_i, \ i=1,\ldots,k$, если у
+  этой статистики, понимаемой как СВ $widehat{\theta}(\overrightarrow{\xi})$ существует матожидание
+  и это матожидание тожедественно равно оцениваемому параметру $\theta$, каким бы ни было значение вектора
+  параметров $\overrightarrow{\theta} = (\theta_1,\ldots,\theta_k) \in \encircle{H} \subset \mathbb{R}^k$, то есть
+  $\bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi})\equiv\theta \
+  \forall \overrightarrow{\theta} = (\theta_1,\ldots,\theta_k) \in \encircle{H} \subset \mathbb{R}^k$, при этом
+  индекс $\overrightarrow{\theta}$ при обозначении матожидания означает, что матожидание СВ
+  $\widehat{\theta}(\overrightarrow{\xi})$ вычисляется в предположении, что координаты $\xi_1,\ldots,\xi_n$
+  случайного вектора $\overrightarrow{\xi}$ независимы и одинаково распределены между собой и со СВ $\xi$.
+\end{defs}
+
+\begin{defs}[Асимптотически несмещенность]
+  Статистика $\widehat{\theta}(\overrightarrow{x}), \ \overrightarrow{x}=(x_1,\ldots,x_n)$ называется
+  \textit{асимптотически несмещенной оценкой} параметра $\theta = \theta_i, \ i=1,\ldots,k$, если выполняются
+  следующие условия:
+  \begin{enumerate}
+      \item Эта статистика естесственным образом определена $\forall n \in \mathbb{N}$
+      \item $\forall n \in \mathbb{N} \ \exists \bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi})$
+      \item При $n \to \infty \bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi}) \to \theta \
+      \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k$.
+  \end{enumerate}
+\end{defs}
+
+\begin{defs}[Состоятельность]
+  Статистика $\widehat{\theta}(\overrightarrow{x}), \ \overrightarrow{x}=(x_1,\ldots,x_n)$ называется
+  \textit{состоятельной оценкой} параметра $\theta = \theta_i, \ i=1,\ldots,k$, если выполняются
+  следующие условия:
+  \begin{enumerate}
+      \item Эта статистика естесственным образом определена $\forall n \in \mathbb{N}$
+      \item Эта статистика, понимаемая как СВ $\widehat{\theta}(\overrightarrow{\xi}), \
+      \overrightarrow{\xi} = (\xi_1,\ldots,\xi_n), \ \xi_i \sim \xi, \ \xi_1,\ldots,\xi_n$ - независимые,
+      при $n \to \infty$ сходится по вероятности к оцениваемому параметру $\theta$, каким бы ни был вектор параметров
+      $\overrightarrow{\theta}=(\theta_1,\ldots,\theta_k) \in \mathbb{R}^k$, то есть
+      $\widehat{\theta}(\overrightarrow{\xi}) \xrightarrow[]{P_{\overrightarrow{\theta}}(.)}$ при $n \to \infty \
+      \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k$, то есть
+      $\forall \varepsilon > 0 \ \exists \predel{n \to \infty}P_{\overrightarrow{\theta}}\{\Modul{\widehat{\theta}(\overrightarrow{\xi}) - \theta}
+      \geqslant \varepsilon\}=0 \ \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k$
+  \end{enumerate}
+\end{defs}
+
+Свойство состоятельности оценки означает, что при большое длине выборки вероятность любого
+(даже самого малого) отличия оценки от оцениваемого параметра становится ничтожно малой.
+
+\begin{defs}[]
+  Пусть в рамках некоторой параметрической стат.структуры
+   $\widehat{\theta}(\overrightarrow{x})$ - некоторая статистика, используемая в качестве
+  оценки параметра $\theta$, тогда следующие величины, характеризующие качество
+  оценивания этого статистического параметра $\theta$, имеют следующие названия:
+  \begin{enumerate}
+      \item $b_n(\theta) = \bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi}) - \theta$ -
+      \textit{смещение оценки относительно оцениваемого параметра $\theta$}
+      \item $d_n(\theta) = \bf{D}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi})$ - \textit{дисперсия оценки}
+      \item $\delta_n(\theta) = \bf{M}_{\overrightarrow{\theta}}(\widehat{\theta}(\overrightarrow{\xi}) - \theta)^2$ -
+      \textit{среднее квадратичное отклонение оценки}.
+  \end{enumerate}
+\end{defs}
+
+\begin{example}
+    Будет после консультации..
+\end{example}
+
+\begin{proofs}[Свойства некоторых стандартных статистик]
+  Пусть $\overrightarrow{x} = (x_1,\ldots,x_n), \ \xi \sim F_{\xi}(t, \overrightarrow{\theta}, \
+  \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k)$ - некоторая стат.структура, в которой параметр $\theta_1 = \bf{M}\xi, \
+  \theta_2 = \bf{D}\xi$, тогда
+  \begin{enumerate}
+      \item Статистика "выборочное среднее" $\overline{x} = \frac{x_1 + \ldots + x_n}{n}$ является несмещенной и состоятельной
+      оценкой параметра неизвестного матожидания СВ $\xi \ (\theta = \theta_1=\bf{M}\xi)$.
+      \item Статистика "первая (неисправленная) выборочная дисперсия" $S^2 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\overline{x})^2$
+      является асимптотически несмещенной и состоятельной оценкой неизвестной дисперсии.
+      \item Статистика "вторая (исправленная) выборочная дисперсия" $S_0^2 = \frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\overline{x})^2$
+      является несмещенной и состоятельной оценкой неизвестной дисперсии.
+  \end{enumerate}
+
+  \begin{dokvo}
+      \begin{enumerate}
+        \item $\xi \sim F_{\xi}(t,\theta_1,\ldots,\xi_k), \ \theta = \bf{M}\xi; \
+        \widehat{\theta}(\overrightarrow{x}) = \overline{x} = \frac{x_1 + \ldots + x_n}{n}$. \\
+        a) Несмещенность.\\
+        Представим эту оценку как СВ $\widehat{\theta}(\overrightarrow{\xi})_{\diagup \overrightarrow{x} = \overrightarrow{\xi}} =
+        \skobk{\frac{x_1+\ldots+x_n}{n}}_{\diagup x_i=\xi_i} = \frac{\xi_1+\ldots+\xi_n}{n}$\\
+        $\bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi}) =
+        \bf{M}_{\overrightarrow{\theta}}\skobk{\frac{\xi_1+\ldots+\xi_n}{n}} = \bf{M}\skobk{\frac{\xi_1+\ldots+\xi_n}{n}}$ =
+        /$\xi_1,\ldots,\xi_n$-независимые, $\xi_i \sim \xi \ \forall i \in \overline{1,n}$/ =
+        $\frac{\bf{M}_{\overrightarrow{\theta}}\xi_1 + \ldots + \bf{M}_{\overrightarrow{\theta}}\xi_n}{n}$ = /$\bf{M}_{\overrightarrow{\theta}}\xi_i =
+        \bf{M}\xi_i = \bf{M}\xi = \theta$/ = $\frac{\theta + \ldots + \theta}{n}
+        = \theta \ (=\bf{M}\xi) \ \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k$\\
+        б) Состоятельность.\\
+        По определению $\widehat{\theta}(\overrightarrow{\xi})\xrightarrow[]{P_{\overrightarrow{\theta}}}\theta, \ n \to \infty \ (\forall \theta \in \encircle{H})$
+        $\frac{\xi_1+\ldots+\xi_n}{n}\xrightarrow[]{{P_{\overrightarrow{\theta}}}}, \ n \to \infty$, то есть $\forall \varepsilon > 0$ нужно убедиться, что
+        $\exists\predel{n \to \infty}P_{\overrightarrow{\theta}}\{\Modul{\frac{\xi_1+\ldots+\xi_n}{n} - \theta} \geqslant \varepsilon\} = 0$.
+        $\forall \varepsilon > 0 \ \exists\predel{n \to \infty}P_{\overrightarrow{\theta}}\{\Modul{\frac{\xi_1+\ldots+\xi_n}{n}-\bf{M}\xi} \geqslant \varepsilon\}$
+        $\ \frac{\xi_1+\ldots+\xi_n}{n}-\bf{M}\xi \ = \ \frac{(\xi_1+\ldots+\xi_n) - n\bf{M}\xi}{n} \ = \ \frac{S_n-\bf{M}S_n}{n}$\\
+        $\forall \varepsilon > 0 \ \exists\predel{n \to \infty}P_{\overrightarrow{\theta}}\{\Modul{\frac{S_n-\bf{M}S_n}{n}} \geqslant \varepsilon\} = 0$
+        (потому что выполняется закон больших чисел)
+
+        \item $\theta = \theta_2 = \bf{D}\xi \ (\exists \bf{D}\xi)$\\
+        $\widehat{\theta}(\overrightarrow{x}) = S^2 = \frac{1}{n}\sum\limits_{i=1}^n(x_i-\overline{x})^2 =
+        \skobk{\frac{1}{n}\sum\limits_{i=1}^n x_i^2} - \overline{x}^2$. \\
+        а) Несмещенность. \\
+        $\widehat{\theta}(\overrightarrow{x}) = \skobk{\frac{1}{n}\sum\limits_{i=1}^n\xi_i^2} - \overline{\xi}^2$
+        ($\overline{\xi}^2 = \skobk{\frac{\xi_1+\ldots\xi_n}{n}}^2$)
+        $\bf{M}_{\overrightarrow{\theta}}\widehat{\theta}(\overrightarrow{\xi}) =
+        \bf{M}_{\overrightarrow{\theta}}[(\frac{1}{n}\sum\limits_{i=1}^n\xi_i^2)-(\frac{1}{n}\sum\limits_{i=1}^n\xi_i)^2]
+        =\frac{1}{n}\sum\limits_{i=1}^n\bf{M}\xi_i^2-\frac{1}{n^2}\bf{M}\skobk{\sum\limits_{i=1}^n\xi_i}^2\oeq$\\
+        $\bf{M}_{\overrightarrow{\theta}}\xi_i^2=\bf{D}_{\overrightarrow{\theta}}\xi_i+\skobk{\bf{M}_{\overrightarrow{\theta}}\xi_i}^2=\theta + a^2 \ \forall i=1,\ldots,n$\\
+        $\bf{M}_{\overrightarrow{\theta}}[\sum\limits_{i=1}^n\xi_i]^2 = \
+        \bf{M}_{\overrightarrow{\theta}}\skobk{\sum\limits_{i=1}^n\xi_i^2+2\sum\limits_{i<j}\xi_i\xi_j} = \
+        \sum\limits_{i=1}^n{\bf{M}_{\overrightarrow{\theta}}\xi_i^2}_{\diagup \theta + a^2} + {2\sum\limits_{i<j}\xi_i\xi_j}_{\diagup a\cdot a=a^2} =
+        n(\theta + a^2) + 2a\sum\limits_{i<j}1_{\diagup C_n^2=\frac{n(n-1)}{2}} =
+        n(\theta + a^2)+a^2n(n-1) = n\theta + n^2a^2$\\
+        $\oeq \frac{1}{n}n(\theta + a^2) - \frac{1}{n^2}(n\theta + n^2a^2) = \theta+a^2-\frac{\theta}{n}-a^2 = \frac{n-1}{n}\theta \neq \theta \
+        \sledue \ \widehat{\theta}(\overrightarrow{x})=S^2$ - смещенная. При этом $\bf{M}_{\overrightarrow{\theta}}S^2=\frac{n-1}{n} \to
+        \theta \ \text{при} n \to \infty \ \forall \overrightarrow{\theta} \in \encircle{H} \subset \mathbb{R}^k \ \sledue \ S^2$ - асимптотически несмещенная.\\
+        б) Состоятельность.\\
+        Воспользуемся леммой о достаточном условии состоятельности:
+        $\levfigurn{\exists b_n(\theta) \to 0, \ n \to \infty \\ \exists d_n(\theta) \to 0, \ n \to \infty \\ }$ \\
+        $\exists b_n(\theta) = \bf{M}_{\overrightarrow{\theta}}S^2 - \theta = \frac{n-1}{n}\theta - \theta = -\frac{\theta}{n} \to 0, \ n \to \infty$ \\
+        $d_n(\theta) = \bf{D}_{\overrightarrow{\theta}}S^2 = $ /без док-ва/ $O(\frac{1}{n}) \to 0, \ n \to \infty \ \sledue$ на основании
+        леммы статистика $S^2$ является состоятельной оценкой параметра $\theta = \bf{D}\xi$
+
+        \item $S_0^2 = \frac{1}{n-1}\sum\limits_{i=1}n(x_i-\overline{x})^2 = \frac{n}{n-1}S^2$\\
+        а) Несмещенность.\\
+        $\bf{M}_{\overrightarrow{\theta}}(\overrightarrow{\xi}) = \bf{M}_{\overrightarrow{\theta}}S_0^2(\overrightarrow{\xi}) =
+        \bf{M}_{\overrightarrow{\theta}}(\frac{n}{n-1}S^2) = \frac{n}{n-1}\frac{n-1}{n}\theta = \theta \ \forall \overrightarrow{\theta} \ \sledue$
+        оценка несмещенная.\\
+        б) Состоятельность.\\
+        Аналогично $S^2$.
+
+
+      \end{enumerate}
+  \end{dokvo}
+\end{proofs}
