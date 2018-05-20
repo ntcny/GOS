@@ -62,7 +62,7 @@
 		$ i = 1, \ldots, m $ и $ \alpha = \gamma_1 \cup \ldots \cup \gamma_m $.
 		\item $ \exists x_1^{\shtrih}, \ldots, x_m^{\shtrih}, s_1^{\shtrih}, \ldots, s_m^{\shtrih} \in S_0$ :
 			\begin{itemize}
-				\item $x = x_i^{\shtrih}$ или $x_i^{\shtrih}$ соединен с $x$ наальным пролетом моста в графе $G_0$
+				\item $x = x_i^{\shtrih}$ или $x_i^{\shtrih}$ соединен с $x$ начальным пролетом моста в графе $G_0$
 				\item $s_i = s_i^{\shtrih}$ или $s_i^{\shtrih}$ соединен с $s_i$ конечным пролетом моста в графе $G_0$
 			\end{itemize}
 		\item В графе $G_0$ для каждой пары $(x_i^{\shtrih}, s_i^{\shtrih}) \exists $ острова $I_{i,1}, \ldots, I_{i, u_{i}}$, где $u_i \geqslant 1$, т.что
@@ -85,7 +85,9 @@
 	\item $M_{|S| \times |S|}$ -- матрица доступов, если $(x,y,r) \in E$, то $r \in M[x,y]$, для $s \in S_{tg}$ выполняется условие $own \in M[s,s]$
 \end{enumerate}
 
-		$command  Take_{\alpha}(x,y,z)$
+\begin{multicols}{2}
+	\begin{itemize}
+		\item $\mathbf{command} \  Take_{\alpha}(x,y,z)$
 
 		$if (own \in M[x,x]) and (t \in M[x,y])and (r_1 \in M[y,z])and  \ldots and (r_k \in M[y,z]) then $
 
@@ -99,178 +101,172 @@
 
 		$end$
 
+		\item 		$\mathbf{command} \  Grant_{\alpha}(x,y,z)$
 
+				$if (own \in M[x,x]) and (g \in M[x,y])and (r_1 \in M[x,z])and  \ldots and (r_k \in M[x,z]) then $
 
-		$command  Grant_{\alpha}(x,y,z)$
+				\kav{внести} право $r_1$ в $M[y,z]$
 
-		$if (own \in M[x,x]) and (g \in M[x,y])and (r_1 \in M[x,z])and  \ldots and (r_k \in M[x,z]) then $
+				$\ldots$
 
-		\kav{внести} право $r_1$ в $M[y,z]$
+				\kav{внести} право $r_k$ в $M[y,z]$
 
-		$\ldots$
+				$endif$
 
-		\kav{внести} право $r_k$ в $M[y,z]$
+				$end$
+		\end{itemize}
+		\begin{itemize}
+		\item 		$\mathbf{command} \ CreateObjectAlpha(x,y)$
 
-		$endif$
+				$if (own \in M[x,x]) then $
 
-		$end$
+				\kav{создать} субъект $y$
 
+				\kav{внести} право $r_1$ в $M[x,y]$
 
+				$\ldots$
 
-		$command  CreateObjectAlpha(x,y)$
+				\kav{внести} право $r_k$ в $M[x,y]$
 
-		$if (own \in M[x,x]) then $
+				$endif$
 
-		\kav{создать} субъект $y$
+				$end$
 
-		\kav{внести} право $r_1$ в $M[x,y]$
+		\item 		$\mathbf{command} \ CreateSubjectAlpha(x,y)$
 
-		$\ldots$
+				$if (own \in M[x,x]) then $
 
-		\kav{внести} право $r_k$ в $M[x,y]$
+				\kav{создать} субъект $y$
 
-		$endif$
+				\kav{внести} право $own$ в $M[y,y]$
 
-		$end$
+				\kav{внести} право $r_1$ в $M[x,y]$
 
+				$\ldots$
 
+				\kav{внести} право $r_k$ в $M[x,y]$
 
-		$command  CreateSubjectAlpha(x,y)$
+				$endif$
 
-		$if (own \in M[x,x]) then $
+				$end$
+			\end{itemize}
+			\begin{itemize}
 
-		\kav{создать} субъект $y$
+			\item 		$\mathbf{command} \ RemoveAlpha(x,y)$
+					$if (own \in M[x,x]) then $
 
-		\kav{внести} право $own$ в $M[y,y]$
+					\kav{удалить} право $r_1$ в $M[x,y]$
+					$\ldots$
+					\kav{удалить} право $r_k$ в $M[x,y]$
 
-		\kav{внести} право $r_1$ в $M[x,y]$
+					$endif$
 
-		$\ldots$
+					$end$
 
-		\kav{внести} право $r_k$ в $M[x,y]$
+	\end{itemize}
 
-		$endif$
+\end{multicols}
 
-		$end$
-
-
-
-		$command  RemoveAlpha(x,y)$
-
-		$if (own \in M[x,x]) then $
-
-		\kav{удалить} право $r_1$ в $M[x,y]$
-
-		$\ldots$
-
-		\kav{удалить} право $r_k$ в $M[x,y]$
-
-		$endif$
-
-		$end$
-
-
-	\textbf{Take-Grant в ТМД}
+\textbf{Take-Grant в ТМД}
 
 	\textbf{Take-Grant:}
-
-	\begin{enumerate}
-		\item $G=(S_{tg}, O_{tg}, E)$
-		\item $R_{tg}$
-	\end{enumerate}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $G=(S_{tg}, O_{tg}, E)$
+			\item $R_{tg}$
+		\end{enumerate}
+	\end{multicols}
 
 	\textbf{ТМД:}
 
-	\begin{enumerate}
-		\item $R = R_{tg}$
-		\item $S = O = O_{tg}$
-		\item $M_{|S| \times |S|}$ -- матрица доступов, где для $x,y \in O_{tg}$,если $(x, y, r) \in E$ то $r \in M[x,y]$
-		\item $T = \{subject, object\}$ -- множество типов
-		\item $t: O \to T : t(s) = subject, t(o) = object, o \in O_{tg} \backslash S_{tg}$
-		\item $q = (S, O, t, M)$ -- состояние ТМД
-	\end{enumerate}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $R = R_{tg}$
+			\item $S = O = O_{tg}$
+			\item $M_{|S| \times |S|}$ -- матрица доступов, где для $x,y \in O_{tg}$,если $(x, y, r) \in E$ то $r \in M[x,y]$
+			\item $T = \{subject, object\}$ -- множество типов
+			\item $t: O \to T : t(s) = subject, t(o) = object, o \in O_{tg} \backslash S_{tg}$
+			\item $q = (S, O, t, M)$ -- состояние ТМД
+		\end{enumerate}
+	\end{multicols}
+
 
 
 	Построим отображение правил преобразования графов доступов в множество команд системы ТМД.
+\begin{multicols}{2}
+	\begin{itemize}
+		\item 	$\mathbf{command} \ \mathit{Take}_{r_1, \ldots, r_k}os(x: subject,y:object,z:subject)$
+
+			$if (t \in M[x,y]) \ and (r_1 \in M[y,z])and  \ldots \ and \ (r_k \in M[y,z]) then $
+
+			\kav{внести} право $r_1$ в $M[x,z]$
+
+			$\ldots$
+
+			\kav{внести} право $r_k$ в $M[x,z]$
+
+			$endif$
+
+			$end$
+
+			\item $\mathbf{command} \  \mathit{Grant}_{r_1, \ldots, r_k}so(x: subject,y:subject,z:object)$
+
+			$if (g \in M[x,y]) \ and  \ (r_1 \in M[x,z]) and  \ldots and (r_k \in M[x,z]) \ then $
+
+			\kav{внести} право $r_1$ в $M[y,z]$
+
+			$\ldots$
+
+			\kav{внести} право $r_k$ в $M[y,z]$
+
+			$endif$
+
+			$end$
+	\end{itemize}
+
+	\begin{itemize}
+		\item 		$\mathbf{command} \  \mathit{CreateObjectAlpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
 
 
-		$command  Take_{r_1, \ldots, r_k}os(x: subject,y:object,z:subject)$
+				\kav{создать} субъект $y$ с типом $object$
 
-		$if (t \in M[x,y]) and (r_1 \in M[y,z])and  \ldots and (r_k \in M[y,z]) then $
+				\kav{внести} право $r_1$ в $M[x,y]$
 
-		\kav{внести} право $r_1$ в $M[x,z]$
+				$\ldots$
 
-		$\ldots$
+				\kav{внести} право $r_k$ в $M[x,y]$
 
-		\kav{внести} право $r_k$ в $M[x,z]$
+				$endif$
 
-		$endif$
+				$end$
+				\item		$\mathbf{command} \ \mathit{CreateSubjectAlpha}_{r_1, \ldots, r_k}(x: subject,y:subject)$
 
-		$end$
+						$if (own \in M[x,x]) then $
 
+						\kav{создать} субъект $y$ с типом $subject$
 
+						\kav{внести} право $r_1$ в $M[x,y]$
 
-		$command  Grant_{r_1, \ldots, r_k}so(x: subject,y:subject,z:object)$
+						$\ldots$
 
-		$if (g \in M[x,y]) and (r_1 \in M[x,z]) and  \ldots and (r_k \in M[x,z]) then $
+						\kav{внести} право $r_k$ в $M[x,y]$
 
-		\kav{внести} право $r_1$ в $M[y,z]$
+						$endif$
 
-		$\ldots$
-
-		\kav{внести} право $r_k$ в $M[y,z]$
-
-		$endif$
-
-		$end$
-
-
-		$command  CreateObjectAlpha_{r_1, \ldots, r_k}(x: subject,y:object)$
+						$end$
+	\end{itemize}
+\end{multicols}
 
 
-		\kav{создать} субъект $y$ с типом $object$
+		$\mathbf{command} \ \mathit{RemoveAlpha}_{r_1, \ldots, r_k}(x: subject,y:object)$
 
-		\kav{внести} право $r_1$ в $M[x,y]$
-
-		$\ldots$
-
-		\kav{внести} право $r_k$ в $M[x,y]$
-
-		$endif$
-
-		$end$
-
-
-
-		$command  CreateSubjectAlpha_{r_1, \ldots, r_k}(x: subject,y:subject)$
-
-		$if (own \in M[x,x]) then $
-
-		\kav{создать} субъект $y$ с типом $subject$
-
-		\kav{внести} право $r_1$ в $M[x,y]$
-
-		$\ldots$
-
-		\kav{внести} право $r_k$ в $M[x,y]$
-
-		$endif$
-
-		$end$
-
-
-
-		$command  RemoveAlpha_{r_1, \ldots, r_k}(x: subject,y:object)$
-
-		$if (own \in M[x,x]) then $
+		$if (own \in M[x,x]) \ then $
 
 		\kav{удалить} право $r_1$ в $M[x,y]$
-
-		$\ldots$
 
 		\kav{удалить} право $r_k$ в $M[x,y]$
 
 		$endif$
 
 		$end$
-		\newpage
+\newpage

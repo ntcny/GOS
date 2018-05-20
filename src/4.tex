@@ -56,5 +56,32 @@
 \begin{proofs}[Достаточные условия экстремума]
 \zagolovok{Лемма} $\pust f$ - определена и непрерывна в некоторой окрестности $U(x_0)$, дифф-ма в $\prokol{U}(x_0)$, тогда, если $\forall x \in \fskobk{z \ | \ z \in U(x_0) : z < x_0}$ выполняется $f^{\shtrih}(x) > 0$, а $\forall \ x \in \fskobk{z \ | \ z \in U(x_0): z > x_0}$
 $f^{\shtrih}(x) < 0$, то \vtochke{x_0} точка локального максимума (при обратных неравенствах минимума)
+\begin{dokvo}
+	$\pust$ выполняется $f^{\shtrih}(x)>0 \ \forall x \in \overbrace{\fskobk{z \ | \ z \in U(x_0) : z > x_0}}^{Z}$, $\rassmotr \ z_1, z_2 \in Z: z_1 < z_2$. По теореме $(\forall x \in \skobk{a,b}, f^{\shtrih}(x) \geq 0 \tittg$ функция $f$ - не убывает на $\skobk{a,b}) \sledue \ f(z_1) < f(z_2)$, далее  при $z_2 \to z_0 - 0$ из-за непрерывности функции \fx, $\predel{z_2 \to z_0 - 0}f(z_2) = f(z_0) \sledue$ $f(z_2) < f(z_0) \sledue$ $f(z_1)< f(x_0)$, аналогично, $\forall \ z_1, z_2 \in \fskobk{z \ | \ z \in U(x_0) : z < x_0}: z_1 > z_2, f(z_1) > f(x_0) \sledue \ x_0$ локальный максимум.
+\end{dokvo}
+
+\zagolovok{Лемма} $f$ $n$-раз непрерывна и диф-ма на $\skobk{a,b}$, $x_0 \in (a,b)$ - стационарная точка\footnote{в ней производная обращается в нуль или ноль} и $f^{\shtrih}(x_0)= f^{\shtrih\shtrih}(x_0) = \ldots = f^{(n-1)}(x_0)= 0$, а $f^{n}(x_0) \neq 0 \sledue$
+
+если $n$ - нечетное, то $x_0$ - не является точкой локального экстремума
+
+если $n$ - четное, то $x_0$ точка локального экстремума, при этом если $f^{(n)}(x_0) > 0$, то \vtochke{x_0} - точка локального минимума, а если $f^{n}(x_0) < 0$, то $x_0$ - точка локального максимума.
+\begin{dokvo}
+	По теореме о формуле Тейлора с остаточным членом в форме Пеано:
+	\begin{gather*}
+		f(x) = f(x_0) + \cancelto{= 0}{\frac{f^{\shtrih}(x_0)}{1!}}\cdot (x-x_0) + \cdots + \cancelto{= 0}{\frac{f^{(n)}(x_0)}{n!}}\cdot (x-x_0)^{n} + \omaloe{(x-x_0)^{n}}, x \to x_0 \\
+		f(x) - f(x_0) = \frac{f^{(n)}(x_0)}{n!}\cdot (x - x_0)^{n} + \omaloe{(x - x_0)^{n}}, x \to x_0 \\
+		f(x) - f(x_0) = (x - x_0)^{n} \cdot \skobk{\frac{f^{(n)}(x_0)}{n!} + \frac{\omaloe{(x-x_0)^{n}}}{(x-x_0)^{n}}}, x \to x_0
+	\end{gather*}
+	$\exists \delta > 0: \forall x: \Modul{x- x_0} < \delta, \Modul{\omaloe{1}} < \Modul{\frac{f^{(n)}(x_0)}{n!}}\cdot \frac{1}{2} \sledue$ знак выражения в скобках совпадает со знаком $\frac{f^{n}(x_0)}{n!}$
+
+	\begin{enumerate}
+		\item \zagolovok{$n$ - нечетное} $\sledue \ f(x) - f(x_0)$ меняет зна при прохождении $x$ через $x_0$ $\sledue x_0$ не точка экстремума
+		\item \zagolovok{$n$ - четное} $\sledue$ не меняет, при этом имеет знак, совпадающий с $\frac{f^{n}(x_0)}{n!}$
+		\begin{itemize}
+			\item $f(x) - f(x_0)>0$,если $x \neq x_0, \Modul{x- x_0} < \delta$ и $f^{(n)}(x_0)>0 \sledue$ $x_0$ точка строгого локального минимума
+			\item $f(x) - f(x_0)<0$,если $x \neq x_0, \Modul{x- x_0} < \delta$ и $f^{(n)}(x_0)<0 \sledue$ $x_0$ точка строгого локального максимума 
+		\end{itemize}
+	\end{enumerate}
+\end{dokvo}
 \end{proofs}
 \newpage
