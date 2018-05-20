@@ -1,0 +1,98 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 26.Независимость двух событий. Связь независимости и условных вероятностей. Независимость случайных величин. Критерий независимости конечного числа дискретных и абсолютно непрерывных случайных величин (доказательство для абсолютно непрерывных с.в.). Пример:  выяснить, зависит ли время ожидания друг друга в задаче о встрече от времени прибытия 1-го товарища?}
+
+\begin{defs}[Независимость двух событий]
+	События $A,B \in \agot$ -- независимы, если $\mathbb{P}(A \cap B) = \mathbb{P}(A)\cdot \mathbb{P}(B)$.
+\end{defs}
+
+\begin{defs}[]
+		События из $\{A_1,\dots,A_n\}$ независимы в совокупности, если $\forall k \in 1,\dots,n$, $\forall i_{1},\dots,i_{k} \in 1,\dots,n$
+		$\mathbb{P}(A_{i_{1}}\cap$ $\dots$ $\cap,A_{i_{k}}) = \mathbb{P}(A_{i_{1}})\cdot$ $\dots$ $\cdot \mathbb{P}(A_{i_{k}})$.
+\end{defs}
+
+\begin{defs}[]
+	События из $\{A_i\}_{i \in I}$ независимы в совокупности, если независимы события из любой конечной подсовокупности.
+\end{defs}
+
+\begin{defs}[]
+	События из $\{A_i\}_{i \in I}$ попарно независимы, если любые два события независимы.
+\end{defs}
+
+\begin{proofs}
+	\begin{enumerate}
+		\item если $\mathbb{P}(A)=0$ или $\mathbb{P}(B)=0$, то $A$ и $B$ всегда независимы.
+		\item если $\mathbb{P}(A) \neq 0$ и $\mathbb{P}(B) \neq 0$, то $A$ и $B$ независимы $\iff \levfigurn{\mathbb{P}(A/B) = \mathbb{P}(A)\\ \mathbb{P}(B/A) = \mathbb{P}(B)}$
+		\item если усл. вер-ти $\mathbb{P}(A/B)$ и $\mathbb{P}(A/\overline{B})$ определены, то $A$ и $B$ независимы $\iff$ $\mathbb{P}(A/B) = \mathbb{P}(A/\overline{B})$.
+ 	\end{enumerate}
+\end{proofs}
+
+\begin{defs}
+	Случайные величины $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, определенные на одном в.п. $(\Omega,\mathfrak{A},\mathbb{P}(\cdot))$, наз. независимыми
+	в совокупности (или просто независимы), если вып-ся:
+	
+	$\forall B_1$,$\dots$,$B_n \in \mathcal{B}(\mathbb{R}) : \mathbb{P}\{\xi_1 \in B_1,\dots,\xi_n \in B_n\} = \mathbb{P}\{\xi_1 \in B_1\}\cdot$ $\dots$ $\cdot \mathbb{P}\{\xi_n \in B_n\}$
+\end{defs}
+
+\begin{proofs}
+	Произвольные с.в. $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, с распр. произв. типа являются
+	независимыми в совокупности $\iff$ их совместная ф.р. тождественно равна пр-ю их частных ф.р., т.е.
+	
+	$F_{(\xi_1, \dots , \xi_n)}(\overrightarrow{x}) = F_{\xi_1}(x_1) \cdot$ $\dots$ $\cdot F_{\xi_n}(x_n)$ $\forall \overrightarrow{x} = (x_1,\ldots,x_n) \in \mathbb{R}^n$
+	\begin{dokvo}
+	
+		$\Rightarrow$ В частности $\forall$ борелевских множеств вида $B_1 = (-\infty, x_1), \ldots, B_n = (-\infty, x_n)$ $\mathbb{P}\{\xi_1 \in B_1,\dots,\xi_n \in B_n\} = \prod\limits_{i=1}^{n}\mathbb{P}\{\xi_i \in B_i\}$
+		
+		$\Leftarrow$ без доказательства.
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+	Произвольные с.в. $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, с дискр. распределением явл. независимыми в совокупности $\iff$
+	$\forall (x_1,\ldots,x_n) \in \mathbb{R}^n$ $\mathbb{P}\{\xi_1 = x_1,\dots,\xi_n = x_n\} = \mathbb{P}\{\xi_1 = x_1\}\cdot$ $\dots$ $\cdot \mathbb{P}\{\xi_n = x_n\}$
+	\begin{dokvo}
+	
+		$\Rightarrow$ В частности $\forall$ борелевских множеств вида $B_1 = \{x_1\}, \ldots, B_n = \{x_n\}$
+		
+		$\Leftarrow$ без доказательства.
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+	C.в. $\xi_1$,$\dots$,$\xi_n$ с распределением абс. непр. типа с плотностями распр. 
+	
+	$f_{\xi_1}(x_1),\ldots$ $,f_{\xi_n}(x_n)$ явл. незав. в совокуп. $\iff$ случ. вектор
+	$\overrightarrow{\xi} = (\xi_1$,$\dots$,$\xi_n)$ обл. свойствами:
+	\begin{enumerate}
+		\item Этот вектор имеет абс. непрер. распределение
+		\item Одним из вариантов плотности явл. распр. маргинальных плотностей.
+	\end{enumerate}
+	\begin{dokvo}
+		Пока не осилил сорян
+	\end{dokvo}
+\end{proofs}
+
+\begin{example}
+	КУ: механизм случайного прибытия двух людей в обр. место и время.
+	
+	исходы: $\omega = (t_1,t_2)$, $t_i$ -- время прибытия.
+	
+	$\Omega = \{\omega\} = [0,1]^2$, $\agot = \mathcal{L}(\Omega)$, 
+	$\mathbb{P}(\cdot)$ -- геом., т.к. $\Omega$ -- огр., измер. по Лебегу
+	, $\agot = \mathcal{L}(\Omega)$, исходы мелкие, неделимые.
+	
+	$\xi:\Omega \to \mathbb{R}$ : $\xi(\omega) = |t_1 - t_2|$
+	
+	$\eta:\Omega \to \mathbb{R}$ : $\eta(\omega) = t_1$
+	
+	$F_{\xi}(x) = \levfigurn{0, x \leq 0 \\ 1-(1-x)^2, x \in [0,1] \\ 1, x > 1}$
+	$F_{\eta}(x) = \levfigurn{0, x < 0 \\ x, x \in [0,1] \\ 1, x > 1}$
+	
+	$F_{(\xi,\eta)}(x,y) = \mathbb{P}\{|t_1 - t_2| < x, t_1 < y\} \oeq$
+	
+	Приведем контрпример зависимости: $x = \frac{1}{2}, y = \frac{1}{4}$
+	
+	$\oeq \mathbb{P}\{|t_1 - t_2| < \frac{1}{2}, t_1 < \frac{1}{4}\} = \frac{\frac{1}{2} + \frac{3}{4}}{2} \cdot \frac{1}{4} = \frac{5}{32} \neq \frac{3}{4} \cdot \frac{1}{4}$
+\end{example}
+
+
+
