@@ -1,0 +1,53 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 6: Функциональные ряды. Равномерно сходящиеся ряды. Критерий Коши равномерной сходимости ряда. Непрерывность суммы равномерно сходящегося ряда непрерывных функций. Теоремы о дифференцировании и интегрировании функционального ряда.}
+
+\begin{defs}[Функциональная последовательность]
+	$\fskobk{f_{n}(x)}$, $n \in \Natural$,  $f_{n}(x): E \to \Real$, говорят, что задана функциональная последовательность
+
+	$\fskobk{f_{n}(x)}$ - не убывает (не возрастает), если $\forall x \in E \ f_{n}(x) \leq f_{n+1}(x) \ \forall n \in \Natural$. Класс неубывающих и невозрастающих функциональных последовательностей -- \textbf{класс монотонных функциональных последовательностей}.
+\end{defs}
+
+\begin{defs}[Функциональный ряд]
+	Обозначим $S_n(x) = \summa{i=1}{n}f_{n}(x)$ - последовательность частичных сумм, тогда $\fskobk{S_n(x), f_{n}(x)}$ -- функциональный ряд. При этом если, $\exists \predel{n\to \besk}S_n(x)=S(x)$, то функциональный ряд $\summa{n=1}{\besk}f_n(x)$ -- сходится, а $S(x)$ - сумма функционального ряда
+
+	Если сходится ряд $\summa{n=1}{\besk}\Modul{f_n(x)}$, то $\summa{n=1}{\besk}f_n(x)$ - АСФР
+
+	Говорят, что функциональная последовательность $\fskobk{f_{n}(x)}$ сходится равномерно на множестве $E$ к функции \fx (обозначают это $f_n(x) \rvnmrno{E} f(x)$), $x \to \infty$, если $\forall \epsilon > 0 \ \exists N \in \Natural$ ($N$ зависит от $\epsilon$) $: \forall n > N, \ \forall x \in E$ $\Modul{f(x) - f_{n}(x)} <  \epsilon$
+
+	Говорят, что функциональный ряд $\fskobk{S_n(x), f_{n}(x)}$ сходится равномерно на $E$, если на $E$ равномерно сходится последовательность частичных сумм
+\end{defs}
+
+\begin{proofs}[Критерий коши равномерной сходимости ряда]
+	Функциональный ряд $\summa{n=1}{\besk}f_{n}(x)$ сходится равномерно на $E \ \tittg \ \forall \epsilon > 0 \ \exists N \in \Natural: \forall n \in \Natural, n > N, \forall p \in \Natural$ и $\forall x \in E, \Modul{f_{n+1}(x)+\cdots+f_{n+p}(x)} < \epsilon$
+	\begin{dokvo}
+		По определению, ряд $\summa{n=1}{\besk}f_n(x)$ сходится равномерно, если сходится равномерно $\fskobk{S_n(x)}$ -- последовательность частичных сумм: $S_n(x) \rvnmrno{E} S(x), n \to \besk$, согласно критерию Коши для функциональных последовательностей $S_n(x) \rvnmrno{E} S(x) \ \tittg \ \forall \epsilon > 0 \ \exists N \in \Natural: \forall n,m \in \Natural: n,m > N, \ \forall x \in E$ выполняется $\Modul{S_n(x) - S_m(x)} < \epsilon$. $\pust$ для опр-ти $n > m \ \sledue \Modul{S_n(x) - S_m(x)} = \Modul{f_{m+1}(x) + f_{m+2}(x) + \cdots + f_{m+p}(x)} < \epsilon$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Какая-то]
+	$\pust \ f_n:E \to \Real \ \forall n \in \Natural$, $a$ - предельная точка множества $E$, функциональный ряд $\summa{n=1}{\besk}f_n(x)$ - сходится равномерно на $E$, $\exists \predel{x \to a}f_n(x)=a_n$, тогда если $f(x) = \summa{n=1}{\besk}f_n(x)$, то $\exists \predel{x \to a}f(x) = \summa{n=1}{\besk}a_n$
+\end{proofs}
+
+\begin{proofs}[Какая-то 2]
+	$f_n: E \to \Real, \forall n \in \Natural$, $f_n(x)$ - непрерывна в \vtochke{a} $\forall n \in \Natural$, $a$ не обязательно предельная, $\summa{n=1}{\besk}f_n(x)$ сходится равномерно, тогда $f(x) = \summa{n=1}{\besk}f_n(x)$ - непрерывна в точке $a$
+	\begin{dokvo}
+		Если $a$- изолированная точка, то $f(x)$ непрерывна в ней по определению,
+
+		$\pust a$ предельная точка, докажем что $\predel{x \to a}f(x)=f(a)$: $\predel{x \to a}f(x) = \predel{x\to a}\summa{n=1}{\besk}f_n(x) \naverh{Теорема выше}= \summa{n=1}{\besk}\predel{x\to a}f_n(x)= \summa{n=1}{\besk}f(a) = f(a)$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Теорема об интегрировании степенного ряда]
+	$\pust$ $f_n: \kskobk{a,b} \to \Real$, $f_n(x)$ - непрерывна на $\kskobk{a,b}$ и функциональный ряд $\summa{n=1}{\besk}f_n(x)$ сходится равномерно на $\kskobk{a,b}$ $\sledue$ если $x_0 \in \fskobk{a,b}$, $f(x)=\summa{n=1}{\besk}f_n(x) \ \sledue$ $\intergral{x_0}{x}f(t)\pode{t} = \summa{n=1}{\besk}\intergral{x_0}{x}f_n(t)\pode{t}$, при этом функциональный ряд $\summa{n=1}{\besk}\intergral{x_0}{x}f_n(t)\pode{t}$ -- сходится на $\kskobk{a,b}$
+	\begin{dokvo}
+		$f(x)$ - непрерывна на $\kskobk{a,b}$, по теореме из этого билета $\sledue$ интегралы существуют $\forall x \in \kskobk{a,b}: \intergral{x_0}{x}f(t)\pode{t}$
+
+		$\rassmotr$ $\Modul{\intergral{x_0}{x}f(t)\pode{t} - \intergral{x_0}{x}f_n(t)\pode{t}} = \Modul{\intergral{x_0}{x}\skobk{f(t)-f_n(t)}\pode{t}} \leq \Modul{\intergral{x_0}{x}\Modul{f(t) - f_n(t)}\pode{t}}$ т.к $\summa{n=1}{\besk}f_n(t)\rvnmrno{\kskobk{a,b}}f(t), \sledue$ $\forall \epsilon > 0 \ \exists N \in \Natural$ и $\forall n > N$ и $\forall t \in \kskobk{a,b}$ $\Modul{f(t)-f_n(t)} < \epsilon \sledue \ \Modul{\intergral{x_0}{x}\Modul{f(t) - f_n(t)}\pode{t}} \leq \epsilon \cdot \skobk{b-a} \sledue \ \summa{n=1}{\besk}\intergral{x_0}{x}f_n(t)\pode{t}$ сходится равномерно на $\kskobk{a,b}$ и $\intergral{x_0}{x}f(t)\pode{t} = \summa{n=1}{\besk}\intergral{x_0}{x}f_n(t)\pode{t}$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Теорема о дифференцировании функционального ряда]
+		$\pust$ $f_n: \kskobk{a,b} \to \Real$, $f_n(x)$ - непрерывно дифференцируема на $\kskobk{a,b} \ \forall n \in \Natural$ (тоесть $f^{\shtrih}$ непрерывна на $\kskobk{a,b}$). Функциональный ряд $\summa{n=1}{\besk}f_n(x)$ сходится хотя бы в одной точке $x_o \in \kskobk{a,b}$
+
+		Функциональный ряд $\summa{n=1}{\besk}f^{\shtrih}_{n}(x)$ сходится равномерно на $\kskobk{a,b} \ \sledue \ \fskobk{f_n(x)}$ - сходится равномерно на $\kskobk{a,b}$ и если $f(x) = \summa{n=1}{\besk}f_n(x)$, то $f^{\shtrih}(x)= \summa{n=1}{\besk}f_{n}^{\shtrih}(x)$
+\end{proofs}
