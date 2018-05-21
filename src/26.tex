@@ -67,7 +67,36 @@
 		\item Одним из вариантов плотности явл. распр. маргинальных плотностей.
 	\end{enumerate}
 	\begin{dokvo}
-		Пока не осилил сорян
+	
+		$\Rightarrow$ 
+		
+		Необходимо проверить, что ф-я $f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n)$
+		обладает тремя св-ми плотности:
+		
+		a) $f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) \geq 0$ $\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n$
+		
+		б) $\exists (L) \mathvniz{\Rmern{n}}{\int\ldots\int}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n)d x_1 \ldots d x_n \oeq$ переход к повторным
+		
+		$\oeq \int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{+\infty} \ldots \left[ \int\limits_{-\infty}^{+\infty}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) dx_n \right] dx_{n-1} \ldots \right] dx_1 =$
+		$\int\limits_{-\infty}^{+\infty} f_{\xi_1}(x_1)dx_1 \cdot \ldots \cdot \int\limits_{-\infty}^{+\infty} f_{\xi_n}(x_n)dx_n =$
+		$= 1 \cdot \ldots \cdot 1 = 1$
+		
+		в) $\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n : \int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n}(f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n))dx_1 \cdot \ldots \cdot dx_n =$ переход к повторным
+		$= \int\limits_{-\infty}^{x_1} \left[\ldots \left[ \int\limits_{-\infty}^{x_n}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) dx_n \right] \ldots \right] dx_1 = $
+		$\int\limits_{-\infty}^{x_1} f_{\xi_1}(x_1)dx_1 \cdot \ldots \cdot \int\limits_{-\infty}^{x_n} f_{\xi_n}(x_n)dx_n =$
+		
+		$=F_{\xi_1}(x_1)\cdot \ldots \cdot F_{\xi_n}(x_n)=$по общему критерию независимости $= F_{(\xi_1, \ldots, \xi_n)}(x_1, \ldots, x_n) = F_{\overrightarrow{\xi}}(\overrightarrow{x})$
+		$\forall \overrightarrow{x} \in \mathbb{R}^n$ 
+		
+		$\Leftarrow$
+		
+		Необходимо доказать, что $\xi_1, \ldots, \xi_n$ независимы в совокупности.
+		
+		$\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n : F_{\overrightarrow{\xi}}(\overrightarrow{x}) = $
+		$\int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n} f_{\overrightarrow{\xi}}(\overrightarrow{t})d \overrightarrow{t} = $
+		$\int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n} f_{\xi_1}(t_1) \cdot \ldots \cdot f_{\xi_n}(t_n)dt_1 \ldots dt_n =$ переход к повторным =
+		$\int\limits_{-\infty}^{x_1} f_{\xi_1}(t_1)dt_1 \cdot \ldots \cdot \int\limits_{-\infty}^{x_n} f_{\xi_n}(t_n)dt_n =$
+		$F_{\xi_1}(x_1) \cdot \ldots \cdot F_{\xi_n}(x_n)$  $\forall \overrightarrow{x} \in \mathbb{R}^n  \Rightarrow$ по общему критерию зависимости с.в. $\xi_1$,$\dots$,$\xi_n$ явл. независимыми.
 	\end{dokvo}
 \end{proofs}
 
