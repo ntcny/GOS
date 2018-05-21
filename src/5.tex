@@ -86,6 +86,43 @@ $a_n \in \Real \ILI \Complex$
 \end{defs}
 
 \begin{proofs}[Признак Лейбница]
-	$\pust$ $\fskobk{a_n}$: %СУКА 
-
+	$\pust$ $\fskobk{a_n}$ - последовательность: $\levfigurn{ a_n \geq 0 \ \forall n \in \Natural \\ \predel{n\to \infty}a_n = 0 \\  \fskobk{a_n}\text{ не возрастает}} \sledue$ ряд $\summa{n=1}{\infty}\skobk{-1}^{n-1}\cdot a_n$ -сходится
+	\begin{dokvo}
+		$\rassmotr$ $S_{2n} = \mathvniz{\geq 0}{\skobk{a_1 - a_2}} + \mathvniz{\geq 0}{\skobk{a_3 - a_4}}+ \cdots + \mathvniz{\geq 0}{\skobk{a_{2n-1} - a_{2n}}} \geq 0$ При этом $S_{2n + 2} \geq S_{2n} \geq 0 \ \sledue$ $S_{2n}$ не убывает. (игра со скобками) $S_{2n} = a_1 - \mathvniz{\geq 0}{\skobk{a_2 - a_3}} - \cdots - \mathvniz{\geq 0}{\skobk{a_{2n-2} - a_{2n-1}}} - \mathvniz{\geq 0}{a_{2n}} \sledue$ $S_{2n} \geq a_1 \ \sledue$ $S_{2n}$ - не убывает и ограничена сверху $\sledue \ \exists \predel{n\to \infty}S_{2n}$ т.к $S_{2n + 1} = S_{2n} + a_{2n+1}$ и т.к $\predel{n\to \infty}a_n = 0 \ \sledue \ \predel{n\to \infty}S_{2n+1} = \predel{n\to \infty}S_{2n} \ \sledue \ \exists\predel{n\to \infty}S_{n} \ \sledue$
+	\end{dokvo}
 \end{proofs}
+
+\begin{lemma}[Преобразование Абеля]
+ $$\summa{i=1}{n}a_i \cdot b_i = \summa{i=1}{n=1}\skobk{a_i - a_{i+1}}\cdot B_i + a_n\cdot B_n,\text{ где } B_i = \summa{k=1}{i}b_k$$
+\end{lemma}
+
+\begin{proofs}[Признак Дирихле]
+	$\rassmotr$ $\summa{n=1}{\infty}a_{n}b_{n}$, где $\fskobk{a_n}$ - монотонная последовательность, $\predel{n\to \infty}a_n = 0$, Частичные суммы ряда $\summa{n=1}{\infty}b_{n}$ ограничены $\sledue$ ряд $\summa{n=1}{\infty}a_{n}b_{n}$ сходится.
+	\begin{dokvo}
+		$\rassmotr$ выполнение критерия Коши ($\forall  \epsilon > 0 \ \exists  N \in \Natural:  \forall  n > N \I  \forall  p > 0,$ $\Modul{a_{n+1}+ \cdots + a_{n+p}} < \epsilon$)
+
+		$\Modul{\summa{i=1}{p}{a_{n+i} \cdot b_{n+i}}} \naverh{пр-я Абеля}= \Modul{\summa{i=1}{p-1}\skobk{a_{n+i}-a_{n+i+1}}B_i + a_{n+p}B_{n+p}} \leq \Modul{\summa{i=1}{p-1}\skobk{a_{n+i}-a_{n+i+1}}B_i} + \Modul{a_{n+p}B_{n+p}} \oleq$
+		Так как $\Modul{B_i} = \Modul{\summa{k=1}{n+i}b_k - \summa{k=1}{n}b_k} \leq \Modul{\summa{k=1}{n+i}b_k} - \Modul{\summa{k=1}{n}b_k} \leq 2M$,
+		а $\Modul{\summa{i=1}{p-1}\overbrace{\skobk{a_{n+i} - a_{n+i+1}}}^{\text{Одного знака}}B_i} \leq \Modul{\summa{i=1}{p-1}\overbrace{\skobk{a_{n+i} - a_{n+i+1}}}^{\vniz{вз-е унич-е членов}{\Modul{a_{n+1} - a_{n+p}}}}B_i} \cdot 2M$
+		$\oleq \ 2M \cdot \skobk{\Modul{a_{n+1} + 2\cdot \Modul{a_{n+1}}}} < 6 \cdot M \cdot \epsilon$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Признак сходимости Абеля]
+	Дан ряд $\summa{n=1}{\infty}\skobk{a_n \cdot b_n}: \fskobk{a_n}$ -- монотонная ограниченная последовательность, а $\summa{n=1}{\besk}$ -- сходится $\sledue$ $\summa{n=1}{\besk}a_n b_n$ -- сходится
+	\begin{dokvo}
+		Выполнение критерия Коши:
+		\begin{gather*}
+			\Modul{\summa{i=1}{p}a_{n+1}b_{n_i}} \naverh{пр-е Абеля}= \Modul{\summa{i=1}{p-1}\skobk{a_{n+i} -a_{n+i+1}}B_i + a_{n+p}B_p} \leq \Modul{\summa{i=1}{p-1}\underbrace{\skobk{a_{n+i} -a_{n+i+1}}}_{\vniz{от мон-ти крит Коши}{\text{один-й знак в зав-ти}}}B_i}  + \Modul{ a_{n+p}B_p} \oleq \\
+			\summa{n=1}{\besk}b_n - \text{сходится } \tittg \ \forall \epsilon > 0 \ \exists N \in \Natural: \forall n > N, p \in \Natural \ \Modul{\underbrace{b_{n+1} + \cdots + b_{n+p}}_{B_p}} < \epsilon \ \sledue \Modul{a_{n+p}B_p} \leq \Modul{a_{n+p} \epsilon}\\
+			\Modul{\summa{i=1}{p-1}\skobk{a_{n+i} - a_{n+i+1}}B_i} \leq \epsilon \cdot \Modul{\underbrace{\summa{i=1}{p-1}\skobk{a_{n+i} - a_{n+i+1}}}_{a_{n+1} + a_{n+p}}} \leq \epsilon \cdot \skobk{\Modul{a_{n+1}} + \Modul{a_{n+p}}}, \\
+			\text{т.к.} \fskobk{a_n} \text{ ограничена } \sledue \Modul{a_n} \leq M \ \forall n \in \Natural \ \sledue \\
+			\oleq \ 2M\epsilon + M\epsilon = 3M\epsilon \sledue \ \text{по критерию Коши ряд расходится}
+		\end{gather*}
+	\end{dokvo}
+\end{proofs}
+
+\begin{lemma}[Переместительное свойство абсолютно сходящихся рядов]
+	
+	$\pust$ ряд $\summa{n=1}{\besk}a_n$ - АСР, $\sigma: \Natural \to \Natural$ -- биективное отображение $\sledue$ ряд $\summa{n=1}{\besk}a_{\sigma(n)}$ - АСР и $\summa{n=1}{\besk}a_n = \summa{n=1}{\besk}a_{\sigma(n)}$
+\end{lemma}
