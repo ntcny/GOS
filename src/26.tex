@@ -29,19 +29,19 @@
 \begin{defs}
 	Случайные величины $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, определенные на одном в.п. $(\Omega,\mathfrak{A},\mathbb{P}(\cdot))$, наз. независимыми
 	в совокупности (или просто независимы), если вып-ся:
-	
+
 	$\forall B_1$,$\dots$,$B_n \in \mathcal{B}(\mathbb{R}) : \mathbb{P}\{\xi_1 \in B_1,\dots,\xi_n \in B_n\} = \mathbb{P}\{\xi_1 \in B_1\}\cdot$ $\dots$ $\cdot \mathbb{P}\{\xi_n \in B_n\}$
 \end{defs}
 
 \begin{proofs}
 	Произвольные с.в. $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, с распр. произв. типа являются
 	независимыми в совокупности $\iff$ их совместная ф.р. тождественно равна пр-ю их частных ф.р., т.е.
-	
+
 	$F_{(\xi_1, \dots , \xi_n)}(\overrightarrow{x}) = F_{\xi_1}(x_1) \cdot$ $\dots$ $\cdot F_{\xi_n}(x_n)$ $\forall \overrightarrow{x} = (x_1,\ldots,x_n) \in \mathbb{R}^n$
 	\begin{dokvo}
-	
+
 		$\Rightarrow$ В частности $\forall$ борелевских множеств вида $B_1 = (-\infty, x_1), \ldots, B_n = (-\infty, x_n)$ $\mathbb{P}\{\xi_1 \in B_1,\dots,\xi_n \in B_n\} = \prod\limits_{i=1}^{n}\mathbb{P}\{\xi_i \in B_i\}$
-		
+
 		$\Leftarrow$ без доказательства.
 	\end{dokvo}
 \end{proofs}
@@ -50,16 +50,16 @@
 	Произвольные с.в. $\xi_1$,$\dots$,$\xi_n$ в конечном количестве, с дискр. распределением явл. независимыми в совокупности $\iff$
 	$\forall (x_1,\ldots,x_n) \in \mathbb{R}^n$ $\mathbb{P}\{\xi_1 = x_1,\dots,\xi_n = x_n\} = \mathbb{P}\{\xi_1 = x_1\}\cdot$ $\dots$ $\cdot \mathbb{P}\{\xi_n = x_n\}$
 	\begin{dokvo}
-	
+
 		$\Rightarrow$ В частности $\forall$ борелевских множеств вида $B_1 = \{x_1\}, \ldots, B_n = \{x_n\}$
-		
+
 		$\Leftarrow$ без доказательства.
 	\end{dokvo}
 \end{proofs}
 
 \begin{proofs}
-	C.в. $\xi_1$,$\dots$,$\xi_n$ с распределением абс. непр. типа с плотностями распр. 
-	
+	C.в. $\xi_1$,$\dots$,$\xi_n$ с распределением абс. непр. типа с плотностями распр.
+
 	$f_{\xi_1}(x_1),\ldots$ $,f_{\xi_n}(x_n)$ явл. незав. в совокуп. $\iff$ случ. вектор
 	$\overrightarrow{\xi} = (\xi_1$,$\dots$,$\xi_n)$ обл. свойствами:
 	\begin{enumerate}
@@ -67,31 +67,31 @@
 		\item Одним из вариантов плотности явл. распр. маргинальных плотностей.
 	\end{enumerate}
 	\begin{dokvo}
-	
-		$\Rightarrow$ 
-		
+
+		$\Rightarrow$
+
 		Необходимо проверить, что ф-я $f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n)$
 		обладает тремя св-ми плотности:
-		
+
 		a) $f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) \geq 0$ $\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n$
-		
+
 		б) $\exists (L) \mathvniz{\Rmern{n}}{\int\ldots\int}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n)d x_1 \ldots d x_n \oeq$ переход к повторным
-		
+
 		$\oeq \int\limits_{-\infty}^{+\infty} \left[ \int\limits_{-\infty}^{+\infty} \ldots \left[ \int\limits_{-\infty}^{+\infty}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) dx_n \right] dx_{n-1} \ldots \right] dx_1 =$
 		$\int\limits_{-\infty}^{+\infty} f_{\xi_1}(x_1)dx_1 \cdot \ldots \cdot \int\limits_{-\infty}^{+\infty} f_{\xi_n}(x_n)dx_n =$
 		$= 1 \cdot \ldots \cdot 1 = 1$
-		
+
 		в) $\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n : \int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n}(f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n))dx_1 \cdot \ldots \cdot dx_n =$ переход к повторным
 		$= \int\limits_{-\infty}^{x_1} \left[\ldots \left[ \int\limits_{-\infty}^{x_n}f_{\xi_1}(x_1)\cdot \ldots \cdot f_{\xi_n}(x_n) dx_n \right] \ldots \right] dx_1 = $
 		$\int\limits_{-\infty}^{x_1} f_{\xi_1}(x_1)dx_1 \cdot \ldots \cdot \int\limits_{-\infty}^{x_n} f_{\xi_n}(x_n)dx_n =$
-		
+
 		$=F_{\xi_1}(x_1)\cdot \ldots \cdot F_{\xi_n}(x_n)=$по общему критерию независимости $= F_{(\xi_1, \ldots, \xi_n)}(x_1, \ldots, x_n) = F_{\overrightarrow{\xi}}(\overrightarrow{x})$
-		$\forall \overrightarrow{x} \in \mathbb{R}^n$ 
-		
+		$\forall \overrightarrow{x} \in \mathbb{R}^n$
+
 		$\Leftarrow$
-		
+
 		Необходимо доказать, что $\xi_1, \ldots, \xi_n$ независимы в совокупности.
-		
+
 		$\forall \overrightarrow{x} = (x_1, \ldots, x_n) \in \mathbb{R}^n : F_{\overrightarrow{\xi}}(\overrightarrow{x}) = $
 		$\int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n} f_{\overrightarrow{\xi}}(\overrightarrow{t})d \overrightarrow{t} = $
 		$\int\limits_{-\infty}^{x_1} \ldots \int\limits_{-\infty}^{x_n} f_{\xi_1}(t_1) \cdot \ldots \cdot f_{\xi_n}(t_n)dt_1 \ldots dt_n =$ переход к повторным =
@@ -102,26 +102,24 @@
 
 \begin{example}
 	КУ: механизм случайного прибытия двух людей в обр. место и время.
-	
+
 	исходы: $\omega = (t_1,t_2)$, $t_i$ -- время прибытия.
-	
-	$\Omega = \{\omega\} = [0,1]^2$, $\agot = \mathcal{L}(\Omega)$, 
+
+	$\Omega = \{\omega\} = [0,1]^2$, $\agot = \mathcal{L}(\Omega)$,
 	$\mathbb{P}(\cdot)$ -- геом., т.к. $\Omega$ -- огр., измер. по Лебегу
 	, $\agot = \mathcal{L}(\Omega)$, исходы мелкие, неделимые.
-	
+
 	$\xi:\Omega \to \mathbb{R}$ : $\xi(\omega) = |t_1 - t_2|$
-	
+
 	$\eta:\Omega \to \mathbb{R}$ : $\eta(\omega) = t_1$
-	
+
 	$F_{\xi}(x) = \levfigurn{0, x \leq 0 \\ 1-(1-x)^2, x \in [0,1] \\ 1, x > 1}$
 	$F_{\eta}(x) = \levfigurn{0, x < 0 \\ x, x \in [0,1] \\ 1, x > 1}$
-	
+
 	$F_{(\xi,\eta)}(x,y) = \mathbb{P}\{|t_1 - t_2| < x, t_1 < y\} \oeq$
-	
+
 	Приведем контрпример зависимости: $x = \frac{1}{2}, y = \frac{1}{4}$
-	
+
 	$\oeq \mathbb{P}\{|t_1 - t_2| < \frac{1}{2}, t_1 < \frac{1}{4}\} = \frac{\frac{1}{2} + \frac{3}{4}}{2} \cdot \frac{1}{4} = \frac{5}{32} \neq \frac{3}{4} \cdot \frac{1}{4}$
 \end{example}
-
-
-
+\newpage
