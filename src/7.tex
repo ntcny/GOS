@@ -1,0 +1,54 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 7: Степенные ряды. Первая теорема Абеля. Область и радиус сходимости
+степенного ряда. Равномерная сходимость степенного ряда. Непрерывность суммы, дифференцируемость и интегрируемость степенного ряда. Ряд Тейлора для функции одного действительного переменного и условие разложимости функции в ряд Тейлора.}
+%$\summa{n=0}{\besk}c_n (z-z_0)^n$
+\begin{defs}
+	Функциональный ряд вида $\summa{n=0}{\besk}c_n (z-z_0)^n$ - степенной ряд, где $c_n \in \Complex$, $z_0$ фиксированное, $z_0 \in \Complex$ центр разложения, $z \in \Complex$ переменная. При $w = z - z_0$, $\summa{n=0}{\besk}c_n w^n$ -- центрированный степенной ряд
+\end{defs}
+
+\begin{proofs}[Первая теорема Абеля]
+	Если степенной ряд $\summa{n=0}{\besk}c_n z^n$ сходится в точке $z_0$, то $\forall z: \Modul{z} < z_0$, этот ряд сходится абсолютно.
+	\begin{dokvo}
+		$\rassmotr$ ряд $\summa{n=0}{\besk}c_n z_{0}^{n}$ - сходится $\sledue$ по необходимому признаку сходимости $\predel{n \to \besk}\Modul{c_n z_0^n} = 0$
+
+		Далее, $\pust$ $z: \Modul{z} < \Modul{z_0}$ и $\rassmotr$ ряд $\summa{n=0}{\besk}\Modul{c_n z^n} = \summa{n=0}{\infty}\skobk{\Modul{c_n z_0^n}\cdot \Modul{\frac{z}{z_0}}^n}$.
+		Так как ряд $\summa{n=0}{\besk}\Modul{\frac{z}{z_0}}^n$ - сходится как сумма бесконечно убывающей геометрической прогрессии, а ряд $\summa{n=0}{\besk}\Modul{c_n z_0^n}$ $\sledue$ начиная с некоторого номера $\Modul{c_n z_0^n} \cdot \Modul{\frac{z}{z_0}}^n < \Modul{\frac{z}{z_0}}^n \ \sledue$ по признаку сравнения  $\summa{n=0}{\besk}\Modul{c_n z^n}$ - сходится
+	\end{dokvo}
+\end{proofs}
+
+\begin{defs}
+	$R = \fskobk{\Modul{z} \ | \ \text{ ряд} \summa{n=0}{\besk}c_n z^n \text{ сходится}}$ - радиус сходимости ряда $\summa{n=1}{\besk}c_n z^n$
+\end{defs}
+
+\begin{sledsv}[теоремы выше]
+	Если $R$ - радиус сходимости степенного ряда, то $\forall z \in \Complex: \Modul{z} < R$ ряд $\summa{n=0}{\besk}c_n z^n$ сходится абсолютно. Если $\Modul{z} > R$, то ряд расходится
+
+	$\summa{n=0}{\besk}c_n x^n, \ c_n \in \Real$ и $x \in \Real \ \sledue$ по доказательству выше на интервале $(-R,R)$, где $R$ - радиус сходимости, ряд $\summa{n=0}{\besk}c_n z^n$ сходится абсолютно $\sledue$ $(-R,R)$ интервал сходимости
+
+	$\summa{n=0}{\besk}c_n z^n, \ c_n \in \Complex, z \in \Complex $ $R$ - радиус сзодимости $\sledue$ круг $\fskobk{z \in \Complex \ | \ \Modul{z} < R}$ -- круг сходимости
+	%ХЕЛП ЛАЖА
+	$\summa{n=0}{\besk}c_n \skobk{x-x_0}^n, \ c_n \in \Real, x,x_0 \in \Real \ \sledue$ $\skobk{x_0 - R, x_0 + R}$
+\end{sledsv}
+
+\begin{defs}
+	функция бесконечно дифференцируема в \vtochke{x_0} $\sledue$ ряд вида $\summa{n=0}{\besk}\frac{f^{(n)}(x_0)}{n!}\skobk{x-x_0}^n$ ряд Тейлора с центром разложения в точке \vtochke{x_0}
+\end{defs}
+
+\begin{proofs}[Критерий разложимости в ряд Тейлора]
+	$\pust$ $f$ бесконечно дифференцируема на интервале $\skobk{x_0 - h, x+h_0}$, для некоторого положительного $h$, $r_n(x,x_0)$ - $n$-й остаточный член формулы Тейлора с центром разложения $x - x_0$ $\sledue$ $f(x) = \summa{n=0}{\besk}\frac{f^{(n)}(x_0)}{n!}\skobk{x - x_0}^n \ \tittg \ r_n(x - x_0) \to 0$ при $n \to \besk$
+	\begin{dokvo}
+		$f(x) = \summa{k=0}{\besk}\frac{f^{(k)}(x_0)}{k!}\skobk{x-x_0}^k + r_n(x,x_0)$ при $n \to \infty \ f(x) = \summa{k=0}{\besk}\frac{f^{(k)}(x_0)}{k!}\skobk{x-x_0}^{k} \tittg \predel{n\to \besk}r_n(x,x_0) =0$ По достаточному условию диф-ти
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+	$\pust$ $f$ бесконечно дифференцируема на интервале $(x_0 - h, x_0 + h)$ для некторого $h$ $\exists M = const \ \forall n \in \Natural$ и $\forall x \in \skobk{x_0 - h, x_0 + h}, \Modul{f^{(n)}(x)}\leq M \ \sledue$ \fx \ разлагается в ряд Тейлора на интервале $\skobk{x_0 - h, x_0 + h}$
+	\begin{dokvo}
+		$r_n(x,x_0)$ - остаточный член в формуле Тейлора
+
+		$r_n(x,x_0) = \frac{f^{(n)}(\xi)}{(n+1)!}\cdot \skobk{x-x_0}^{n+1}$ - формула Лагранжа $\xi \in \skobk{x_0, x}$, $\Modul{r_n(x,x_0)} = \Modul{\frac{f^{(n)}(\xi)}{(n+1)!}\cdot \skobk{x-x_0}^{n+1}} \leq M \cdot \frac{\Modul{x-x_0}^{n+1}}{(n+1)!}$
+
+		Ряд $\summa{n=0}{\besk}\frac{\Modul{x-x_0}^{n+1}}{(n+1)!}$ сходится по признаку Даламбера, начиная с некоторого $n: $ $\frac{\Modul{x - x_0}^n}{n} < q = 1 \ \sledue \predel{n \to \besk}\frac{\Modul{x-x_0}^{n+1}}{(n+1)!} = 0$ - необходимый признак сходимости $\sledue$ $\predel{n \to \besk}r_n(x,x_0) = 0$
+
+	\end{dokvo}
+\end{proofs}
