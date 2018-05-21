@@ -1,0 +1,306 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 35:
+Статистические гипотезы.
+Критерии проверки гипотез и их критические множества.
+Вероятности ошибок 1-го и 2-го рода при проверке гипотез, возможность неравенства $\alpha + \beta \neq 1$.
+Мощность и размер (уровень значимости).
+Лемма Неймана-Пирсона о НМК для проверки двух простых гипотез.
+Пример: проверить основную гипотезу $\theta=0$ против альтернативы $\theta=2$ по
+единственному измерению $x_1=1$ значения СВ $\xi \sim N(\theta,4)$ с использованием
+НМК размера $\alpha_0=0,1$
+}
+
+
+Проверка гипотез - одна из основных задач, решаемых статистикой.\\
+Рассмотрим некоторую стат.структуру (ситуацию) - параметрическую или непараметрическую.\\
+$\overrightarrow{x}=(x_1,\ldots,x_n)$ - случайная выборка СВ $\xi$.\\
+$F_{\xi}(.) \in F=\{F(.)\}$ - неизвестная функция распределения из параметрического
+или непараметрического класса.
+
+\begin{defs}[Статистическая гипотеза]
+    \textit{Статистической гипотезой} в мат.статистике называется любое утверждение
+    (логическое высказывание) о виде и/или свойствах неизвестного распределения $F_{\xi}$
+    измеряемой СВ $\xi$.
+\end{defs}
+
+Примеры гипотез:\\
+$H \ = \ \langle\xi\sim N(0,1)\rangle \ = \ \langle F_{\xi}(x) = \Phi(x)\rangle$\\
+$H \ = \ \langle\xi\sim Exp(\lambda)б \ \lambda > 5\rangle$
+
+\begin{defs}[Простая гипотеза]
+    Стат.гипотеза называется \textit{простой}, если она является утверждением о равенстве
+    неизвестного распределения $F_{\xi}$ СВ $\xi$ одному некоторому полностью известному
+    конкретному распредению (без параметров с неизвестными значениями).
+\end{defs}
+
+\begin{defs}[Сложная гипотеза]
+    Всякая стат.гипотеза, не являющаяся простой, называется \textit{сложной}.
+    Иными словами, сложная стат.гипотеза - это утверждение о принадлежности
+    неизвестного распредения $F_{\xi}$ некоторому классу, состоящему
+    более чем из одного распределения (минимум двух).
+\end{defs}
+
+Примеры:\\
+$H \ = \ \langle\xi\sim N(0,1)\rangle$ - простая;\\
+$H \ = \ \langle\xi\sim N(a,1), \ a > 0 \rangle$ - сложная;\\
+
+\begin{defs}[Взаимноальтернативаность]
+    Гипотезы $H_1,\ldots,H_k$ одного и того же неизвестного распределения
+    одной и той же измеряемой СВ $\xi$ называются \textit{взаимноальтернативными},
+    если при истинности одной гипотезы все остальные ложные.
+\end{defs}
+
+\begin{defs}[Основная и альтернативная гипотезы]
+    В случае, когда рассматривается задача проверки друг против друга двух стат.гипотез,
+    одна из гипотез называется \textit{основной} и обозначается $H_0$, а другая являющаяся
+    логическим отрицанием первой, называется \textit{альтернативной (конкурирующей)} и
+    обозначается $H_1$, при этом говорят о проверке основной гипотезы $H_0$ против
+    альтернативы $H_1$.
+\end{defs}
+
+\begin{defs}[Основная и альтернативная гипотезы]
+    В случае, когда рассматривается задача проверки друг против друга двух стат.гипотез,
+    одна из гипотез называется \textit{основной} и обозначается $H_0$, а другая являющаяся
+    логическим отрицанием первой, называется \textit{альтернативной (конкурирующей)} и
+    обозначается $H_1$, при этом говорят о проверке основной гипотезы $H_0$ против
+    альтернативы $H_1$.
+\end{defs}
+
+\begin{defs}[Выводы]
+    Задача проверки основной гипотезы $H_0$ против альтернативы $H_1=\overline{H_0}$
+    состоит в том, чтобы на основании имеющейся случайной выборки $\overrightarrow{x}$
+    с использованием некоторого правила (критерия) П сделать вывод о том, принимается основная
+    гипотеза $H_0$ в качестве истинной (в этом случае альтернативная $H_1$ отвергается
+    в качестве истинной) или отвергается (считается ложной, и в этом случаен в качестве истинной принимается
+    альтернативная гипотеза $H_1$).
+\end{defs}
+
+Замечания:
+\begin{enumerate}
+  \item Из определения видно, что в мат.статистке все стат.вывода формулируются относительно основной гипотезы $H_0$;
+  \item Следует обратить внимание на осторожность стат.выводов при проверке гипотез, а именно:
+  в мат.статистке не говорят "гипотеза $H_0$ подтверждается", а осторожно говорят "гипотеза $H_0$ принимается в качестве
+  истинной". Это связано с тем, что любой стат.вывод при проверке гипотез может оказаться ложным, то есть проверка гипотез
+  не дает 100\% надежный вывод;
+  \item Поскольку стат.выводы могут оказаться ложными, а качество проверки явно зависит от используемого правила, то в статистике встает
+  задача поиска лучших правил проверки гипотез, дающих меньшую вероятность ошибок.
+\end{enumerate}
+
+Все правила проверки гипотез можно разделить на 4 вида:
+\begin{enumerate}
+  \item Нерандомизированные правила
+  \begin{enumerate}
+    \item основанные на выборках фиксированной длины
+    \item основанные на выборках нефиксированной длины
+  \end{enumerate}
+  \item Рандомизированные правила
+  \begin{enumerate}
+    \item основанные на выборках фиксированной длины
+    \item основанные на выборках нефиксированной длины
+  \end{enumerate}
+\end{enumerate}
+
+Нерандомизированные: номер принимаемой за истину гипотезы зависит однозначно
+от $\overrightarrow{x}$, то есть является функцией от $\overrightarrow{x}$.\\
+
+Рандомизированные: принимаются $p_{\text{П}}(\overrightarrow{x})$ и
+$q_{\text{П}}(\overrightarrow{x})б \ p_{\text{П}}(\overrightarrow{x}) + q_{\text{П}}(\overrightarrow{x}) = 1$,
+берется монета с вероятностями $q$ и $p$, подбрасывается, и ее результат определяет $H_0$ или $H_1$.
+
+Рассмотрим стат.структуру:\\
+$n \in \mathbb{N}$ - длина выборки\\
+$\overrightarrow{x}=(x_1,\ldots,x_n)$ - случайная выборка\\
+$\xi \sim F_{\xi}(.) \in \mathbb{F} \ \Modul{F} > 1$\\
+$H_0=\langle F_{\xi}(.) \ \text{обладает свойством С}\rangle$\\
+$H_1=\overline{H_0}=\langle F_{\xi}(.) \ \text{обладает противоположным свойством $\overline{C}$}\rangle$\\
+П - некоторое нерандомизированное правило, основанное на выборках длины $n$.\\
+
+Рассмотрим множество $V=V(\text{П})=\{\overrightarrow{x} \in \mathbb{R}^n$ | при реализации этой выборки $\overrightarrow{x}$
+в соответствии с правилом П основная гипотеза $H_0$ должна быть отвергнута\} $\subseteq \mathbb{R}^n$.\\
+Таким образом, всякое нерандомизированное правило проверки двух гипотез, основанное на выборках фиксированной длины $n$
+однозначно определяет и определяется некоторым $V \subset \mathbb{R}^n$
+
+\begin{defs}[Критическое множество]
+    $V \subset \mathbb{R}^n$, которым однозначно определяется нерандомизированное правило проверки гипотез
+    основанное на выборках фиксированной длины $n$ и такое, что при попадании $\overrightarrow{x}$ в $V$ основная
+    гипотеза $H_0$ отвергается в качестве истинной, называется \textit{критическим множеством (критерием)} для
+    проверки двух взаимноальтернативных гипотез.
+\end{defs}
+
+В мат.статистке наряду с понятем "гипотеза, принимаемая в качестве истинной" существует
+понятие "гипотезы, истинной на самом деле".\\
+Цепочка рассуждений, проводящая к этому понятию: любые стат.выводы, которые делает статистика,
+всегда основаны на выборке $\overrightarrow{x}, \ \overrightarrow{x}$ является результатом измерений
+конкретной СВ $\xi, \ \xi$ имеет конкретное распределение, конкретное распредение делает
+истинной только одну гипотезу - это и есть гипотеза, истинная на самом деле.
+
+\begin{defs}[Ошибки 1-го и 2-го рода]
+    Ситуация при проверке гипотез, в которой истинная на самом деле $H_0$, а принимается $H_1$,
+    называется \textit{ошибкой первого рода}.\\
+    Ситуация при проверке гипотез, в которой истинная на самом деле $H_1$, а принимается $H_0$,
+    называется \textit{ошибкой второго рода}.
+\end{defs}
+
+Ошибочная ситуация - это случайное событие, то есть имеет вероятность.
+
+\begin{defs}[Ошибки 1-го и 2-го рода]
+    Ситуация при проверке гипотез, в которой истинная на самом деле $H_0$, а принимается $H_1$,
+    называется \textit{ошибкой первого рода}.\\
+    Ситуация при проверке гипотез, в которой истинная на самом деле $H_1$, а принимается $H_0$,
+    называется \textit{ошибкой второго рода}.
+\end{defs}
+
+\begin{defs}[Вероятности ошибок]
+    Вероятность реализации ошибочной ситуации 1-го рода
+    $\alpha = \alpha(\text{П})=\alpha(V)=P({H_1}_{\diagup \text{принимаемая в качестве истинной}}\ / \ {H_0}_{\diagup \text{истинная на самом деле}}) =
+    {P\{\overrightarrow{\xi}\in V\}}_{\diagup \xi_1,\ldots,\xi_n \text{-независимы}, \ \xi_i \sim \xi_j \sim F_{\xi}(.) \in H_0}$
+    называется \textit{вероятностью ошибки первого рода}.\\
+
+    Соответственно, вероятность реализации ошибочной ситуации 2-го рода
+    $\beta = \beta(\text{П})=\beta(V)=P({H_0}_{\diagup \text{принимаемая в качестве истинной}}\ / \ {H_1}_{\diagup \text{истинная на самом деле}}) =
+    {P\{\overrightarrow{\xi}\notin V\}}_{\diagup \xi_1,\ldots,\xi_n \text{-независимы}, \ \xi_i \sim \xi_j \sim F_{\xi}(.) \in H_0}$
+    называется \textit{вероятностью ошибки второго рода}.
+\end{defs}
+
+\begin{defs}[Мощность (чувствительность)]
+    Часто вместо вероятности ошибки 2-го рода $\beta$ в мат.статистке рассматривается доп.величина
+    $w = 1 - \beta = 1-P(H_0 / H_1)= P(H_1 / H_1) = P\{\overrightarrow{\xi} \in V\}_{\diagup \xi_1,\ldots,\xi_n-\text{независимые},
+    \xi_i\sim\xi_j\sim F_{\xi}\in H_1}$ И называется \textit{мощностью (чувствительностью)} правила П (критерия V).
+\end{defs}
+
+Применяемый в статистик принцип поиска "хороших" правил тесно связан с принципом назначения основной гипотезы
+из двух взаимноальтернативных, применяемый на практике: основной считается та, ошибка в определении истинности которой имеет
+более серьезные (негативные) практические последствия. \\
+
+Из этого принципа следует, что вероятностью ошибки 1-го рода "рисковать" нельзя (должна быть малой), а из
+оставшихся правил с малой $\alpha$ выбираются те, для которых $\beta$ тоже мала.
+
+\begin{defs}[Уровень значимости]
+    Всякая верхняя граница $\alpha_0$ для вероятности ошибки 1-го рода $\alpha(V,\overrightarrow{\theta}) \leqslant \alpha_0 \
+    \forall \overrightarrow{\theta} \in \encircle{H}$ называется \textit{уровнем значимости или размером} критерия $V$ (правила П).
+\end{defs}
+
+\begin{defs}[Наиболее мощный критерий]
+    Критерий $V^* \subset \mathbb{R}^n$ проверки произвольной (в том числе сложной) основной гипотезы
+    $H+0=\langle\overrightarrow{\theta}\in \encircle{H}_0 \subset \mathbb{R}^k\rangle$ против простой
+    альтернативной гипотезы $H_1=\langle\overrightarrow{\theta}=\overrightarrow{\theta_1}_{\diagup \text{конкретный вектор}\rangle}$
+    называется \textit{наиболее мощным критерием (НМК) с заданным уровнем значимости $\alpha_0$}, если
+    \begin{enumerate}
+        \item $\alpha(V^*,\overrightarrow{\theta}) \leqslant \alpha_0 \ \forall \overrightarrow{\theta} \in \encircle{H}_0$
+        \item $\forall V \subset \mathbb{R}^n$ т, что $\alpha(V,\overrightarrow{\theta}) \leqslant \alpha_0 \
+        \forall \overrightarrow{\theta}\in \encircle{H}_0 \ \sledue \ w(V) \leqslant w(V^*)$.
+    \end{enumerate}
+\end{defs}
+
+\begin{defs}[Равномерно наиболее мощный критерий]
+    Критерий $V^* \subset \mathbb{R}^n$ проверки произвольной (в том числе сложной) основной гипотезы
+    $H+0=\langle\overrightarrow{\theta}\in \encircle{H}_0 \subset \mathbb{R}^k\rangle$ против простой
+    альтернативной гипотезы $H_1=\langle\overrightarrow{\theta}=\overrightarrow{\theta_1}_{\diagup \text{конкретный вектор}\rangle}$
+    называется \textit{равномеро наиболее мощным критерием (РНМК) с заданным уровнем значимости $\alpha_0$}, если
+    этот критерий (один и тот же) является наиболее мощным критерием для проверки $H_0$ против любой простой
+    альтернативы $\shtrih{H_1}=\langle\overrightarrow{\theta}=\overrightarrow{\theta_1}\rangle$ из сложной
+    альтернативы $H_1=\langle\overrightarrow{\theta_1}\in\encircle{H}_1\rangle$, то есть
+    $\forall \overrightarrow{\theta_1}\in\encircle{H}_1 \subset \mathbb{R}^k$
+\end{defs}
+
+Кроме того, к критериям предъявляется требование несмещенности и состоятельности.
+
+\begin{defs}[Несмещенность]
+    Критерий $V \subset \mathbb{R}^n$ проверки двух взаимноальтернативных гипотез $H_0$ и $H_1$
+    называется \textit{несмещенным критерием с заданным уроавнем значимости $\alpha_0$}, если выполняются свойства:
+    \begin{enumerate}
+        \item $\alpha = \alpha(V) = \alpha(V, \overrightarrow{\theta}) \leqslant \alpha_0 \ \forall \overrightarrow{\theta} \in \encircle{H}_0$
+        \item $w=w(V,\overrightarrow{\theta}) \geqslant \alpha_0 \ \forall \overrightarrow{\theta} \in \encircle{H}_1$
+    \end{enumerate}
+\end{defs}
+
+\begin{defs}[Состоятельность]
+    Критерий $V \subset \mathbb{R}^n$ проверки двух взаимноальтернативных гипотез $H_0$ и $H_1$
+    называется \textit{состоятельным критерием}, если при увеличении $n \to \infty \ w \to 1$
+    (при увеличении объема выборки к бесконечности мощность стремится к 1), то есть
+    $\exists \ \predel{n \to \infty}w(V,\overrightarrow{\theta})=1 \ \forall \overrightarrow{\theta} \in \encircle{H}_1$
+\end{defs}
+
+Проверка двух простых гипотез.\\
+
+Рассмотрим некоторую стат.структуру\\
+
+$\overrightarrow{x}=(x_1,\ldots,x_n)$\\
+
+$\xi \sim F_{\xi}(x) \in \{F_0(x);F_1(x)\}$\\
+
+$\xi \sim F_{\xi}(x,\overrightarrow{\theta}, \ \overrightarrow{\theta}\in\{\overrightarrow{\theta_0}, \overrightarrow{\theta_1}\})$\\
+
+Формулируем основную гипотезу $H_0 = \langle F_{\xi}(.)=F_0\rangle=\langle\overrightarrow{\theta}=\overrightarrow{\theta_0}\rangle$
+и находим альтернативную гипотезу $H_1=\overline{H_0}=\langle F_{\xi}(.)\neq F_0\rangle=
+\langle F_{\xi}(.)=F_1\rangle=\langle\overrightarrow{\theta}=\overrightarrow{\theta_1}\rangle$
+
+Обе гипотезы простые. Требуется найти НМ для $H_0$ с произвольным уровнем значимости
+$\alpha_0 \in (0,1)$. Эта задача решена в лемме.
+
+\begin{lemma}[Неймана-Пирсона (Фундаментальная лемма мат.статистики)]
+  Пусть распределения, соответствующие гипотезам $H_0$ и $H_1$ имеют одинаковый тип
+  (дискретный или непрерывный). Пусть С - произвольное число. Рассмотрим следующее
+  подмножество $\mathbb{R}^n \ V_c=\{\overrightarrow{x}\in \mathbb{R}^n \ | \ L_n(\overrightarrow{x}, \overrightarrow{\theta_1}) >
+  c\cdot L_n(\overrightarrow(\overrightarrow{x}, \overrightarrow{\theta_0})\} \subset \mathbb{R}^n$ как критическое
+  множество некоторого нерандомизированного правила проверки гипотез $H_0=\langle\overrightarrow{\theta}=\overrightarrow{\theta_0}\rangle$
+  против $H_1=\langle\overrightarrow{\theta}=\overrightarrow{\theta_1}\rangle$, основанного на выборках фиксированной длины $n$.\\
+  Обозначим $\alpha_c=\alpha(V_c)$ - вероятность ошибки 1-го рода этого критерия $V_c$. Тогда $\forall c > 0$ указанный критерий
+  $V_c=\{L_n(\overrightarrow{x},\overrightarrow{\theta_1}) > c\cdot L_n(\overrightarrow{x},\overrightarrow{\theta_0})\}$ является НМК
+  для проверки простой основной гипотезы $H_0$ против простой же альтернативы $H_1$ со своим уровнем значимости $\alpha_c$, то есть
+  выполняются следующие свойства:
+  \begin{enumerate}
+      \item $\alpha = \alpha(V_c) \leqslant \alpha_c$
+      \item $\forall V \subset \mathbb{R}^n$ т, что $\alpha(V) \leqslant \alpha_c \ \sledue \ w(V) \leqslant w(V_c)$
+  \end{enumerate}
+  \begin{dokvo}
+      Пусть в обеих гипотезах $H_0$ и $H_1$ утверждаются абсолютно непрерывные распределения СВ $\xi$, то есть\\
+      $H_0 \ : \ \xi \sim f_{\xi}(\overrightarrow{x}, \overrightarrow{\theta_0}) = f_0(\overrightarrow{x})$\\
+      $H_1 \ : \ \xi \sim f_{\xi}(\overrightarrow{x}, \overrightarrow{\theta_1}) = f_1(\overrightarrow{x})$\\
+
+      Рассмотрим произвольное $c > 0$, рассмотрим  критическое множество $V_c=\{\overrightarrow{x} \in \mathbb{R}^n \ | \
+      L_n(\overrightarrow{x}, \overrightarrow{\theta_1}) > c\cdot L_n(\overrightarrow{x}, \overrightarrow{\theta_0})\}$, вычисляем его вероятности
+      ошибок 1-го $\alpha_c=\alpha(V_c)$ и проверяем выполнение свойств 1) и 2) означающих, что $V_c$ - НМК:
+      \begin{enumerate}
+          \item $\alpha = \alpha(V_c) = \alpha_c \leqslant \alpha_c$ - верно.
+          \item Рассмотрим наряду с критерием $V_c$ любой другой критерий $V \subset \mathbb{R}^n$, имеющий тот же
+          размер (уровень значимости): $\forall V \subset \mathbb{R}^n \ \alpha(V_c)\leqslant\alpha_c$ (*)\\
+          Вычислим $\alpha(V)$. $\alpha(V) = P(H_1/H_0) = P\{\overrightarrow{\xi} \in V\}_{\diagup \xi_1,\ldots,\xi_n-\text{независимы},
+          \xi_i \sim \xi_j \sim f_{\xi}(x, \overrightarrow{\theta_0})} \ \oeq$\\
+          На основании критерия независимости абсолютно непрерывных СВ
+          $\exists f_{\overrightarrow{\xi}}(\overrightarrow{x}) = f(\overrightarrow{x_1},\overrightarrow{\theta_0})\cdot\ldots\cdot
+          f(\overrightarrow{x_n},\overrightarrow{\theta_0}) = L_n(\overrightarrow{x}, \overrightarrow{\theta_0})$ - функция правдоподобия,
+          соответствующая параметру $\overrightarrow{\theta}$ из $H_0$\\
+          Тогда $\oeq \mathvniz{V}{\int\ldots\int}f_{\xi}(\overrightarrow{x},\overrightarrow{\theta_0})d\overrightarrow{x}=
+          \mathvniz{V}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x} \ \forall V \subset \mathbb{R}^n$
+
+          В частности эта формула верна и для $V_c \subset \mathbb{R}^n \
+          \alpha_c=\alpha(V_c)=\mathvniz{V_c}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x}$ Тогда из (*) \\
+          $\mathvniz{V}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x} \leqslant
+          \mathvniz{V_c}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x}$
+
+          Преобразуем это неравенство: $V=(V\cap V_c) \ \cup \ (V \setminus V_c), \ V_c=(V\cap V_c) \ \cup \ (V_c \setminus V)$\\
+
+          тогда $\mathvniz{V \setminus V_c}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x} \leqslant
+          \mathvniz{V_c \setminus V}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x}$ (**)\\
+
+          Рассмотрим интеграл $\mathvniz{V \setminus V_c}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_1})d\overrightarrow{x} \leqslant
+          \mathvniz{V \setminus V_c}{\int\ldots\int}c\cdot L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x} \leqslant_{\diagup (**)};
+          c \cdot \mathvniz{V_{с} \setminus V}{\int\ldots\int}L_n\skobk{\overrightarrow{x}, \overrightarrow{\theta_0}} d \overrightarrow{x} \encircle{$\leqslant$}$
+          /если $\overrightarrow{x} \in V_c \setminus V \ \sledue \ L_n(\overrightarrow{x}, \overrightarrow{\theta_1}) >
+          cL_n(\overrightarrow{x}, \overrightarrow{\theta_0}) \ \sledue \
+          L_n(\overrightarrow{x}, \overrightarrow{\theta_0}) < \frac{1}{c}L_n(\overrightarrow{x}, \overrightarrow{\theta_1})$/
+          $\encircle{$\leqslant$} \mathvniz{V_c \setminus V}{\int\ldots\int}\cdot L_n(\overrightarrow{x}, \overrightarrow{\theta_1})d\overrightarrow{x}$\\
+
+          Добавим к обеим частям неравенства одинаковые части и получим, что
+          $\mathvniz{V}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_1})d\overrightarrow{x} \leqslant
+          \mathvniz{V_c}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x}$\\
+          $\forall V \subset \mathbb{R}^n \mathvniz{V}{\int\ldots\int}L_n(\overrightarrow{x}, \overrightarrow{\theta_0})d\overrightarrow{x} =
+          \mathvniz{V}{\int\ldots\int}f_{\overrightarrow{\xi}}(\overrightarrow{x}, \overrightarrow{\theta_1})d\overrightarrow{x} =
+          P\{\overrightarrow{\xi} \in V\}_{\diagup \xi_1,\ldots,\xi_n-\text{независимы}, \
+          \xi_i \sim \xi \sim f_{\xi}(\overrightarrow{x}, \overrightarrow{\theta})} = P(H_1/H_1) = w$.\\
+
+          Таким образом получено, что $w(V) \leqslant w(V_c)$.
+      \end{enumerate}
+  \end{dokvo}
+\end{lemma}
