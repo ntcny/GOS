@@ -120,3 +120,44 @@
 		$\sledue$ по критерию интегрируемости $f \in \mathcal{R}(\alpha)$
 	\end{dokvo}
 \end{proofs}
+ %\mathcal{R}(\alpha)
+\begin{defs}[Свойства интеграла Римана-Стилтьеса]
+	\begin{enumerate*}
+		\item \textbf{Свойство линейности интеграла}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \text{ на } [a,b]$, $\lambda \in \Real \ \sledue$ $\lambda \cdot f \in \mathcal{R}(\alpha) \na [a,b]$ и $\integral{a}{b}{\lambda f \pode{\alpha}} = \lambda\integral{a}{b}{f\pode{\alpha}}$
+
+		$f + g \in \mathcal{R}(\alpha) \na [a,b]$ и $\integral{a}{b}{(f+g)\pode{\alpha}} = \integral{a}{b}{f\pode{\alpha}} + \integral{a}{b}{g\pode{\alpha}}$
+
+		\item  \textbf{Неравенства для интегралов}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b], \ f \leq g \na [a,b] \ \sledue \integral{a}{b}{f\pode{\alpha}} \leq \integral{a}{b}{g\pode{\alpha}}$
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b]$ и $m \leq f \leq M \ \sledue m \cdot \skobk{\alpha(b) - \alpha(a)} \leq \integral{a}{b}{f\pode{\alpha}} \leq M\skobk{\alpha(b) - \alpha(a)}$
+
+		\item  \textbf{Свойства аддитивности интегралов}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b], c_{\text{произвольная}} \in [a,b] \ \sledue f \in \mathcal{R}(\alpha) \na [a,c] \I \na [c,b]$ и $\integral{a}{b}{f\pode{\alpha}} = \integral{a}{c}{f\pode{\alpha}} + \integral{c}{b}{f\pode{\alpha}}$
+
+		\item  \textbf{Свойства линейности относительно функции $\alpha$}
+
+		$\pust f \in \mathcal{R}(\alpha_1)$ и $f \in \mathcal{R}(\alpha_2) \na [a,b] \ \sledue$
+
+		$\forall \lambda \geq 0  \ f \in \mathcal{R}(\lambda \cdot \alpha_1)$ и $\integral{a}{b}{f\pode{\lambda \alpha_1}} = \lambda \cdot \integral{a}{b}{f\pode{\alpha_1}}$
+
+		$f \in \mathcal{R}(\alpha_1 + \alpha_2) \sledue \intergral{a}{b}{f\pode{\skobk{\alpha_1 +\alpha_2}}} = \integral{a}{b}{f\pode{\alpha_1}} + \intergral{a}{b}{f\pode{\alpha_2}}$
+	\end{enumerate*}
+\end{defs}
+
+\begin{proofs}[Формула Ньютона-Лейбница]
+	$\pust \in \mathcal{R} \na [a,b]$ и $f$ первообразная функции на $f \na [a,b]$, тогда
+	$$\vniz{Формула Ньютона-Лейбница}{\intergral{a}{b}f(x)\pode{x} = F(b)- F(a)}$$
+	\begin{dokvo}
+		Возьмем $\Prasb$ - разбиение $[a,b]$, $a = x_0 < x_1 < \ldots < x_n = b$
+		$F(x_i) - F(x_{i-1}) = \mathvniz{=f(\xi_i)}{F^{\shtrih}(\xi_i)}\cdot \mathvniz{=x_i - x_{i-1}}{\delt x_i}$, $\xi_i \in (\xi_{i-1}, \xi)$ - по теореме Лагранжа о конечном приращении
+
+		$\integral{a}{b}{f(x)\pode{x}} = \predel{}{\mathfrak{S}(f, \alpha,\Prasb,\xi)}$ - так как $f$ -непрерывна на $[a,b]$ (теорема о связи интегральных сумм Римана-Стилтьеса с интегралом Римана)\footnote{Интегралом Римана-Стилтьеса называется  $\int\limits_a^b f \pode{\alpha} = \lim\limits_{\tau \to 0} \mathfrak{S} (f, \alpha, \tau) $, где $\tau = \max(\Delta x_0, \dots \Delta x_{n-1})$}
+		$\summa{i=1}{n}f(\xi_i)\delt x_i = \summa{i=1}{n}\skobk{F(x_i)- F(x_{i-1})} = F(b) - F(a)$
+	\end{dokvo}
+
+\end{proofs}
