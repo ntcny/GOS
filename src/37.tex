@@ -1,76 +1,79 @@
 %!TEX root = ../report.tex"
 \section{Вопрос 37:
-Теорема о стационарном распределении конечной однородной марковской цепи.
-Пример: найти все стационарные распределения КОМЦ с переходными вероятностями
-$p_{11} = 1 - a, \ p_{12} = a, \ p_{21} = b, \ p_{22} = 1 - b$, где $a \in [0,1], b \in [0,1]$.
-Эргодическая конечная однородная цепь Маркова и эргодическое распределение.
-Теорема о связи эргодического и стационарного распределения КОМЦ.
+Дискретный стационарный канал связи без памяти и его пропускная способность. 
+Каналы связи, симметричные по входу и по выходу, их свойства.
 }
 
-\begin{defs}[Стационарное распределение]
-  Числовой вектор $\overrightarrow{q} = (q_1, \ldots, q_N)$ называется \textit{стационарным распределением КОМЦ}
-  $(\xi_t, t \in N_0)$ с ФП $E = \{1, \ldots, N\}$, если оно обладает следующими свойствами:\\
-  1) Является стохастическим: $\overrightarrow{q} \geqslant \overrightarrow{0}, \overrightarrow{q}1^\downarrow = 1$;\\
-  2) Выполняется свойство стационарности: если в качестве $\overrightarrow{p_0}$ взять распределение $\overrightarrow{q}$, то распределение
-  в оставшиеся моменты времени не изменится ($\overrightarrow{p_0} = \overrightarrow{q} \ \sledue \
-  \overrightarrow{p_n} = \overrightarrow{q} \ \forall n = 1,2,\ldots$)
+\begin{defs}[Дискретный канал связи]
+Говорят, что задан дискретный канал связи C со входным алфавитом X и выходном алфавитом Y, если \forall n \in N \forall \overrightarrow{y} \in Y^n,  \overrightarrow{x} \in X^n определены величины p(\overrightarrow{y} / \overrightarrow{x}) \geq 0: 
+$\summa{}{y \in Y^n} p(\overrightarrow{y} / \overrightarrow{x}) = 1.
+
+ДКС - упорядоченный набор объектов, состоящий из алфавита входа X, алфавита выхода Y и совокупности величин {p(\overrightarrow{y} / \overrightarrow{x})} , где p(\overrightarrow{y} / \overrightarrow{x}) – вероятность получения на выходе дискретного
+канала связи вектора overrightarrow{y} \in Y при условии того, что был послан вектор \overrightarrow{x} \in X.
 \end{defs}
 
-\begin{proofs}[Теорема о стационарном распределении]
-	А) Для любой КОМЦ стационарное распределение всегда существует и может быть не единственным;\\
-  Б) Критерий стационарного распределения: распределение вероятностей $\overrightarrow{q} = (q_1, \ldots, q_N)$ является
-  стационарным распределением ТИТТК этот вектор $\overrightarrow{q}$ удовлетворяет следующей системе: $\levfigurn{\overrightarrow{q} = \overrightarrow\cdot\text{П};\\
-	\overrightarrow{q} \geqslant 0; \ \ \ \ \ \ (*) \\
-	\overrightarrow{q}\cdot1^\downarrow = 1.\\}$
-
-  В) Всякому несущественному состоянию КОМЦ в любом стационарном распределении соответствует нулевая координата:
-  $\forall i \in E \ - \ \text{несущественного} \ q_i=0$.
-	\begin{dokvo}
-    А) Существование без доказательства.\\
-    Б) $\sledue$  Пусть $\overrightarrow{q}$ - произвольное стационарное распределение, то есть \\
-       1) $\overrightarrow{q}$ - распределение вероятностей ($\overrightarrow{q} \geqslant 0, \overrightarrow{q}1^\downarrow = 1$);\\
-       2) $\overrightarrow{p_0} = \overrightarrow{q} \ \sledue \ \overrightarrow{p_n} = \overrightarrow{q} \forall n = 1,2,\ldots$;\\
-    По доказанному ранее соотношению $\overrightarrow{p_n} = \overrightarrow{p_0}\cdot\text{П}^n \ \forall n = 1,2,\ldots$. Тогда из этих
-    соотношений получаем, что $\overrightarrow{q} = \overrightarrow{q}\cdot\text{П}^n \ \forall n = 1,2,\ldots \ \sledue $ при $n=1$
-    получаем $\overrightarrow{q} = \overrightarrow{q}\cdot\text{П}$. \\
-      $\Leftarrow$ Пусть теперь $\overrightarrow{q}$ - произвольное решение уравнения (*), тогда:\\
-      1) $\overrightarrow{q}$ - распределение вероятностей ($\overrightarrow{q} \geqslant 0, \overrightarrow{q}1^\downarrow = 1$); \\
-      2) Докажем, что для $\overrightarrow{q}$ выполняется основное свойство стационарного распределения.
-      Положим $\overrightarrow{p_0}=\overrightarrow{q}$. Тогда на основании известного соотношения берем $\overrightarrow{p_n} = p_0 \cdot \text{П}^n=
-      \overrightarrow{q}\cdot\text{П}^n=(\overrightarrow{q}\cdot\text{П})\cdot\text{П}^{n-1}=\ldots=\overrightarrow{q}\cdot\text{П}=\overrightarrow{q}
-      \ \forall n = 0,1,2,\ldots \ \sledue$ по определению $q$ - стационарное распределение. \\
-    В) Без доказательства.
-	\end{dokvo}
-\end{proofs}
-
-\begin{defs}[Эргодическая цепь Маркова]
-  КОМЦ $(\xi_t, n \in N_0)$ с ФП $E = \{1, \ldots, N\}$, матрицей $\text{П}=(p_{ij})$ называется \textit{эргодической},
-  если $\forall i,j \in E \ \exists \predel{n \to \infty}p_{ij}^{(n)}$ и этот предел не зависит от исходного состояния $i$
-   ($\forall i,j \in E \ \exists \ \predel{n \to \infty}p_{ij}^{(n)}=\pi_j$), или в матричном виде
-   $\exists \ \predel{n \to \infty}\text{П}^{(n)} = \predel{n \to \infty}\text{П}^{n} =
-    \begin{pmatrix}
-      \pi_1 & \ldots & \pi_n \\
-      \ldots & \ldots & \ldots \\
-      \pi_1 & \ldots & \pi_n \\
-    \end{pmatrix} = 1^\downarrow\cdot\overrightarrow{\pi}$
+\begin{defs}
+Будем говорить, что пос-ти \xi_n \rightarrow X и \texttailn_n \rightarrow Y связаны ДКС С, если \forall n \in N,  \overrightarrow{y}, \overrightarrow{x}:
+$P{\overrightarrow{\texttailn} = \overrightarrow{y} / \overrightarrow{\xi} = \overrightarrow{x}} = p(\overrightarrow{y} / \overrightarrow{x}).$
 \end{defs}
 
-\begin{proofs}[Теорема о связи стационарных и эргодических распределений]
-	Пусть $(\xi_n, \ n \in N_0)$ - КОМЦ с ФП $E = \{1,\ldots,N\}$, матрицей $\text{П}$ и пусть эта цепь является эргодической
-  с единственным эргодическим распределением $\pi$. Тогда:\\
-  1) Стационарное распределение этой цепи единственно; \\
-  2) Это единственное стационарное распределение совпадает с эргодическим; \\
-  3) $\overrightarrow{\pi}$ является решением системы $(*)$, то есть $\levfigurn{  \overrightarrow{\text{П}} = \overrightarrow{\text{П}}\cdot\text{П};\\
-		\overrightarrow{\text{П}} \geqslant 0;\\
-		\overrightarrow{\text{П}}\cdot 1^\downarrow = 1.}$
 
-	\begin{dokvo}
-    Пусть $\overrightarrow{q}$ - произвольное стационарное распределение цепи.
-    Тогда по определению если $\overrightarrow{p_0} = \overrightarrow{q}$, то $\overrightarrow{p_n}= \overrightarrow{p_0} = \overrightarrow{q}
-    \forall i = 1,2,\ldots \ \sledue \ \exists \predel{n \to \inf}\overrightarrow{p_n} = \overrightarrow{q}$. \\
-    С другой стороны, если существует эргодическое распределение $\pi$, то $\exists \ \predel{n \to \inf}\overrightarrow{p_n}
-    = \overrightarrow{\pi} \ \forall \overrightarrow{p_0}$.
-    В силу единственности предела $\overrightarrow{q} = \overrightarrow{\pi} \ \sledue \ \overrightarrow{q}$ - единственно.
-	\end{dokvo}
+\begin{proofs}
+  Если пос-ти \xi_n \rightarrow X и \texttailn_n \rightarrow Y связаны ДКС С, то \forall n \in N распределение случайного вектора \overrightarrow{\xi} однозначно оперделеяет распределение случайного вектора \overrightarrow{\texttailn}:
+
+  $P{\overrightarrow{\texttailn} = \overrightarrow{y}} = \summa{}{\overrightarrow{x} \in X^n} p(\overrightarrow{y} / \overrightarrow{x})*P{\overrightarrow{\xi} = \overrightarrow{x}}. $
 \end{proofs}
+
+\begin{defs}
+Пропускной способностью ДКС С называется величина:
+$C* = \supr{n \in N} \supr {P_{\overrightarrow{\xi}}} 1/n * I (\overrightarrow{\xi} ; \overrightarrow{\texttailn}),$
+где внутренний супремум берется по всем распределениям P_{\overrightarrow{\xi}} входного вектора \overrightarrow{\xi} (пос-ти \xi_n, \texttailn связаны ДКС C).
+
+Пропускная способность C* – максимальное количество информации, передаваемой
+по каналу связи в единицу времени (именно поэтому в формуле деление на n).
+\end{defs}
+
+\begin{defs}
+ДКС С - ДКС без памяти (ДКСПБ), если на нем опеределены последовательности \xi_n, \texttailn_n: \forall n \in N, \overrightarrow{y}, \overrightarrow{x} верно:
+$P{\overrightarrow{\texttailn} = \overrightarrow{y} / \overrightarrow{\xi} = \overrightarrow{x}} = P{\texttailn_1 = y_{n_1}/ \xi_1 = x_{n_1}}*..*P{\texttailn_n = y_{n_n}/ \xi_n = x_{n_n}}$
+
+Дискретный канал связи без памяти – такой канал, в котором на передачу последующих символов ранее переданные не влияют. 
+
+При этом в условиях введенного определения также будем говорить, что последовательности \xi_n и \texttailn_n связаны ДКСБП C. Передача символа в n-й момент времени по ДКСБП происходит в соответствии с матрицей переходных вероятностей P_n p(y_n/x_n).
+\end{defs}
+
+\begin{defs}
+ДКСПБ - стационарный (ДСКСБП), если P_1 = .. = P_n = ..
+\end{defs} 
+
+ДКС - тройка объектов С = (X, Y, P). где X - входной, Y - выходной алфавиты, P - стохастическая матрица переходных вероястой.
+
+\begin{example}
+1. Двоичный симметричный канал P = (1-p p | p 1-p)
+2. Двоичный канал со стиранием P = (1-p p 0 | 0 p 1-p)
+\end{example}
+
+\begin{proofs}
+  \xi_n, \texttailn_n связаны ДКС С, распределение сл. величины \xi \overrightarrow{p} (\xi) = (p_1,..,p_n):
+
+  1. \overrightarrow{p}(\texttailn) = \overrightarrow{p} (\xi) * P;
+  2. I(\xi; \texttailn) = H(\overrightarrow{p} (\xi) * P) - \overrightarrow{p} (\xi) * H(P)^{\downarrow}. (H(P)^{\downarrow} = ( H(\overrightarrow{P_1}).. (\overrightarrow{P_n}))    )
+\end{proofs}
+
+\begin{proofs}
+\forall ДКС C C* = max {} I(\xi; \texttailn)
+\end{proofs}
+
+\begin{defs}
+Оптимальное распределение ДКС С - такое вероятностное распределение \overrightarrow{p}(\xi), для которого 
+$C* = I(\xi;\texttailn)$
+\end{defs}
+
+\begin{defs} 
+Канал C называется:
+-симметричным по входу, если каждая строка матрицы P является перестанкой набора {\pi'_1, \pi'_n};
+-симметричным по выходу, если каждый столбец матрицы P является перестанкой набора {\pi''_1, \pi''_m}
+-симметричным, если симметричен по входу и по выходу.
+;
+
 \newpage

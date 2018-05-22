@@ -1,2 +1,164 @@
 %!TEX root = ../report.tex"
-\section{Вопрос 8: Первообразная и неопределенный интеграл. Интеграл Римана-Стилтьеса и его свойства, классы интегрируемых функций. Существование первообразной для непрерывной функции. Формула Ньютона-Лейбница.}
+\section{Вопрос 8: Первообразная и неопределенный интеграл. Интеграл Римана-Стилтьеса и его свойства, классы интегрируемых функций. Существование первообразной для непрерывной функции. Формула Ньютона-Лейбница.}
+
+\begin{defs}
+	$\pust \ f$ - определена на числовом промежутке $I$, тогда функция $F$ определенная на числовом промежутке $I$ называется первообразной функции $f$ на $I$, если $F^{\shtrih}(x)=f(x) \forall x \in I$
+\end{defs}
+
+\begin{proofs}
+	Если $F_1 \I F_2$ - первообразные функции на $F$ на числовом промежутке $I$, то $F_1(x) = F_2(x) + C$, где $C$ - константа
+	\begin{dokvo}
+		$\rassmotr$ функцию $F(x)=F_1(x) - F_2(x), \forall x \in I \ \sledue F^{\shtrih}(x)=0 \ \forall x \in I$
+		По теореме Лагранжа ($F$ - непрерывна и дифференцируема на $\kskobk{x_0, x_1} \subset I \sledue \exists \xi \in \kskobk{x_0,x_1}: \ F(x_1)-F(x_0)=F^{\shtrih}(\xi)(x_1 - x_0)$) $\sledue$ для $x_1, x_0 \in I$ выполняется $F(x_1)- F(x_0) = \cancelto{0}{F^{\shtrih}(\xi)}(x_1-x_0) = 0$  $\sledue$ $F(x_1) - F(x_0) = 0 \ \sledue$ $F = C$ - константа $\sledue$ $F_1(x) - F_2(x) = C \ \tittg F_1(x) = F_2(x) + C$
+	\end{dokvo}
+\end{proofs}
+
+\begin{defs}
+	Множество первообразных всех функций $f$ на $I$ называется \textbf{неопределенным интегралом} функции $f$ на $I$ и обозначается $\int f(x) \pode{x}$
+\end{defs}
+
+\begin{proofs}[Простейшие свойства неопределенного интеграла]
+	Если $\exists \int f_1(x)\pode{x}$ и $\int f_2(x) \pode{x} \ \sledue$
+	\begin{itemize}
+		\item \textbf(Аддитивность) $\exists \int \skobk{f_1(x) + f_2(x)} \pode{x} = \int \skobk{f_1(x)}\pode{x} + \int \skobk{f_2(x)}
+		\pode{x}$
+		\begin{dokvo}
+			$\pust \levfigurn{\int \skobk{f_1(x)}\pode{x} = F_1(x) + C_1 \\ \int \skobk{f_2(x)}\pode{x} = F_2(x) + C_2 } \sledue$ т.к $\skobk{F_1(x) + C_1 + F_2(x) + C_2}^{\shtrih} = f_1(x) + f_2(x) \sledue \int \skobk{f_1(x) + f_2(x)}\pode{x} = F_1(x) + F_2(x) + C^{\shtrih} = F_1(x) + F_2(x) + C_1 + C_2 = \int f_1(x) \pode{x} + \int f_2(x) \pode{x}$
+		\end{dokvo}
+
+		\item \textbf{Вынос постоянной} $\pust \int{\mathsf{k} f_1(x)\pode{x}} = \mathsf{k} \int{f_1(x)\pode{x}}$ где $\mathsf{k} \in \Real$
+		\begin{dokvo}
+			$\skobk{\mathsf{k}F_1(x) + \constanta}^{\shtrih} = \mathsf{k} \skobk{F_1(x)}^{\shtrih}$
+		\end{dokvo}
+		\item Если $F$ - дифференцируема на $I$ $\sledue$ $\int{\pode{F}} = F(x) + \constanta$
+		\item Если $\exists \int{f(x)\pode{x}} \ \sledue \pode{\skobk{\int{f(x)\pode{x}}}} = f(x)\pode{x}$
+	\end{itemize}
+\end{proofs}
+
+\begin{defs}[Интеграл Римана-Стильтьеса]
+	$\Prasb$ - разбиение отрезка $\kskobk{a,b}$ - набор точек $a = x_0 < x_1 < \ldots < x_n = b$, $n \in \Natural$ число $\lambda = \max\limits_{1 \leq i \leq n}\fskobk{x_i - x_{i-1}}$ - диаметр разбиения $\Prasb$ $\pravfigurn{m_i = \inf{f(x)} \text{ на отрезке } \kskobk{x_{i-1}, x_i} \\ M_i = \sup{f(x)} \text{ на отрезке } \kskobk{x_{i-1}, x_i}}$ -- так как $f(x)$ - ограничена и $m_i$ и $M_i$ числа.\footnote{Всюду в теме \kav{интеграл Римана-Стилтьеса} функция $f$ ограниченная и определенная на отрезке $\kskobk{a,b}$ функция, а $\alpha(x)$ - неубывающая, определенная на $[a,b]$ функция}
+\end{defs}
+
+\begin{defs}[Суммы Дарбу]
+
+	$\sdarbu{f,\alpha, \Prasb} = \summa{i=1}{n}m_i \cdot \delt \alpha_i$, где $\alpha_i = \alpha(x_i) - \alpha(x_{i-1}) \geq 0$ так как $\alpha$ не убывает -- \textbf{нижняя сумма Дарбу}
+
+	$\Sdarbu{f, \alpha, \Prasb}$ = $\summa{i=1}{n}M_i \cdot \delt \alpha_i$, где $\alpha_i = \alpha(x_i) - \alpha(x_{i-1}) \geq 0$ так как $\alpha$ не убывает -- \textbf{Верхняя сумма Дарбу}
+
+	По определению $\sdarbu{f,\alpha, \Prasb} < \Sdarbu{f, \alpha, \Prasb}$
+
+	Разбиение $\Prasb^{\shtrih}$ называется измельчением разбиения $\Prasb$, если оно получается из $\Prasb$ добавлением какого-то числа точек (возможно точки не добавляются). $\Prasb$ измельчение $\Prasb$
+\end{defs}
+
+\begin{proofs}[Теорема о свойствах измельчений]
+	\begin{enumerate}
+		\item При измельчении нижняя сумма Дарбу может только увеличиться, а верхняя только уменьшиться
+		\item $\forall$ разбиений $\Prasb_1$, $\Prasb_2$, $\sdarbu{f,\alpha, \Prasb_1} \leq \sdarbu{f,\alpha, \Prasb_2}$,
+
+		$\sup\limits_{\Prasb}{\sdarbu{f,\alpha, \mathvniz{\in \Real}\Prasb}}$ $f$, $\alpha$ фиксированные, $\Prasb$ - переменная -- \textbf{нижний интеграл от функции} $f$ относительно функции $\alpha$, обозначается $\intergral{*a}{b}f\pode{\alpha}$
+
+		$\inf\limits_{\Prasb}{\Sdarbu{f,\alpha, \Prasb}}$ -- \textbf{верхний интеграл от функции} $f$ относительно функции $\alpha$, обозначается $\intergral{a}{*b}f\pode{\alpha}$
+	\end{enumerate}
+\end{proofs}
+
+\begin{defs}
+	Функция $f$ - \textbf{интегрируема относительно функции $\alpha$ на отрезке $\kskobk{a,b}$}\footnote{интегрируема по Риману-Стилтьесу}, если $\intergral{a}{*b}f\pode{\alpha} = \intergral{*a}{b}f\pode{\alpha}$
+
+	Если $\alpha(x) = x$, то $\intergral{a}{b}f\pode{x}$ -- интеграл Римана
+\end{defs}
+
+\begin{lemma}[Свойства интеграла Римана-Стилтьеса]
+	\begin{multicols}{3}
+		\begin{enumerate*}
+			\item $\int\limits_{*}f\pode{\alpha} \leq \int\limits^{*}f\pode{\alpha}$
+			\item $\intergral{a}{a}f\pode{\alpha} = 0$
+			\item $\intergral{a}{b}f \pode{\alpha} = - \intergral{b}{a}f \pode{\alpha}$
+		\end{enumerate*}
+	\end{multicols}
+\end{lemma}
+
+\begin{proofs}[Критерий интегрируемости]
+	$\pust \ f$ определена и ограничена на $\kskobk{a,b}$, $\alpha$ не убывает на $\kskobk{a,b} \ \sledue$ $f \in \mathcal{R}(\alpha)$ на $\kskobk{a,b} \tittg \forall \epsilon > 0 \ \exists$ разбиение $\Prasb$ отрезка $\fskobk{a,b}$ $0 \leq \Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha,\Prasb} < \epsilon$
+	\begin{dokvo}
+		\begin{itemize*}
+			\item[$\napravo$] $f \in \mathcal{R}(\alpha)$ на $[a,b] \ \sledue$ $\integral{a}{*b}{f \pode{\alpha}} = \integral{*a}{b}{f\pode{\alpha}}$
+
+			$\integral{*a}{b}{f\pode{\alpha}} = \sup\limits_{\Prasb}{\sdarbu{f,\alpha,\Prasb}} \ \sledue \exists \Prasb_1: \sdarbu{f,\alpha,\Prasb_1} > \integral{*a}{b}{f\pode{\alpha}} - \frac{\epsilon}{2}$
+
+				$\integral{a}{*b}{f\pode{\alpha}} = \inf\limits_{\Prasb}{\Sdarbu{f,\alpha,\Prasb}} \ \sledue \exists \Prasb_2: \Sdarbu{f,\alpha,\Prasb_2} < \integral{a}{*b}{f\pode{\alpha}} + \frac{\epsilon}{2}$
+
+				$\pust \ \Prasb = \Prasb_1 \obed \Prasb_2 \ \sledue$ так как при измельчении верхняя сумма Дарбу может только уменьшиться, а нижняя только увеличиться $\sledue$ $\sdarbu{f,\alpha, \Prasb} > \integral{*a}{b}{f\pode{\alpha}} - \frac{\epsilon}{2}$ и $\Sdarbu{f,\alpha,\Prasb} < \integral{a}{*b}{f\pode{\alpha}} + \frac{\epsilon}{2} \ \sledue$ $0 \mathnaverh{\text{св-во сумм Дарбу}}{\leq} \Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha, \Prasb} < \cancelto{\mathcal{R}(\alpha)}{\integral{a}{*b}{f\pode{\alpha}}} + \frac{\epsilon}{2} - \cancelto{\mathcal{R}(\alpha)}{\integral{*a}{b}{f\pode{\alpha}}} + \frac{\epsilon}{2} = \epsilon$
+
+				\item[$\nalevo$] $\pust \ \forall \epsilon > 0 \ \exists \Prasb$ - разбиение $[a,b]$, $\Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha, \Prasb} < \epsilon$ так как в этом случае верно: $0 \leq \integral{a}{*b}{f\pode{\alpha}} - \integral{*a}{b}{f\pode{\alpha}} < \Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha, \Prasb} < \epsilon \ \forall \epsilon > 0 \sledue \ \integral{*a}{b}{f\pode{\alpha}} = \integral{a}{*b}{f\pode{\alpha}} \ \sledue f \in \mathcal{R}(\alpha)$ на $[a,b]$
+		\end{itemize*}
+	\end{dokvo}
+\end{proofs}
+
+\zagolovok{Классы интегрируемых функций}
+
+\begin{proofs}
+	$\pust f$ - непрерывна на $[a,b]$, $\alpha$ не убывает на $[a,b]$ $\sledue f \in \mathcal{R}(\alpha)$ на $[a,b]$
+	\begin{dokvo}
+		$f$ ограничена на $[a,b]$ по 1 теореме Вейерштрасса. По теореме Кантора, $f$ - равномерно непрерывна на $[a,b]$. Если $\alpha = \const$ -- очевидно, $\pust \alpha \neq \const \ \sledue \alpha(b) > \alpha(a)$
+
+		$\pust \epsilon > 0 \ \sledue \ \exists \delta >0: \ \forall x^{\shtrih}, s^{\shtrih\shtrih} \in [a,b]: \Modul{x^{\shtrih} - x^{\shtrih\shtrih}} < \delta$ выполняется: $\Modul{f(x^{\shtrih}) - f(x^{\shtrih\shtrih})} < \frac{\epsilon}{\alpha(b) - \alpha{a}}$
+
+		$\alpha(\Prasb) = \max\limits_{1 \leq i \leq n}(x_i - x_{i-1})$, где $\Prasb$ - разбиение $[a,b]: \alpha(\Prasb) < \delta$
+
+		$\Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha, \Prasb} = \summa{i=1}{n}{\skobk{M_i - m_i}}\delt\alpha_i < \frac{\epsilon}{\alpha(b) - \alpha(a)} \cdot \summa{i=1}{n}\delt\alpha_i \oeq$ значения $M_i \I m_i$ - принимаются функцией $f$ на $[x_{i-1}, x_i]$ и так как $\alpha(\Prasb) < \delta \ \sledue \skobk{M_i - m_i} < \frac{\epsilon}{\alpha(b) - \alpha(a)}$ $\oeq \frac{\epsilon}{\alpha(b)- \alpha(a)}\cdot (\alpha(b)- \alpha(a)) = \epsilon$ $\sledue$ по критерию интегрируемости, $f \in \mathcal{R}(\alpha)$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+	$\pust f$ определена и монотонна на $[a,b]$, $\alpha$ непрерывная неубывающая на $[a,b]$ функция $\sledue$ $f \in \mathcal{R}(\alpha)$ на $[a,b]$
+	\begin{dokvo}
+		$\pust$ $f$ не убывает на $[a,b]$ (для невозрастающей функции док->во аналогично) $f \neq \const$ Воспользуемся равномерной непрерывностью функции $\alpha$ на $[a,b]$ (т.к $\alpha$ непрерывная на отрезке)
+		$\forall \epsilon > 0 \ \exists \delta > 0 : \forall x^{\shtrih}, x^{\shtrih\shtrih} \in [a,b]: \Modul{x^{\shtrih} - x^{\shtrih\shtrih}} < \delta$
+		выполняется $\Modul{f(x^{\shtrih}) - x^{\shtrih\shtrih}}$ $< \frac{\epsilon}{f(b)-f(a)}$
+
+		Возьмем $\forall$ разбиение $\Prasb: \lambda(\Prasb) < \delta$, $\Sdarbu{f,\alpha,\Prasb} - \sdarbu{f,\alpha, \Prasb} = \summa{i=1}{n}{\skobk{M_i - m_i}\delt \alpha_i} = \summa{i=1}{n}{\skobk{f(x_i) - f(x_{i-1})}\delt \alpha_i} $ $< \frac{\epsilon}{f(b) -f(a)} \cdot \summa{i=1}{n}{\skobk{\underbrace{f(x_i) - f(x_{i-1})}_{f(b) - f(a)}}}$
+		$\sledue$ по критерию интегрируемости $f \in \mathcal{R}(\alpha)$
+	\end{dokvo}
+\end{proofs}
+ %\mathcal{R}(\alpha)
+\begin{defs}[Свойства интеграла Римана-Стилтьеса]
+	\begin{enumerate*}
+		\item \textbf{Свойство линейности интеграла}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \text{ на } [a,b]$, $\lambda \in \Real \ \sledue$ $\lambda \cdot f \in \mathcal{R}(\alpha) \na [a,b]$ и $\integral{a}{b}{\lambda f \pode{\alpha}} = \lambda\integral{a}{b}{f\pode{\alpha}}$
+
+		$f + g \in \mathcal{R}(\alpha) \na [a,b]$ и $\integral{a}{b}{(f+g)\pode{\alpha}} = \integral{a}{b}{f\pode{\alpha}} + \integral{a}{b}{g\pode{\alpha}}$
+
+		\item  \textbf{Неравенства для интегралов}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b], \ f \leq g \na [a,b] \ \sledue \integral{a}{b}{f\pode{\alpha}} \leq \integral{a}{b}{g\pode{\alpha}}$
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b]$ и $m \leq f \leq M \ \sledue m \cdot \skobk{\alpha(b) - \alpha(a)} \leq \integral{a}{b}{f\pode{\alpha}} \leq M\skobk{\alpha(b) - \alpha(a)}$
+
+		\item  \textbf{Свойства аддитивности интегралов}
+
+		$\pust f, g \in \mathcal{R}(\alpha) \na [a,b], c_{\text{произвольная}} \in [a,b] \ \sledue f \in \mathcal{R}(\alpha) \na [a,c] \I \na [c,b]$ и $\integral{a}{b}{f\pode{\alpha}} = \integral{a}{c}{f\pode{\alpha}} + \integral{c}{b}{f\pode{\alpha}}$
+
+		\item  \textbf{Свойства линейности относительно функции $\alpha$}
+
+		$\pust f \in \mathcal{R}(\alpha_1)$ и $f \in \mathcal{R}(\alpha_2) \na [a,b] \ \sledue$
+
+		$\forall \lambda \geq 0  \ f \in \mathcal{R}(\lambda \cdot \alpha_1)$ и $\integral{a}{b}{f\pode{\lambda \alpha_1}} = \lambda \cdot \integral{a}{b}{f\pode{\alpha_1}}$
+
+		$f \in \mathcal{R}(\alpha_1 + \alpha_2) \sledue \intergral{a}{b}{f\pode{\skobk{\alpha_1 +\alpha_2}}} = \integral{a}{b}{f\pode{\alpha_1}} + \intergral{a}{b}{f\pode{\alpha_2}}$
+	\end{enumerate*}
+\end{defs}
+
+\begin{proofs}[Формула Ньютона-Лейбница]
+	$\pust \in \mathcal{R} \na [a,b]$ и $f$ первообразная функции на $f \na [a,b]$, тогда
+	$$\vniz{Формула Ньютона-Лейбница}{\intergral{a}{b}f(x)\pode{x} = F(b)- F(a)}$$
+	\begin{dokvo}
+		Возьмем $\Prasb$ - разбиение $[a,b]$, $a = x_0 < x_1 < \ldots < x_n = b$
+		$F(x_i) - F(x_{i-1}) = \mathvniz{=f(\xi_i)}{F^{\shtrih}(\xi_i)}\cdot \mathvniz{=x_i - x_{i-1}}{\delt x_i}$, $\xi_i \in (\xi_{i-1}, \xi)$ - по теореме Лагранжа о конечном приращении
+
+		$\integral{a}{b}{f(x)\pode{x}} = \predel{}{\mathfrak{S}(f, \alpha,\Prasb,\xi)}$ - так как $f$ -непрерывна на $[a,b]$ (теорема о связи интегральных сумм Римана-Стилтьеса с интегралом Римана)\footnote{Интегралом Римана-Стилтьеса называется  $\int\limits_a^b f \pode{\alpha} = \lim\limits_{\tau \to 0} \mathfrak{S} (f, \alpha, \tau) $, где $\tau = \max(\Delta x_0, \dots \Delta x_{n-1})$}
+		$\summa{i=1}{n}f(\xi_i)\delt x_i = \summa{i=1}{n}\skobk{F(x_i)- F(x_{i-1})} = F(b) - F(a)$
+	\end{dokvo}
+
+\end{proofs}
+\newpage
