@@ -1,0 +1,72 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 9: Собственные интегралы, зависящие от параметра. Непрерывность по параметру. Теоремы об интегрировании и дифференцировании собственных интегралов по параметру.}
+
+\begin{defs}
+	$f(x,y) : \kskobk{a,b} \times Y \to \Real \ \forall y \in Y \ \exists \ \integral{a}{b}{f(x,y)\pode{x}} = I(y)$ - собственный интеграл, зависящий от параметра
+\end{defs}
+
+\begin{proofs}[Теорема о предельном переходе под знаком интеграла]
+	$\pust f(x,y) : \kskobk{a,b} \times Y \to \Real$ \vtochke{y_0} предельная точка $Y$, $f(x,y) \rvnmrno{[a,b]} f(x)$ при $y \to y_0$,
+	$f(x,y)$ - непрерывна на $[a,b] \ \forall y \in Y \ \sledue \ \exists \ \predel{y \to y_0}\integral{a}{b}{f(x,y)\pode{x}}$
+
+	\begin{dokvo}
+		$f(x)$ - непрерывна на $[a,b]$ (\underline{доказывается такой факт}) $\sledue \ \exists \integral{a}{b}{f(x)\pode{x}}$
+
+		$\rassmotr \Modul{\integral{a}{b}{f(x,y)\pode{x}} - \integral{a}{b}{f(x)\pode{x}}} = \Modul{\integral{a}{b}{\skobk{f(x,y) - f(x)}\pode{x}}} \leq \integral{a}{b}{\Modul{f(x,y)-f(x)}\pode{x}}$ $\forall \epsilon > 0 \ \exists U(y_0): \forall y \in \prokol{U}(y_0) \peres Y$ и $\forall x \in [a,b], \Modul{f(x,y) - f(x)} < \frac{\epsilon}{2\cdot (b-a)}$ так как $y_0$ предельная точка $\sledue$ для указанных $y \in Y$ выполняется
+		$$\integral{a}{b}\Modul{f(x,y) - f(x)}\pode{x} \leq \frac{\epsilon}{2(b-a)} = \frac{\epsilon}{2} < \epsilon \ \sledue \predel{y \to y_0}\integral{a}{b}f(x,y)\pode{x} = \integral{a}{b}f(x)\pode{x}$$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[О непрерывности собственного интеграла, зависящего от параметра]
+	$\pust f(x,y)$ - непрерывна на $[a,b] \times [c,d] \ \sledue \ I(y) = \integral{a}{b}{f(x,y)\pode{x}}$ непрерывна на $[c,d]$
+
+	\begin{dokvo}
+		так как $f(x)$ - непрерывно на компакте $[a,b] \times [c,d]$\footnote{Множество замкнуто и ограничено}, то $f(x,y)$ равномерно непрерывно на нём, тоесть $\forall \epsilon > 0 \ \exists \delta > 0: \forall x^{\shtrih},x^{\shtrih\shtrih}\in [a,b]$,$ \Modul{x^{\shtrih} - x^{\shtrih\shtrih}} < \delta$
+		и $\forall y^{\shtrih},y^{\shtrih\shtrih}\in [c,d] $ и $\Modul{y^{\shtrih} - y^{\shtrih\shtrih}} < \delta$,
+		выполняется $\Modul{f(x^{\shtrih},y^{\shtrih}) - f(x^{\shtrih\shtrih}, y^{\shtrih\shtrih})} < \frac{\epsilon}{2}$
+
+		Положим $x^{\shtrih} = x^{\shtrih\shtrih} \in [a,b] \ \sledue \ \Modul{f(x, y^{\shtrih}) - f(x, y^{\shtrih\shtrih})} < \frac{\epsilon}{2}$
+
+		$\pust y_0 \in [c,d]$ - произвольное и $\rassmotr \ \predel{y \to y_0}{f(x,y) = f(x,y_0)}$, т.к $f$ - непрерывна $\rassmotr \ U(y_0) = (y_0 - \frac{\delta}{2}, y_0 + \frac{\delta}{2})$,
+		то $\forall \ x \in [a,b]$ и $y^{\shtrih}, y^{\shtrih\shtrih} \in (y_0 - \frac{\delta}{2}, y_0 + \frac{\delta}{2})$,
+		$y^{\shtrih}, y^{\shtrih\shtrih} \in [c,d]$ выполняется $\Modul{f(x,y^{\shtrih}) - f(x,y^{\shtrih\shtrih})} < \epsilon$
+		$\sledue$ выполняется критерий Коши равномерной сходимости функции $f(x,y)$ к предельной функции $f(x,y_0) \na [a,b]$ при
+		$y \to y_0$ \footnote{\textbf{РЕТРОСПЕКТИВА:} Критерий Коши: $f(x,y) \rvnmrno{X} f(x)$, при $y\to y_0 \ \tittg \ \forall \epsilon > 0 \ \exists U(y_0): \forall y^{\shtrih}, y^{\shtrih\shtrih} \in \prokol{U}(y_0)\peres Y$ и $\forall x \in X$, $\Modul{f(x,y^{\shtrih}) - f(x,y^{\shtrih\shtrih})}$}
+		тоесть $f(x,y) \rvnmrno{[a,b]} f(x, y_0)$, $y \to y_0$.
+		По теореме выше, $\predel{y \to y_0}\integral{a}{b}f(x,y)\pode{x} = \integral{a}{b}{\predel{y \to y_0}f(x,y)\pode{x}} = \integral{a}{b}f(x,y_0)\pode{x}$, тоесть $I(y) = \integral{a}{b}{f(x,y)\pode{x}}$ непрерывна \vtochke{y_0} $\sledue I(y)$ непрерывна на $[c,d]$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[О дифференцируемости интеграла, зависящего от параметра]
+	$\pust f(x,y): [a,b]\times [c,d] \to \Real, \forall y \in [c,d], \ f(x,y) \in \mathcal{R} \na [a,b]$,
+	$\exists \ f^{\shtrih}_{y}(x,y)$ - непрерывная на $[a,b]\times [c,d]$, тогда $I(y) = \integral{a}{b}{f(x,y)\pode{x}}$
+	- дифференцируема на $[c,d]$ и $I^{\shtrih}(y) = \vniz{формула Лейбница}{\integral{a}{b}f^{\shtrih}_{y}(x,y)\pode{x}}$
+	\begin{dokvo}
+		\begin{gather*}
+			y \in [c,d], \ \frac{I(y + \delt y) - I(y)}{\delt y} = \frac{1}{\delt y}\cdot\skobk{\integral{a}{b}{f(x, y + \delt y)\pode{x}} - \integral{a}{b}f(x,y)\pode{x}} = \\
+			= \frac{1}{\delt y} \cdot \integral{a}{b}\skobk{f(x, y + \delt y) - f(x, y)}\pode{x}, \ f(x, y + \delt y) - f(x,y) \naverh{т. Лагранжа}= \naverh{где $\theta \in (0,1)$}{f^{\shtrih}_{y}(x, y + \theta \delt y)\cdot \delt y} \\
+			\sledue \rassmotr \predel{\delt y \to 0}\integral{a}{b}{f^{\shtrih}_{y}(x, y + \theta \delt y) \pode{x}} \oeq
+		\end{gather*}
+		Так как $f^{\shtrih}_{y}$ непрерывна на $[a,b] \times [c,d]$ $\sledue$ она непрерывна на этой компакте. Аналогично доказательству предыдущей теоремы
+		\begin{gather*}
+			f^{\shtrih}_{y}(x, y + \theta \delt y) \rvnmrno{[a,b]} f^{\shtrih}_{y}(x,y), \delt y \to 0 \oeq \integral{a}{b}\predel{\delt y \to 0}f^{\shtrih}_{y}(x,y+\theta \delt y)\pode{x} = \integral{a}{b}f^{\shtrih}_{y}(x,y)\pode{x}
+		\end{gather*}
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[об интегрировании интеграла, зависящего от параметра]
+
+	$\pust f(x,y): [a,b]\times [c,d] \to \Real$ непрерывна на всей области определения  $\sledue \ \integral{a}{b}{\pode{x}}\integral{c}{d}f(x,y)\pode{y} = \integral{c}{d}{\pode{y}}\integral{a}{b}f(x,y)\pode{x}$
+	\begin{dokvo}
+		$\integral{c}{d}f(x,y)\pode{y} = I(x)$, $\integral{a}{b}{\pode{x}}\integral{c}{d}f(x,y)\pode{y} = \integral{a}{b}I(x)\pode{x}$,
+		так как все интегралы существуют $\skobk{\integral{a}{b}{\pode{x}}\integral{c}{d}\vniz{непр по $x \na [a,b]$}{f(x,y)\pode{y}}}$
+		$\rassmotr \ t \in [a,b], F_1(t) = \integral{a}{b}{\pode{x}}\integral{c}{d}f(x,y)\pode{y}, \ F_2(t) = \integral{c}{d}{\pode{y}}\integral{a}{b}f(x,y)\pode{x}$
+
+		И $\rassmotr$ произвольный $F^{\shtrih}_1(t)= \integral{c}{d}f(t,y)\pode{y}$ - по теореме о дифференцировании интеграла Римана как функции верхнего предела интегрирования
+
+		$F^{\shtrih}_2(t)$ $=$ (по формуле Лейбница) = $\integral{a}{d}\pode{y}\skobk{\integral{a}{t}f(x,y)\pode{x}}^{\shtrih}_{t} = \integral{c}{d}f(t,y)\pode{y} \ \sledue$ $F^{\shtrih}_1(t) = F^{\shtrih}_2 \sledue F_1(t) = F_2(t) + \const$
+
+		$F_1(a) = F_2(a) = 0 \ \sledue \const = 0 \ \sledue F_1(t) = F_2(t) \ \forall t$
+	\end{dokvo}
+\end{proofs}
+\newpage

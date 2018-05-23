@@ -129,8 +129,11 @@ $mod \frac{I(\overrightarrow{x})}{n} - H_{\infty} < \textepsilon;$
 2. P_{}(\chi^{'}) = P{(\xi_1,..\xi_n) \in \chi^{'}} < \delta.
 
   \begin{dokvo}
-  tut dohuya
-  \end{dokvo}
+  Напомним: последовательность \texttailn_n сходится по вероятности к случайной величине \texttailn, если \forall \textepsilon > 0:
+  $P{|\texttailn_n - \texttailn| \geq \textepsilon} \rightarrow 0, n \rightarrow \infty$ \Leftrightarrow \forall \textepsilon > 0, \delta > 0 \exists n_0 \in N: \forall n \geq n_0 верно:
+  $P{|\texttailn_n-\texttailn} \geq \textepsilon} < \delta.$
+
+  \end{dokvo} 
 
 \end{proofs} 
 
@@ -139,7 +142,8 @@ $mod \frac{I(\overrightarrow{x})}{n} - H_{\infty} < \textepsilon;$
 \end{proofs}
 
 \begin{defs}
-определение s(n, \delta)...
+Обозначим через s(n, \delta) - мощность наименьшего по мощности подмножества A <=  \chi со свойством P(A) \geq 1-\delta:
+$s(n,\delta) = \min|A|$ 
 \end{degs}
 
 \begin{proofs}[2-я т. Шеннона]
