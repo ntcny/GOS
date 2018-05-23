@@ -5,3 +5,7 @@
 *.DS_Store
 *.log
 *.out
+*.fls
+*.dvi
+*fdb_latexmk
+report.tex
