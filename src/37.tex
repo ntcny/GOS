@@ -1,1 +1,79 @@
 %!TEX root = ../report.tex"
+\section{Вопрос 37:
+Дискретный стационарный канал связи без памяти и его пропускная способность.
+Каналы связи, симметричные по входу и по выходу, их свойства.
+}
+
+\begin{defs}[Дискретный канал связи]
+Говорят, что задан дискретный канал связи C со входным алфавитом X и выходном алфавитом Y, если \forall n \in N \forall \overrightarrow{y} \in Y^n,  \overrightarrow{x} \in X^n определены величины p(\overrightarrow{y} / \overrightarrow{x}) \geq 0:
+$\summa{}{y \in Y^n} p(\overrightarrow{y} / \overrightarrow{x}) = 1.
+
+ДКС - упорядоченный набор объектов, состоящий из алфавита входа X, алфавита выхода Y и совокупности величин {p(\overrightarrow{y} / \overrightarrow{x})} , где p(\overrightarrow{y} / \overrightarrow{x}) – вероятность получения на выходе дискретного
+канала связи вектора overrightarrow{y} \in Y при условии того, что был послан вектор \overrightarrow{x} \in X.
+\end{defs}
+
+\begin{defs}
+Будем говорить, что пос-ти \xi_n \rightarrow X и \texttailn_n \rightarrow Y связаны ДКС С, если \forall n \in N,  \overrightarrow{y}, \overrightarrow{x}:
+$P{\overrightarrow{\texttailn} = \overrightarrow{y} / \overrightarrow{\xi} = \overrightarrow{x}} = p(\overrightarrow{y} / \overrightarrow{x}).$
+\end{defs}
+
+
+\begin{proofs}
+  Если пос-ти \xi_n \rightarrow X и \texttailn_n \rightarrow Y связаны ДКС С, то \forall n \in N распределение случайного вектора \overrightarrow{\xi} однозначно оперделеяет распределение случайного вектора \overrightarrow{\texttailn}:
+
+  $P{\overrightarrow{\texttailn} = \overrightarrow{y}} = \summa{}{\overrightarrow{x} \in X^n} p(\overrightarrow{y} / \overrightarrow{x})*P{\overrightarrow{\xi} = \overrightarrow{x}}. $
+\end{proofs}
+
+\begin{defs}
+Пропускной способностью ДКС С называется величина:
+$C* = \supr{n \in N} \supr {P_{\overrightarrow{\xi}}} 1/n * I (\overrightarrow{\xi} ; \overrightarrow{\texttailn}),$
+где внутренний супремум берется по всем распределениям P_{\overrightarrow{\xi}} входного вектора \overrightarrow{\xi} (пос-ти \xi_n, \texttailn связаны ДКС C).
+
+Пропускная способность C* – максимальное количество информации, передаваемой
+по каналу связи в единицу времени (именно поэтому в формуле деление на n).
+\end{defs}
+
+\begin{defs}
+ДКС С - ДКС без памяти (ДКСПБ), если на нем опеределены последовательности \xi_n, \texttailn_n: \forall n \in N, \overrightarrow{y}, \overrightarrow{x} верно:
+$P{\overrightarrow{\texttailn} = \overrightarrow{y} / \overrightarrow{\xi} = \overrightarrow{x}} = P{\texttailn_1 = y_{n_1}/ \xi_1 = x_{n_1}}*..*P{\texttailn_n = y_{n_n}/ \xi_n = x_{n_n}}$
+
+Дискретный канал связи без памяти – такой канал, в котором на передачу последующих символов ранее переданные не влияют.
+
+При этом в условиях введенного определения также будем говорить, что последовательности \xi_n и \texttailn_n связаны ДКСБП C. Передача символа в n-й момент времени по ДКСБП происходит в соответствии с матрицей переходных вероятностей P_n p(y_n/x_n).
+\end{defs}
+
+\begin{defs}
+ДКСПБ - стационарный (ДСКСБП), если P_1 = .. = P_n = ..
+\end{defs}
+
+ДКС - тройка объектов С = (X, Y, P). где X - входной, Y - выходной алфавиты, P - стохастическая матрица переходных вероястой.
+
+\begin{example}
+1. Двоичный симметричный канал P = (1-p p | p 1-p)
+2. Двоичный канал со стиранием P = (1-p p 0 | 0 p 1-p)
+\end{example}
+
+\begin{proofs}
+  \xi_n, \texttailn_n связаны ДКС С, распределение сл. величины \xi \overrightarrow{p} (\xi) = (p_1,..,p_n):
+
+  1. \overrightarrow{p}(\texttailn) = \overrightarrow{p} (\xi) * P;
+  2. I(\xi; \texttailn) = H(\overrightarrow{p} (\xi) * P) - \overrightarrow{p} (\xi) * H(P)^{\downarrow}. (H(P)^{\downarrow} = ( H(\overrightarrow{P_1}).. (\overrightarrow{P_n}))    )
+\end{proofs}
+
+\begin{proofs}
+\forall ДКС C C* = max {} I(\xi; \texttailn)
+\end{proofs}
+
+\begin{defs}
+Оптимальное распределение ДКС С - такое вероятностное распределение \overrightarrow{p}(\xi), для которого
+$C* = I(\xi;\texttailn)$
+\end{defs}
+
+\begin{defs}
+Канал C называется:
+-симметричным по входу, если каждая строка матрицы P является перестанкой набора {\pi'_1, \pi'_n};
+-симметричным по выходу, если каждый столбец матрицы P является перестанкой набора {\pi''_1, \pi''_m}
+-симметричным, если симметричен по входу и по выходу.
+;
+
+\newpage
