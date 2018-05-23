@@ -1,63 +1,63 @@
-%!TEX root = ../report.tex"
+%!TEX root = ../report.tex$
 \section{Вопрос 36:
 Энтропия дискретного источника сообщений. Теорема о существовании предельной энтропии для стационарного источника. 
 Теорема об асимптотической равнораспределённости для дискретного источника без памяти.
 }
 
 \begin{defs}[Количество собственной информации]
-  Количеством собственной информации, или просто собственной информацией, содержащейся в событии A ∈ \mathfrak{U}, P(A ) \neq 0, называется величина
-$\mathds{I}(A) = -\log{\mathbb{P}(A)},$
+  Количеством собственной информации, или просто собственной информацией, содержащейся в событии $A \in \mathfrak{U}, P(A ) \neq 0$, называется величина
+$${I}(A) = -\log{P(A)},$$
 где основанием логарифма является некоторое число, большее 1.
 \end{defs}
 
 \begin{defs}[Энтропия]
-  Энтропией дискретной случайной величины \xi: → \chi, \chi = {x_i, i \in I}, называется математическое ожидание случайной величины I_i(\xi), т.е. это величина:
-$H(\xi) = \mathds{M}\mathds{I_i}(\xi) = \summa{}{i \in I}\mathds{I_i}*mathbb{P}{\xi = x_i} = -\summa{}{i \in I}p_i * \log{p_i},$
-где p_i = \mathbb{P}{\xi = x_i}, i \in I. 
+  Энтропией дискретной случайной величины $\xi: \to X, X = {x_i, i \in I}$, называется математическое ожидание случайной величины $I_i(\xi)$, т.е. это величина:
+$$H(\xi) = M{I_i}(\xi) = \summa{i \in I}{}{I_i}(\xi) \cdot {\xi = x_i} = -\summa{i \in I}{}p_i \cdot \log{p_i},$$
+где $p_i = P \fskobk{\xi = x_i}, i \in I$ 
 \end{defs}
 
 \begin{defs}[Условная энтропия при условии события]
-Условной энтропией случайной величины \xi: → \chi при условии события {\textrtailn = y_i} называется математическое ожидание случайной величины \mathds{I_sss=s_j}(\xi/y_i),
+Условной энтропией случайной величины $\xi: \to X$ при условии события ${\eta = y_i}$ называется математическое ожидание случайной величины ${I_{sss=s_j}}(\xi/y_i)$,
 т.е. это величина
-$H(\xi/\textrtailn = y_i) = \mathds{M}\mathds{I_sss=s_j}(\xi/y_i) = \summa{}{i \in I} I(\xi = x_i/ \textrtailn = y_i)*\mathbb{P}{\xi = x_i/ \textrtailn = y_i} = -\summa{}{i \in I}p_{i|j} * \log{p_{i|j}},$
-где p_{i|j} = \mathbb{P}{\xi = x_i/ \textrtailn = y_i}.
+$$H(\xi/\eta = y_i) = M I_{sss=s_j}(\xi/y_i) = \summa{i \in I}{} I(\xi = x_i/ \eta = y_i) \cdot P \fskobk{\xi = x_i/ \eta = y_i} = -\summa{i \in I}{} p_{i|j} \cdot \log{p_{i|j}},$$
+где $p_{i|j} = P \fskobk{\xi = x_i/ \eta = y_i}.$
 \end{defs}
 
 \begin{defs}[Условная энтропия при условии случайной величины]
-Условной энтропией случайной величины \xi: → \chi при условии случайной величины {\textrtailn → \mathcal{Y} называется математическое ожидание случайной величины \mathds{I_sss}(\xi/\textrtailn),
+Условной энтропией случайной величины $\xi: \to X$ при условии случайной величины ${\eta \to Y}$ называется математическое ожидание случайной величины ${I_sss}(\xi/\eta)$,
 т.е. это величина
-$H(\xi/\textrtailn) = \mathds{M}\mathds{I_sss}(\xi/\textrtailn) = \summa{}{i \in I, j \in J} I(\xi = x_i/ \textrtailn = y_i)*\mathbb{P}{\xi = x_i/ \textrtailn = y_j} = -\summa{}{i \in I}p_ij * \log{p_{i|j}},$
-где p_ij = \mathbb{P}{\xi = x_i, \textrtailn = y_i}, p_{i|j} = .
+$$H(\xi/\eta) = M{I_sss}(\xi/\eta) = \summa{i \in I, j \in J}{} I(\xi = x_i/ \eta = y_i) \cdot P\fskobk{\xi = x_i/ \eta = y_j} = -\summa{i \in I}{} p_ij \cdot \log{p_{i|j}},$$
+где $p_{ij} = P \fskobk{\xi = x_i, \eta = y_i}, p_{i|j} = P\fskobk{\xi = x_i/ \eta = y_i}.$
 \end{defs}
 
 \begin{proofs}[Формула полной вероятности для условной энтропии]
-Для дискретных случайных величин \xi: → \chi,  \textrtailn → \mathcal{Y} верно:
-$H(\xi / \texttailn) = \summa{}{i\in I} = \mathbb{P}{\texttailn=y_i}*H(\xi/\texttailn = y_i).$
+Для дискретных случайных величин $\xi: \to X,  \eta \to Y $ верно:
+$H(\xi / \eta) = \summa{i\in I}{} = P \fskobk{\eta=y_i} \cdot H(\xi/\eta = y_i).$
 \end{proofs}  
 
 \begin{proofs}[Утверждения для энтропии]
-1. Аддитивность энтропии H(\xi, \texttailn) = H(\xi) + H(\texttailn/\xi) = H(\tetxtailn) + H(\xi / \texttailn);
-2. Основное неравенство H(\xi / \texttailn) \leq H(\xi), при этом равенство выполянется \Leftrightarrow \xi и \texttailn независимы;
-3. Полуаддитивность H(\xi, \tetxtailn) \leq H(\xi) + H(\texttailn), при этом равенство выполянется \Leftrightarrow \xi и \texttailn независимы;
-4. Аддитивность условной энтропии H(\xi_1, \xi_2 / \texttailn) = H(\xi_1 / \texttailn) + H(\xi_2 / \xi_1, \texttailn) = H(\xi_2 / \texttailn) + H(\xi_1 / \xi_2, \textailn).
+1. Аддитивность энтропии $H(\xi, \eta) = H(\xi) + H(\eta/\xi) = H(\eta) + H(\xi / \eta);$
+2. Основное неравенство $H(\xi / \eta) \leq H(\xi), при этом равенство выполянется \Leftrightarrow \xi и \eta независимы;$
+3. Полуаддитивность $H(\xi, \eta) \leq H(\xi) + H(\eta), при этом равенство выполянется \Leftrightarrow \xi и \eta независимы;$
+4. Аддитивность условной энтропии $H(\xi_1, \xi_2 / \eta) = H(\xi_1 / \eta) + H(\xi_2 / \xi_1, \eta) = H(\xi_2 / \eta) + H(\xi_1 / \xi_2, \eta).$
 \end{proofs}
 
 \begin{defs}
-Дискретным источником сообщений будем называть случайный процесс {\xi_n, n \in N} с дискретным временем и конечным фазовым пространством \chi.
+Дискретным источником сообщений будем называть случайный процесс $ {\xi_n, n \in N}$ с дискретным временем и конечным фазовым пространством $X$.
 \end{defs}
 
 \begin{defs}
- {\xi_n, n \in N} - ДИС k \in N n_1<..<n_k \in N. Вероятностная функция P_{n_1,..n_k}():\mathfrak{U}^* \rightarrow [0,1] на измеримом пространстве (\chi, \mathfrak{U}) определены по правилу:
-$P_{n_1,..,n_k}(A)=P{(\xi_{n_1},..,\xi_{n_k})\in A}, A \in \mathfrak{U},$ 
-называется конечномерным распределением дискретного источника сообщений на местах n_1,..n_k.
+ ${\xi_n, n \in N}$ - ДИС $k \in N n_1<..<n_k \in N.$ Вероятностная функция $P_{n_1,..n_k}():\mathfrak{U}* \to [0,1]$ на измеримом пространстве $(X, \mathfrak{U})$ определены по правилу:
+$$P_{n_1,..,n_k}(A)=P \fskobk{(\xi_{n_1},..,\xi_{n_k})\in A}, A \in \mathfrak{U}$$ 
+называется конечномерным распределением дискретного источника сообщений на местах $n_1,..n_k.$
 \end{defs}
 
 \begin{defs}
-ДИС - стационарный (в узком смысле), если \forall t,k \in N n_1,..n_k \in N случайный вектор (\xi_{n_1},..\xi(n_k)) распределен так же, как и вектор (\xi_{n_1 + t},..\xi_{n_k + t}.
+ДИС - стационарный (в узком смысле), если $\forall t,k \in N n_1,..n_k \in N$ случайный вектор $(\xi_{n_1},..\xi(n_k))$ распределен так же, как и вектор $(\xi_{n_1 + t},..\xi_{n_k + t}.$
 \end{defs}
 
 \begin{defs}
-Дискретный источник без памяти (ДИБП) - последовательность \bold{независимых} случайных величин  (\xi_{n}, n \in N}.
+Дискретный источник без памяти (ДИБП) - последовательность независимых случайных величин  $\fskobk{\xi_n, n \in N}.$
 \end{defs}
 
 \begin{defs}
@@ -65,74 +65,74 @@ $P_{n_1,..,n_k}(A)=P{(\xi_{n_1},..,\xi_{n_k})\in A}, A \in \mathfrak{U},$
 \end{defs}
 
 \begin{defs}
-Энтропия на n-й шаг ДИС {\xi_n, n \in N}:
-$H_n = \frac{H(\xi_1,..,\xi_n)}{n}, n \in N$
+Энтропия на n-й шаг ДИС ${\xi_n, n \in N}:$
+$$H_n = \frac{H(\xi_1,..,\xi_n)}{n}, n \in N$$
 
-Энтропия на шаг H_n является средним количеством информации, приходящимся на
+Энтропия на шаг $H_n$ является средним количеством информации, приходящимся на
 одну букву n-буквенного сообщения, порожденного источником в первые n моментов времени.
 \end{defs}
 
 \begin{defs}
-Пошаговая энтропия ДИС {\xi_n, n \in N} на n-ую букву:
-$H^{(n)} = {H(\xi_n /\xi_1,..,\xi_{n-1})}, n \in N$
+Пошаговая энтропия ДИС ${\xi_n, n \in N}$ на n-ую букву:
+$$H^{(n)} = {H(\xi_n /\xi_1,..,\xi_{n-1})}, n \in N$$
 
-Пошаговая энтропия H^{(n)} является средним количеством информации, получаемой в
+Пошаговая энтропия $H^{(n)}$ является средним количеством информации, получаемой в
 n-й момент времени, при условии знания всех предыдущих, или, что то же самое, это неопределенность выработки n-й буквы, при условии знания всех предыдущих.
 \end{defs}
 
 \begin{proofs}
-1. H_n = \frac{H^{(1)}+..+ H^{(n)}}{n}
-2. H^{(n)} = n*H_n + (n-1)*H_{n-1}, где H_0 = 0, n \in N.
+1. $H_n = \frac{H^{(1)}+..+ H^{(n)}}{n}$
+2. $H^{(n)} = n\cdot H_n + (n-1)\cdot H_{n-1},$ где $H_0 = 0, n \in N.$
 \end{proofs}
 
 \begin{defs}
-Энтропия ДИС - предел последовательности энтропий на шаг {H_n}_{n \in N}, если существует и конечен:
-$H_{\infty} = \lim{n \rightarrow \infty}{H_n}.$
+Энтропия ДИС - предел последовательности энтропий на шаг ${H_n}_{n \in N}$, если существует и конечен:
+$$H_{\infty} = \predel{n \rightarrow \infty}{H_n}.$$
 \end{defs}
 
 \begin{proofs}[Лемма]
-Если числовая последовательность {x_n}_{n \in N} сходится к некоторому числу a \in R, то последовательность ее средних арифметических также сходится к этому числу а.
+Если числовая последовательность ${x_n}_{n \in N}$ сходится к некоторому числу $a \in R$, то последовательность ее средних арифметических также сходится к этому числу $а$.
 \end{proofs}
 
 \begin{proofs}[Теорема о существовании энтропии для стационарного ДИС]
-Любой стационарный ДИС {\xi_n, n \in N} имеет энтропию. При этом последовательность его пошаговых энтропий {H^{(n)} }_{n \in N} не возрастает и сходится также к H_{\infty}.
+Любой стационарный ДИС ${\xi_n, n \in N} $ имеет энтропию. При этом последовательность его пошаговых энтропий ${H^{(n)} }_{n \in N}$ не возрастает и сходится также к $H_{\infty}.$
 
   \begin{dokvo}
-  Покажем сначала, что последовательность пошаговых энтропий {H^{(n)} }_{n \in N} не возрастает и сходится к некоторому числу:
-  $H^{(2)} = H(\xi_2 / \xi_1) \leq H(\xi_2) =_{стационарность} H(\xi_1) = H^{(1)}.$
-  
-  n \geq 2:
-  $H^{n+1} = H{\xi_{n+1} / \xi_1,..,\xi_n} \leq  H{\xi_{n+1} / \xi_2,..,\xi_n} = H{\xi_2,..,\xi_n+1} - H(\xi_2,..,\xi_n)  =_{стационарность} H(\xi_1,..,\xi_n) - H(\xi_1,..,\xi_{n-1}) = H(\xi_n / \xi_1,..,\xi_{n-1}) = H^{(n)}.
+  Покажем сначала, что последовательность пошаговых энтропий ${H^{(n)} }_{n \in N}$ не возрастает и сходится к некоторому числу:
+  $$H^{(2)} = H(\xi_2 / \xi_1) \leq H(\xi_2) =_{стационарность} H(\xi_1) = H^{(1)}.$$
 
-  Таким образом, последовательность пошаговых энтропий {H^{(n)}}_{n \in N} - не возрастающая, ограничена снизу (\forall n \in N H^{(n)} \geq 0). Тогда по ь. Вейерштрасса она сходится, т.е.
-  $\exists \lim{n \rightarrow \infty} H^{(n)} = H \in R.
+  $n \geq 2:$
+  $$H^{n+1} = H{\xi_{n+1} / \xi_1,..,\xi_n} \leq  H{\xi_{n+1} / \xi_2,..,\xi_n} = H{\xi_2,..,\xi_n+1} - H(\xi_2,..,\xi_n)  =_{стационарность} H(\xi_1,..,\xi_n) - H(\xi_1,..,\xi_{n-1}) = H(\xi_n / \xi_1,..,\xi_{n-1}) = H^{(n)}.$$
 
-  Последовательность энтропий на шаг {H_n}_{n \in N} является для {H^{(n)} }_{n \in N} последовательностью средних арифметических \Rightarrow имеет предел H_{\infty} = H
+  Таким образом, последовательность пошаговых энтропий ${H^{(n)}}_{n \in N}$ - не возрастающая, ограничена снизу $(\forall n \in N H^{(n)} \geq 0)$. Тогда по т. Вейерштрасса она сходится, т.е.
+  $$\exists \predel{n \rightarrow \infty} H^{(n)} = H \in R.$$
+
+  Последовательность энтропий на шаг ${H_n}_{n \in N}$ является для ${H^{(n)} }_{n \in N} \Rightarrow$ последовательностью средних арифметических  имеет предел $H_{\infty} = H$
   \end{dokvo}
 \end{proofs}
 
 \begin{proofs}
-Для СДИБП H_{\infty} = H(\overrightarrow{p}).
+Для СДИБП $H_{\infty} = H(\overrightarrow{p}).$
 \end{proofs}
 
 \begin{defs}
-ДИС обладает свойством асимптотической равнораспределенности(АР), если выполянются \bold{два условия}:
-1. У ДИС \exists H_{\infty};
-2. Последоватьельность случайных величин {\frac{1}{n}I(\xi_1,..\xi_n)}_{n \in N} сходится по вероятности к энтропии H_{\infty}
+ДИС обладает свойством асимптотической равнораспределенности(АР), если выполянются два условия:
+1. У ДИС $\exists H_{\infty};$
+2. Последоватьельность случайных величин ${\frac{1}{n}I(\xi_1,..\xi_n)}_{n \in N}$ сходится по вероятности к энтропии $H_{\infty}$
 \end{defs}
 
 \begin{proofs}[критерий наличия свойства АР]
-ДИС {\xi_n, n \in N}, имеющий энтропию H_{\infty}, обладает свойством \bold{асимптотической равнораспределенности} \Leftrightarrow \forall \textepsilon > 0, \delta > 0 \exists n_0 \in N: \forall n > n_0 множество \chi можно представить в виде разбиения \chi = \chi \sqcup \chi^{'} и при этом выполняются свойства:
+ДИС ${\xi_n, n \in N}$, имеющий энтропию $H_{\infty}$, обладает свойством асимптотической равнораспределенности $\Leftrightarrow \forall \epsilon > 0, \delta > 0 \exists n_0 \in N: \forall n > n_0$ множество $X$ можно представить в виде разбиения $X = X \sqcup X'$ и при этом выполняются свойства:
 
-1. \forall x=(x_{k_1},..x_{k_n}) \in \chi верно:
-$mod \frac{I(\overrightarrow{x})}{n} - H_{\infty} < \textepsilon;$
-2. P_{}(\chi^{'}) = P{(\xi_1,..\xi_n) \in \chi^{'}} < \delta.
+1. $\forall x=(x_{k_1},..x_{k_n}) \in X$ верно:
+$$\Modul{\frac{I(\overrightarrow{x})}{n} - H_{\infty}} < \epsilon;$$
+2. $P_{}(X^{'}) = P \fskobk{(\xi_1,..\xi_n) \in X^{'}} < \delta.$
 
   \begin{dokvo}
-  Напомним: последовательность \texttailn_n сходится по вероятности к случайной величине \texttailn, если \forall \textepsilon > 0:
-  $P{|\texttailn_n - \texttailn| \geq \textepsilon} \rightarrow 0, n \rightarrow \infty$ \Leftrightarrow \forall \textepsilon > 0, \delta > 0 \exists n_0 \in N: \forall n \geq n_0 верно:
-  $P{|\texttailn_n-\texttailn} \geq \textepsilon} < \delta.$
-
+  Напомним: последовательность $\eta_n$ сходится по вероятности к случайной величине $\eta$, если $\forall \epsilon > 0:$
+  $$P \fskobk{|\eta_n - \eta| \geq \epsilon} \rightarrow 0, n \rightarrow \infty$$ 
+  $\Leftrightarrow \forall \epsilon > 0, \delta > 0 \exists n_0 \in N: \forall n \geq n_0 $ верно:
+  $$P \fskobk{\Modul{\eta_n - \eta} \geq \epsilon} < \delta.$$
   \end{dokvo} 
 
 \end{proofs} 
@@ -142,13 +142,13 @@ $mod \frac{I(\overrightarrow{x})}{n} - H_{\infty} < \textepsilon;$
 \end{proofs}
 
 \begin{defs}
-Обозначим через s(n, \delta) - мощность наименьшего по мощности подмножества A <=  \chi со свойством P(A) \geq 1-\delta:
-$s(n,\delta) = \min|A|$ 
-\end{degs}
+Обозначим через $s(n, \delta)$ - мощность наименьшего по мощности подмножества $A <=  X$ со свойством $P(A) \geq 1-\delta:$
+$$s(n,\delta) = \min|A|$$ 
+\end{defs}
 
 \begin{proofs}[2-я т. Шеннона]
-Если ДИС обладает свойством АР, то \forall \delta \in (0, 1/2) 
-$\exists \lim{n \rightarrow \infty} \frac{log s(n, \delta)} {n} = H_{\infty}
+Если ДИС обладает свойством АР, то $\forall \delta \in (0, 1/2) $
+$$\exists \predel{n \rightarrow \infty} \frac{log s(n, \delta)} {n} = H_{\infty}$$
 \end{proofs}
 
 \newpage
