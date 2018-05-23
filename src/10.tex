@@ -1,0 +1,103 @@
+%!TEX root = ../report.tex"
+\section{Вопрос 10: Несобственные интегралы. Равномерно сходящиеся интегралы, зависящие от параметра. Признаки равномерной сходимости. Теоремы о непрерывности, интегрировании и дифференцировании несобственных интегралов, зависящих от параметра.}
+
+\begin{defs}
+	$f(x,y)$ определена на $[a,w) \times Y$, $Y \subset \Real$, $\forall y \in Y$ сходится $\integral{a}{w}f(x,y)\pode{x} =
+	I(y)$ -- \textbf{несобственный интеграл, зависящий от параметра}
+
+	$\rassmotr$ $F(A,y) = \integral{a}{A}f(x,y)\pode{x}$ - $\exists \ \forall A \in [a,w)$,
+	$\integral{a}{w}f(x,y)\pode{x}=\predel{A \to w}F(A,y)$
+	Говорят, что $\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $Y$, если $F(A,y) \rvnmrno{Y} I(y) =
+	\integral{a}{w}f(x,y)\pode{x}$, при $A \to w$
+\end{defs}
+
+\begin{proofs}[Критерий Коши равномерной сходимости НИЗоП]
+	$\pust f: [a,w) \times Y \to \Real$, $\forall A \in [a,w)$ и $\forall y \in Y \ \exists \integral{a}{A}f(x,y)\pode{x} \
+	\sledue$ несобственный интеграл $\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $Y \ \tittg \ \forall \epsilon > 0
+	\ \exists A \in [a,w): \forall A^{\shtrih}, A^{\shtrih\shtrih} \in (A,w)$ и $\forall y \in Y$,
+	$\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)\pode{x}} < \epsilon$
+
+	\begin{dokvo}
+		$F(B,y) = \integral{a}{B}f(x,y)\pode{x}$
+		$F(B,y) \rvnmrno{Y} \integral{a}{w}f(x,y)\pode{x}$, при $B \to w \ \sledue$ по критерию Коши $\forall \epsilon > 0 \
+		\exists A \in [a,w): \forall A^{\shtrih}, A^{\shtrih\shtrih} \in (A,w)$ и $\forall y \in Y$
+		$$\Modul{F(A^{\shtrih},y) - F(A^{\shtrih\shtrih},y)} < \epsilon, \Modul{F(A^{\shtrih},y) - F(A^{\shtrih\shtrih},y)}
+		= \Modul{\integral{a}{A^{\shtrih}}f(x,y)\pode{x}- \integral{a}{A^{\shtrih\shtrih}}f(x,y)\pode{x}} =
+		\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)\pode{x}}$$
+	\end{dokvo}
+\end{proofs}
+
+
+\begin{proofs}[Признак Вейерштрасса равномерной сходимости несобственного интеграла, зависящего от параметра]
+	$\pust f: [a,w) \times Y \to \Real$ $\forall A \in [a,w)$ $\forall y \in Y \ \exists \integral{a}{A}f(x,y)\pode{x}$ и
+	$\pust \ \exists \phi: [a,w) \to \Real: \Modul{f(x,y)} < \phi(x) \ \forall x,y \in [a,w) \times Y$ и $\integral{a}{w}\phi(x)\pode{x}$ - сходится, тогда $\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $Y$
+
+	\begin{dokvo}
+		Критерий Коши сходимости $\integral{a}{w}\phi(x)\pode{x}: \ \forall \epsilon > 0
+		\ \exists A \in [a,w) : \forall \ A^{\shtrih},A^{\shtrih\shtrih} \in [a,w),
+		\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}\phi(x)\pode{x}} < \epsilon$
+
+		$\rassmotr$ $\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y) \pode{x}}
+		\leq \Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}\Modul{f(x,y)}\pode{x}}
+		\leq \Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}\phi(x)\pode{x}} <
+		\epsilon$ $\sledue$ выполняется критерий Коши равномерной сходимости $\sledue$
+		$\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $Y$
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[Признак Абеля-Дирихле равномерной сходимости несобственного интеграла]
+	$\pust$ $f,g: [a,w) \times Y \to \Real$, $\forall A \in [a,w)$ и $\forall y \in Y$
+	$f$ интегрируема на $[a,A]$, $g$ монотонна по переменной x $\sledue$ если выполняется любое из следующих 2 пар условий
+	\begin{enumerate*}
+		\item
+
+		$g(x,y) \rvnmrno{Y} 0$, при $x \to w$
+
+		$F(A,y) = \integral{a}{A}F(x,y)\pode{x}$ ограничена на $[a,w) \times Y$
+		\item
+
+		 $g(x,y)$ - ограничена на $[a,w) \times Y$
+
+		 $\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $Y$
+
+	\end{enumerate*}
+	$\sledue$ \underline{$\integral{a}{w}f(x,y)g(x,y)\pode{x}$} -- сходится равномерно на Y
+	\begin{dokvo}
+		$\pust A^{\shtrih}, A^{\shtrih\shtrih} \in [a,w)$ и $A^{\shtrih} < A^{\shtrih\shtrih}$, то $\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)g(x,y)\pode{x} \naverh{по 2 теореме о среднем ??}=
+		g(A^{\shtrih},y)\cdot \integral{A^{\shtrih}}{\xi}f(x,y)\pode{x} + g(A^{\shtrih\shtrih},y)\cdot
+		\integral{\xi}{A^{\shtrih\shtrih}}f(x,y)\pode{x} \clubsuit$, для некоторого $\xi \in
+		[A^{\shtrih},A^{\shtrih\shtrih}]$
+
+		\begin{enumerate*}
+			\item $\pust$ выполняется всё из 1): $\Modul{f(A,y)}\leq M$,
+			$\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)\pode{x} = F(A^{\shtrih\shtrih},y) -
+			F(A^{\shtrih},y) \ \sledue \Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)\pode{x}} \leq 2M$
+
+			$g(x,y) \rvnmrno{y} 0$ при $x \to w$ $\sledue$ $\forall \epsilon > 0$ $\exists A \in [a,w): \forall x \in (A,w)$ и $\forall y \in Y$, $\Modul{g(x,y)} < \epsilon$
+
+			$\pust$ теперь $A^{\shtrih}, A^{\shtrih\shtrih} \in (A,w)$ из $\clubsuit \ \sledue$
+			$$\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)g(x,y)\pode{x}} < \epsilon \cdot 2M +
+			\epsilon \cdot 2M = 4M\epsilon \ \sledue \integral{a}{w}f(x,y)g(x,y)\pode{x}$$
+
+			\item $\pust$ выполняется всё из 2): $\sledue$ $\Modul{g(x,y)} \leq M$ на $[a,w)\times Y$: $\forall$
+			и $\integral{a}{w}f(x,y)\pode{x}$ - сходится равномерно на $Y$ $\sledue$ по критерию Коши $\forall
+			\epsilon > 0$ $\exists A \in [a,w): \forall A^{\shtrih}, A^{\shtrih\shtrih} \in (A,w)$ и $\forall y
+			\in Y$ $\Modul{\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y) \pode{x}} < \epsilon$
+
+			из $\clubsuit$: $\integral{A^{\shtrih}}{A^{\shtrih\shtrih}}f(x,y)g(x,y) < 2M\epsilon \ \sledue \integral{a}{w}g(x,y)f(x,y)\pode{x}$ сходится равномерно на $Y$ по критерию Коши
+		\end{enumerate*}
+	\end{dokvo}
+\end{proofs}
+
+\begin{proofs}[о диф-ти НИЗоП]
+	$\pust$ $f(x,y): [a,w) \times [c,d] \to \Real$, $\forall y \in [c,d]$ $\exists
+	\integral{a}{w}f(x,y)\pode{x}, f^{\shtrih}_{y}(x,y)$ непрерывна на $[a,w) \times [c,d]$ и
+	$\integral{a}{w}f^{\shtrih}_{y}(x,y)\pode{x}$ сходится равномерно на $[c,d]$
+
+	Тогда $I(y) = \integral{a}{w}f(x,y)\pode{x}$ дифф-ма на $[c,d]$ и $I^{\shtrih}(y)= \integral{a}{w}f^{\shtrih}(x,y)\pode{x}$ (формула лейбница)
+\end{proofs}
+
+\begin{proofs}[о интегрируемости НИЗоП]
+		$\pust$ $f(x,y): [a,w) \times [c,d] \to \Real$ - непрерывна на $[a,w) \times [c,d]$ и $\integral{a}{w}f(x,y)\pode{x}$ сходится равномерно на $[c,d]$, тогда
+		$$\integral{c}{d}\pode{y}\integral{a}{w}f(x,y)\pode{x} = \integral{a}{w}\pode{x}\integral{c}{d}f(x,y\pode{y})$$
+\end{proofs}
