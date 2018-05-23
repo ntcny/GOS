@@ -1,4 +1,3 @@
-*.pdf
 *.aux
 *.synctex.gz
 *.toc
@@ -9,3 +8,4 @@
 *.dvi
 *fdb_latexmk
 report.tex
+report.pdf
