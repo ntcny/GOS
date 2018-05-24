@@ -10,7 +10,7 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 
 \begin{defs}[Предел по коши]
 	Пусть $E \subset \Real$ и $f: E \to \Real$. Значение $A$ функции $f(x)$ в точке $x_0$ называется \underline{пределом}, если:
-	$$\lim_{x\to x_0} f(x) = A \ \tittg \ \forall \varepsilon > 0 \ \exists \delta > 0: \forall x \ 0 < \Modul{x - x_0} < \delta \ \sledue \ \Modul{f(x) - a} < \delta$$
+	$$\lim_{x\to x_0} f(x) = A \ \tittg \ \forall \varepsilon > 0 \ \exists \delta > 0: \forall x \ 0 < \Modul{x - x_0} < \delta \ \sledue \ \Modul{f(x) - A} < \varepsilon$$
 \end{defs}
 
 \begin{defs}[Непрерывность в точке]
@@ -160,7 +160,7 @@ $$f(x) := \{ y \in Y \ | \ \exists \ x ((x\in X) \wedge (y = f(x))) \} $$
 \end{proofs}
 
 \begin{defs}[равномерно непрерывная]
-	Пусть $f: E \to \Rmern{m}, \ E \subset \Rmern{n}$, тогда $f$ называется равномерно непрерывной на $E \ \tittg \ \forall \epsilon > 0 \exists \ \delta > 0 : \forall x_1,x_2 \in E \ \DModul{f(x_1)-f(x_2)} < \frac{\epsilon}{2}$
+	Пусть $f: E \to \Rmern{m}, \ E \subset \Rmern{n}$, тогда $f$ называется равномерно непрерывной на $E \ \tittg \ \forall \epsilon > 0 \exists \ \delta > 0 : \forall x_1,x_2 \in E \ |x_1 - x_2| < \delta \Rightarrow |f(x_1) - f(x_2)| < \epsilon$
 \end{defs}
 
 \begin{defs}[связное подмножество]

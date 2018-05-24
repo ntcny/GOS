@@ -1,0 +1,168 @@
+%!TEX root = ../report.tex"
+\section{27.	Математическое ожидание с.в. (неконструктивное определение). Основные свойства математического ожидания с.в. (доказать свойство мультипликативности м.о. для двух с.в. с конечными множествами значений). Пример: найти среднее число инверсий  в случайно выбранной перестановке чисел 1, 2,…, n. Вычисление математического ожидания с.в. с биномиальным и  гамма-распределением.}
+
+\begin{defs}[Центр распределения]
+  Центром распределения с.в. $\xi$ называется число, имеющее смысл наименования типичного(главного)
+  значения этой с.в. В ТВ рассматриваются три центра: мода, медиана и мат. ожидание.
+\end{defs}
+
+\begin{defs}[Мат. ожидание]
+  Пусть с.в. $\xi$ определена на некотором вер. пр. $(\Omega, \mathfrak{A}, \mathbb{P}(\cdot))$. Тогда её мат. ожиданием
+  называется действ. число (ксли сущ.), обозначаемое $\mathbf{M} \xi$ такое, что отображение $\xi \to \mathbf{M}\xi$ обладает свойствами:
+
+  \begin{enumerate}
+    \item Допускается, что для нек. $\xi$ м.о. может быть не определено, но если
+    $\exists \mathbf{M} \xi$, то оно единственно.
+    \item $\underline{\text{Конечность}}$
+
+    $\xi \stackrel{\text{п.в.}}{=} \eta \iff \levfigurn{ \exists \mathbf{M}\xi \Leftrightarrow \exists \mathbf{M}\eta \\ \exists\mathbf{M}\xi,\exists\mathbf{M}\eta \Rightarrow \mathbf{M}\xi = \mathbf{M}\eta}$
+    \item $\underline{\text{Линейность}}$
+
+    $\exists\mathbf{M}\xi,\exists\mathbf{M}\eta \Rightarrow \exists\mathbf{M}(a \xi + b \eta)= a \mathbf{M}\xi + b \mathbf{M}\eta$, $\forall a,b \in \mathbb{R}$
+    \item $\underline{\text{Монотонность}}$
+
+    Если $\xi \leq \eta$ $\forall \omega \in \Omega$, $\exists\mathbf{M}\xi, \exists\mathbf{M}\eta \Rightarrow \mathbf{M}\xi \leq \mathbf{M}\eta$
+    \item $\underline{\text{Монотонная сходимость}}$
+
+    $$\levpravfigurn{\xi_n \uparrow \xi,\ n \to \infty \ (\forall \omega \in \Omega) \Leftrightarrow \levfigurn{\xi_n \to \xi,\ n \to \infty \\ \xi_n \leq \xi_{n+1}, \forall n \ (\forall \omega \in \Omega)} \\ \exists\mathbf{M}\xi_n,\ \forall n \\ \exists \lim\limits_{n \to +\infty}\mathbf{M}\xi_n < +\infty} \Rightarrow \exists\mathbf{M}\xi = \lim\limits_{n \to \infty}\mathbf{M}\xi_n$$
+    \item $\underline{\text{Нормировка}}$
+
+    Для любого события по определению существует м.о. индикатора этого события:
+
+    $\forall A \in \agot\ \exists\mathbf{M} I_{A} := \mathbb{P}\{A\}$
+  \end{enumerate}
+\end{defs}
+
+\begin{proofs}
+  Понятие м.о., обладающего указанными выше свойствами сущ., единственно и совпадает с интегралом Лебега:
+  $\mathbf{M}\xi = (L)\int\limits_{\Omega}\xi d \mathbb{P}(\cdot) = \int\limits_{\Omega}\xi(\omega) d \mathbb{P}(\omega) = \int\limits_{\Omega}\xi(\omega)\mathbb{P}(d \omega)$
+\end{proofs}
+
+\begin{claim}
+  $\forall A,B \in \agot : I_A \cdot I_B = I_{A \cap B}$
+\end{claim}
+
+\begin{proofs}
+  \begin{enumerate}
+    \item $\exists \mathbf{M}(c) = c \ (\xi = c \text{ -- вырожд.}) \ \forall c \in \Real$, в частности $\mathbf{M}(0) = 0$
+    \item если $\xi \geq$ и $\exists \mathbf{M}\xi = 0$, то $\stackrel{\text{п.в.}}{=} 0$
+    \item если $\xi \geq 0$ и $\exists \mathbf{M}\xi$, то $\mathbf{M}\xi \geq 0$
+    \item если $\xi \leq \eta \leq \rho \ (\forall \omega \in \Omega)$ и $\exists\mathbf{M}\xi,\exists\mathbf{M}\rho$, то $\exists\mathbf{M}\eta : \mathbf{M}\xi \leq \mathbf{M}\eta \leq \mathbf{M}\rho$
+    \item $\exists\mathbf{M}\xi \tittg \exists\mathbf{M}|\xi|$, при этом $|\mathbf{M}\xi| \leq \mathbf{M}|\xi|$
+    \item $\pravfigurn{\xi,\eta \text{ -- независимы} \\ \exists\mathbf{M}\xi , \exists\mathbf{M}\eta} \Rightarrow \exists\mathbf{M}(\xi \cdot \eta) = \mathbf{M}\xi \cdot \mathbf{M}\eta$
+    \item (Теорема Лебега о мажорируемой сходимости)
+
+    $$\pravfigurn
+    {
+    \xi_n \to \xi$ при $n \to \infty$ $\forall \omega \in \Omega \\
+    |\xi_n| \leq \eta \ \forall n \ (\forall \omega \in \Omega) \\
+    \exists\mathbf{M}\xi_n \ \forall n, \exists\mathbf{M}\eta
+    } \Rightarrow
+    \levfigurn
+    {
+      \exists\mathbf{M}\xi, \mathbf{M}\xi_n \to \mathbf{M}\xi, n \to \infty \\
+      \exists\mathbf{M}|\xi_n - \xi| \to 0, n \to \infty
+    }$$
+
+    \item Если $\xi$ имеет дискр. распр. с конечным мн-м атомов, т.е.
+    \[ \xi \sim \left( \begin{array}{ccc}
+      x_1 & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{x_n}\\ \hline
+      p_1 & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{p_n}\\
+    \end{array} \right), p_i > 0, \sum\limits_{i=1}^{n}p_i = 1 \], то эта с.в. всегда имеет м.о.
+    и это м.о. вычисляется по формуле : $$\exists\mathbf{M}\xi = \sum\limits_{i=1}^{n}x_i p_i = \sum\limits_{i=1}^{n}x_i \cdot \mathbb{P}\{\xi = x_i\}$$
+  \end{enumerate}
+  \begin{dokvo}
+    6) Докажем это свойство для частного случая : $\xi,\eta$ -- имеют дискретное распределение с конечным множеством значений.
+
+    $\xi(\Omega) = X = \{x_1, \ldots, x_n\}$ -- конечное множество.
+    $\eta(\Omega) = Y = \{y_1, \ldots, y_n\}$ -- конечное множество. $\xi,\eta$ -- независимы.
+
+    Вспомним, что $\xi = \sum\limits_{i=1}^{n}x_i I_A = \sum\limits_{i=1}^{n}x_i I_{\{\xi = x_i\}}$; $\eta = \sum\limits_{j=1}^{n}y_i I_{\{\eta = y_j\}}$
+
+    Тогда: $\xi \cdot \eta = (\sum\limits_{i=1}^{n}x_i I_{\{\xi = x_i\}})(\sum\limits_{j=1}^{n}y_i I_{\{\eta = y_j\}}) = \sum\limits_{x_i, y_j}x_i y_j I_{A_i} I_{B_j} = \sum\limits_{x_i, y_j}x_i y_j I_{A_i \cap B_j}$
+
+    $\forall A_i , B_j\ \exists\mathbf{M}(I_{A_i \cap B_j}) \Rightarrow$ по свойству линейности
+
+    $\exists\mathbf{M}(\xi \cdot \eta)$ = $\mathbf{M}(\sum\limits_{x_i, y_j}x_i y_j \mathbf{M}(I_{A_i \cap B_j})) = \sum\limits_{x_i, y_j}x_i y_j \mathbb{P}(A_i \cap B_j) \oeq$
+
+    $\mathbb{P}\{A_i \cap B_j\} = \mathbb{P}\{\xi = x_i, \eta = y_j\} \Rightarrow \mathbb{P}\{A_i \cap B_j\} = \mathbb{P}\{A_j\} \cdot \mathbb{P}\{B_j\}$
+
+    $\oeq \sum\limits_{x_i, y_j}x_i y_j \mathbb{P}(A_i) \cdot \mathbb{P}(B_i) = (\sum\limits_{i=1}^{n}x_i \mathbb{P}(A_i))(\sum\limits_{j=1}^{m}y_i \mathbb{P}(B_j)) = (\sum\limits_{i=1}^{n}x_i \mathbf{M} I_A)(\sum\limits_{j=1}^{m}y_j \mathbf{M} I_B) =$
+    $\mathbf{M}(\sum\limits_{i=1}^{n}x_i I_A) \cdot \mathbf{M}(\sum\limits_{j=1}^{m}y_j I_B) = \mathbf{M}\xi\mathbf{M}\eta$
+  \end{dokvo}
+\end{proofs}
+
+\begin{proofs}
+
+  Для с.в. произвольного типа:
+  \begin{enumerate}
+    \item $\exists\mathbf{M}\xi \tittg \exists (L-S) \int\limits_{-\infty}^{+\infty} |x| d F_{\xi}(x) < +\infty$
+    \item Если $\exists\mathbf{M}\xi$, то она выч. сл. обр.: $\mathbf{M}\xi = (L-S) \int\limits_{-\infty}^{+\infty} x d F_{\xi}(x)$
+  \end{enumerate}
+  \begin{multicols}{2}
+    Для произв с.в. дискр. типа:
+    \begin{enumerate}
+      \item $\exists\mathbf{M}\xi \tittg \sum\limits_(x_i)|x_i|p_i < +\infty$
+      \item Если $\exists\mathbf{M}\xi$, то $\mathbf{M}\xi = \sum\limits_{x_i}x_i p_i$
+    \end{enumerate}
+  \columnbreak
+    Для произв с.в. абс. непр. типа:
+    \begin{enumerate}
+      \item $\exists\mathbf{M}\xi \tittg \exists (L) \int\limits_{-\infty}^{+\infty} |x| d F_{\xi}(x) < +\infty$
+      \item Если $\exists\mathbf{M}\xi$, то $\mathbf{M}\xi = (L) \int\limits_{-\infty}^{+\infty} x d F_{\xi}(x)$
+    \end{enumerate}
+\end{multicols}
+\end{proofs}
+
+\begin{example}[Вычисление математического ожидания с.в. с биномиальным и  гамма-распределением]
+  \begin{enumerate}
+    \item
+    $\xi \sim \boldsymbol{Bi}(n,p)$, $n \in \mathbb{N}$, $p \in (0,1)$ -- параметр, $q=1-p$
+    \[ \xi \sim \left( \begin{array}{ccccc}
+      0 & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{k} & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{n}\\ \hline
+      q^{n} & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{\binom{n}{k}p^{k}q^{n-k}} & \multicolumn{1}{|c}{\cdots} & \multicolumn{1}{|c}{p^{n}}\\
+    \end{array} \right) \]
+    $\exists \mathbf{M}\xi = \sum\limits_{i=0}^{n} x_i p_i = 0 + \sum\limits_{k=1}^{n}k \cdot \binom{n}{k}p^{k}q^{n-k} = $
+    $\sum\limits_{k=1}^{n} \frac{n!k}{k!(n-k)!} p^{k}q^{n-k} = \sum\limits_{k=1}^{n}\frac{n!}{(k-1)!(n-k)!}p^{k}q^{n-k} = $
+
+    $\stackrel{l:=k-1}{=} $
+    $\sum\limits_{l=0}^{n-1}\frac{n!}{l!(n-1-l)!}p^{l+1}q^{n-l-1} = np\sum\limits_{l=0}^{n-1}\frac{(n-1)!}{l!(n-l-1)!}p^{l}q^{n-l-1} = $
+    $np\sum\limits_{l=0}^{n-1}\binom{n-1}{l}p^{l}q^{n-l-1} = np \cdot 1$
+    \item
+    $\xi \sim \boldsymbol{\Gamma}(\alpha,\beta) \sim f_{\xi}(x) = $
+    $\levfigurn
+    {
+      0, x \leq 0 \\
+      \frac{x^{\alpha - 1}}{\Gamma(\alpha) \beta^{\alpha}} e^{-\frac{x}{\beta}}, x > 0
+    }$
+
+    $\int\limits_{-\infty}^{+\infty}|x| f_{\xi}(x)dx = $
+    $\int\limits_{0}^{+\infty}|x| f_{\xi}(x)dx =$
+    $\int\limits_{0}^{+\infty}x f_{\xi}(x)dx = $
+    $\int\limits_{-\infty}^{+\infty}x f_{\xi}(x)dx = \mathbf{M}\xi$ (если $< +\infty$)
+
+    $\mathbf{M}\xi = \int\limits_{0}^{+\infty}x f_{\xi}(x)dx = \int\limits_{0}^{+\infty}x \cdot \frac{x^{1-\alpha}}{\Gamma(\alpha) \beta^{\alpha}} e^{-\frac{x}{\beta}} dx = $
+    $\frac{1}{\Gamma(\alpha)\beta^{\alpha}} \int\limits_{0}^{+\infty}x^{\alpha} e^{-\frac{x}{\beta}}dx = $
+    $(\frac{x}{\beta} = y \Rightarrow dx = \beta dy) =$
+    $= \frac{1}{\Gamma(\alpha)\beta^{\alpha}} \int\limits_{0}^{+\infty}(\beta y)^{\alpha} e^{-y} \cdot \beta dy = $
+    $\frac{\beta}{\Gamma(\alpha)} \int\limits_{0}^{+\infty} y^{\alpha} e^{-y} dy =$
+    $\frac{\beta}{\Gamma(\alpha)} \int\limits_{0}^{+\infty} y^{(\alpha + 1) -1} e^{-y} dy =$
+    $\frac{\beta}{\Gamma(\alpha)} \Gamma(\alpha + 1) = \frac{\alpha \beta \Gamma(\alpha)}{\Gamma(\alpha)} =$
+    $= \alpha\beta < +\infty \Rightarrow \exists\mathbf{M}\xi = \alpha\beta$
+  \end{enumerate}
+\end{example}
+
+\begin{example}[Задача про инверсии]
+  
+  $\xi = $ "Количество инверсий в перестановке"
+
+  $\xi = \sum\limits_{i < j}^{\binom{n}{2}}\xi_{ij}$ ,где $\xi_{ij}$-- индикатор наличия инверсии между $i$ и $j$
+
+  \[ \xi_{ij} \sim \left( \begin{array}{cc}
+    0 & \multicolumn{1}{|c}{1}\\ \hline
+    \frac{1}{2} & \multicolumn{1}{|c}{\frac{1}{2}}\\
+  \end{array} \right) \], т.к.
+  $\mathbb{P}\{\xi_{ij} = 1\} = \frac{|\{\xi_{ij} = 1\}|}{|\Omega|} = \frac{\binom{n}{2}(n-2)!}{n!} = \frac{1}{2}$, то
+  $\mathbf{M}\xi_{ij} = \frac{1}{2} \Rightarrow \mathbf{M}\xi = \sum\limits_{i < j}^{\binom{n}{2}}\mathbf{M}\xi_{ij} = \frac{1}{2}\binom{n}{2} = \frac{n(n-1)}{4}$.
+
+\end{example}

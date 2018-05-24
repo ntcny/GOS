@@ -12,21 +12,21 @@ $${I}(A) = -\log{P(A)},$$
 
 \begin{defs}[Энтропия]
   Энтропией дискретной случайной величины $\xi: \to X, X = {x_i, i \in I}$, называется математическое ожидание случайной величины $I_i(\xi)$, т.е. это величина:
-$$H(\xi) = M{I_i}(\xi) = \summa{i \in I}{}{I_i}(\xi) \cdot {\xi = x_i} = -\summa{i \in I}{}p_i \cdot \log{p_i},$$
+$$H(\xi) = M{I_i}(\xi) = \summa{i \in I}{}{I_i}(\xi) \cdot \fskobk{\xi = x_i} = -\summa{i \in I}{}p_i \cdot \log{p_i},$$
 где $p_i = P \fskobk{\xi = x_i}, i \in I$ 
 \end{defs}
 
 \begin{defs}[Условная энтропия при условии события]
-Условной энтропией случайной величины $\xi: \to X$ при условии события ${\eta = y_i}$ называется математическое ожидание случайной величины ${I_{sss=s_j}}(\xi/y_i)$,
+Условной энтропией случайной величины $\xi: \to X$ при условии события ${\eta = y_i}$ называется математическое ожидание случайной величины ${I_{{(\xi)}}}(\xi/y_i)$,
 т.е. это величина
-$$H(\xi/\eta = y_i) = M I_{sss=s_j}(\xi/y_i) = \summa{i \in I}{} I(\xi = x_i/ \eta = y_i) \cdot P \fskobk{\xi = x_i/ \eta = y_i} = -\summa{i \in I}{} p_{i|j} \cdot \log{p_{i|j}},$$
+$$H(\xi/\eta = y_i) = M I_{(\xi)}(\xi/y_i) = \summa{i \in I}{} I(\xi = x_i/ \eta = y_i) \cdot P \fskobk{\xi = x_i/ \eta = y_i} = -\summa{i \in I}{} p_{i|j} \cdot \log{p_{i|j}},$$
 где $p_{i|j} = P \fskobk{\xi = x_i/ \eta = y_i}.$
 \end{defs}
 
 \begin{defs}[Условная энтропия при условии случайной величины]
-Условной энтропией случайной величины $\xi: \to X$ при условии случайной величины ${\eta \to Y}$ называется математическое ожидание случайной величины ${I_sss}(\xi/\eta)$,
+Условной энтропией случайной величины $\xi: \to X$ при условии случайной величины ${\eta \to Y}$ называется математическое ожидание случайной величины ${I_{(\xi)}}(\xi/\eta)$,
 т.е. это величина
-$$H(\xi/\eta) = M{I_sss}(\xi/\eta) = \summa{i \in I, j \in J}{} I(\xi = x_i/ \eta = y_i) \cdot P\fskobk{\xi = x_i/ \eta = y_j} = -\summa{i \in I}{} p_ij \cdot \log{p_{i|j}},$$
+$$H(\xi/\eta) = M{I_{(\xi)}}(\xi/\eta) = \summa{i \in I, j \in J}{} I(\xi = x_i/ \eta = y_i) \cdot P\fskobk{\xi = x_i/ \eta = y_j} = -\summa{i \in I}{} p_{ij} \cdot \log{p_{i|j}},$$
 где $p_{ij} = P \fskobk{\xi = x_i, \eta = y_i}, p_{i|j} = P\fskobk{\xi = x_i/ \eta = y_i}.$
 \end{defs}
 
@@ -36,9 +36,13 @@ $H(\xi / \eta) = \summa{i\in I}{} = P \fskobk{\eta=y_i} \cdot H(\xi/\eta = y_i).
 \end{proofs}  
 
 \begin{proofs}[Утверждения для энтропии]
+$$.$$
 1. Аддитивность энтропии $H(\xi, \eta) = H(\xi) + H(\eta/\xi) = H(\eta) + H(\xi / \eta);$
+$$.$$
 2. Основное неравенство $H(\xi / \eta) \leq H(\xi), при этом равенство выполянется \Leftrightarrow \xi и \eta независимы;$
+$$.$$
 3. Полуаддитивность $H(\xi, \eta) \leq H(\xi) + H(\eta), при этом равенство выполянется \Leftrightarrow \xi и \eta независимы;$
+$$.$$
 4. Аддитивность условной энтропии $H(\xi_1, \xi_2 / \eta) = H(\xi_1 / \eta) + H(\xi_2 / \xi_1, \eta) = H(\xi_2 / \eta) + H(\xi_1 / \xi_2, \eta).$
 \end{proofs}
 
@@ -122,17 +126,14 @@ $$H_{\infty} = \predel{n \rightarrow \infty}{H_n}.$$
 \end{defs}
 
 \begin{proofs}[критерий наличия свойства АР]
-ДИС ${\xi_n, n \in N}$, имеющий энтропию $H_{\infty}$, обладает свойством асимптотической равнораспределенности $\Leftrightarrow \forall \epsilon > 0, \delta > 0 \exists n_0 \in N: \forall n > n_0$ множество $X$ можно представить в виде разбиения $X = X \sqcup X'$ и при этом выполняются свойства:
+ДИС ${\xi_n, n \in N}$, имеющий энтропию $H_{\infty}$, обладает свойством асимптотической равнораспределенности $\Leftrightarrow \forall \epsilon > 0, \delta > 0 \exists n_0 \in N: \forall n > n_0$ множество $X$ можно представить в виде разбиения $X = X'_{n, \epsilon} \sqcup X''_{n, \epsilon} $ и при этом выполняются свойства:
 
-1. $\forall x=(x_{k_1},..x_{k_n}) \in X$ верно:
+1. $\forall \overrightarrow{x}=(x_{k_1},..x_{k_n}) \in X'_{n, \epsilon}$ верно:
 $$\Modul{\frac{I(\overrightarrow{x})}{n} - H_{\infty}} < \epsilon;$$
-2. $P_{}(X^{'}) = P \fskobk{(\xi_1,..\xi_n) \in X^{'}} < \delta.$
+2. $P_{}(X^{'}) = P \fskobk{(\xi_1,..\xi_n) \in X''_{n, \epsilon}} < \delta.$
 
   \begin{dokvo}
-  Напомним: последовательность $\eta_n$ сходится по вероятности к случайной величине $\eta$, если $\forall \epsilon > 0:$
-  $$P \fskobk{|\eta_n - \eta| \geq \epsilon} \rightarrow 0, n \rightarrow \infty$$ 
-  $\Leftrightarrow \forall \epsilon > 0, \delta > 0 \exists n_0 \in N: \forall n \geq n_0 $ верно:
-  $$P \fskobk{\Modul{\eta_n - \eta} \geq \epsilon} < \delta.$$
+      Перепишем первый пункт 
   \end{dokvo} 
 
 \end{proofs} 
@@ -142,8 +143,8 @@ $$\Modul{\frac{I(\overrightarrow{x})}{n} - H_{\infty}} < \epsilon;$$
 \end{proofs}
 
 \begin{defs}
-Обозначим через $s(n, \delta)$ - мощность наименьшего по мощности подмножества $A <=  X$ со свойством $P(A) \geq 1-\delta:$
-$$s(n,\delta) = \min|A|$$ 
+Обозначим через $s(n, \delta)$ - мощность наименьшего по мощности подмножества $A \subseteq X$ со свойством $P(A) \geq 1-\delta:$
+$$s(n,\delta) = \min|A| по всем P(A)$$ 
 \end{defs}
 
 \begin{proofs}[2-я т. Шеннона]
